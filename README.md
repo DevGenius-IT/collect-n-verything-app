@@ -1,75 +1,37 @@
-# Nuxt Minimal Starter
+<a href="https://www.fichespedagogiques.com">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/public/logo-desktop.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/assets/logo-desktop.png">
+    <img alt="Collect & Verything - App" src="https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/assets/logo-desktop.png" width="100%" />
+  </picture>
+</a>
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<h1 align="center">Collect & Verything - App</h1>
 
-## Setup
+<p align="center">
+  An Nuxt application to collect, manage client and promote Collect & Verything services.
+</p>
 
-Make sure to install dependencies:
+## Documentation 📝
 
-```bash
-# npm
-npm install
+- [View documentation](https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/docs/README.md)
 
-# pnpm
-pnpm install
+## Contributing 🤝
 
-# yarn
-yarn install
+Please read the [contributing guide](https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/CONTRIBUTING.md).
 
-# bun
-bun install
-```
+## Project 📂
 
-## Development Server
+We have organized our work into a single project to streamline development and ensure clarity. You can follow the progress and contribute through the link below:
 
-Start the development server on `http://localhost:3000`:
+- [Collect & Verything - App](https://github.com/orgs/DevGenius-IT/projects/1)
 
-```bash
-# npm
-npm run dev
+---
 
-# pnpm
-pnpm dev
+<p align="center">
+	Copyright &copy; 2024-present <a href="https://github.com/DevGenius-IT" target="_blank">@DevGenius-IT</a>
+</p>
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+<p align="center">
+	<a href="https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/LICENSE.md"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
+</p>
