@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "Collect & Verything"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "tooltip": "Tableau de bord",
+    "welcome": "Bienvenue sur le tableau de bord",
+    "seo": {
+      "title": "Tableau de bord"
+    }
+  },
+  "users": {
+    "title": "Utilisateurs",
+    "tooltip": "Utilisateurs",
+    "seo": {
+      "title": "Utilisateurs"
+    }
+  }
+}
