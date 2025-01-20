@@ -1,42 +1,59 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/tailwindcss',
-    'shadcn-nuxt',
-    '@nuxtjs/color-mode',
-    'nuxt-lucide-icons',
-    '@nuxtjs/i18n'
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxtjs/color-mode",
+    "nuxt-lucide-icons",
+    "@nuxtjs/i18n",
+    "@pinia/nuxt",
+    "pinia-plugin-persistedstate",
   ],
   typescript: {
     shim: true,
   },
   i18n: {
-    vueI18n: './i18n.config.ts',
     locales: [
-      { code: 'fr', language: 'fr-FR' },
-      { code: 'en', language: 'en-US' },
+      {
+        name: "Français",
+        code: "fr",
+        language: "fr-FR",
+        file: "fr.json",
+      },
+      {
+        name: "English",
+        code: "en",
+        language: "en-US",
+        file: "en.json",
+      },
     ],
-    defaultLocale: 'fr',
+    lazy: true,
+    defaultLocale: "fr",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root", // recommended
+    },
   },
   app: {
-      pageTransition: { name: 'page', mode: 'out-in' },
-      layoutTransition: { name: 'layout', mode: 'out-in' },
-    },
-    css: ['~/assets/css/tailwind.css', '~/assets/css/fonts.css'],
-    experimental: {
-      viewTransition: true,
-    },
+    pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: { name: "layout", mode: "out-in" },
+  },
+  css: ["~/assets/css/tailwind.css", "~/assets/css/fonts.css"],
+  experimental: {
+    viewTransition: true,
+  },
   shadcn: {
     /**
-      * Prefix for all the imported component
-      */
-    prefix: '',
+     * Prefix for all the imported component
+     */
+    prefix: "",
     /**
-      * Directory that the component lives in.
-      * @default "./components/ui"
-      */
-    componentDir: './components/ui'
-  }
-})
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: "./components/ui",
+  },
+});
