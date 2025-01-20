@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "Collect & Verything"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "tooltip": "Dashboard",
+    "welcome": "Welcome to the dashboard",
+    "seo": {
+      "title": "Dashboard"
+    }
+  },
+  "users": {
+    "title": "Users",
+    "tooltip": "Users",
+    "seo": {
+      "title": "Users"
+    }
+  }
+}
