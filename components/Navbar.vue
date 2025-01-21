@@ -14,7 +14,7 @@
         <SheetTrigger as-child>
           <Button size="icon" variant="outline" class="sm:hidden">
             <PanelLeft class="h-5 w-5" />
-            <span class="sr-only">Toggle Menu</span>
+            <span class="sr-only">{{ t("components.navbar.toggle-menu") }}</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left" class="sm:max-w-xs">
@@ -54,18 +54,18 @@
         <DropdownMenuTrigger as-child>
           <Button variant="secondary" size="icon" class="rounded-full">
             <CircleUser class="h-5 w-5" />
-            <span class="sr-only">Toggle user menu</span>
+            <span class="sr-only">{{ t("components.navbar.toggle-user-menu") }}</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>kbrdn1</DropdownMenuLabel>
           <DropdownMenuLabel>kylianb1@icloud.com</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Réglages</DropdownMenuItem>
-          <DropdownMenuItem>Aide</DropdownMenuItem>
+          <DropdownMenuItem>{{ t("components.navbar.settings") }}</DropdownMenuItem>
+          <DropdownMenuItem>{{ t("components.navbar.help") }}</DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem class="cursor-pointer" @click=""
-            >Déconnexion</DropdownMenuItem
+            >{{ t("components.navbar.settings") }}</DropdownMenuItem
           >
         </DropdownMenuContent>
       </DropdownMenu>
