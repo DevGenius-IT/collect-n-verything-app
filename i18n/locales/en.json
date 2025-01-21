@@ -24,6 +24,12 @@
       "settings": "Settings",
       "help": "Help",
       "logout": "Logout"
+    },
+    "color-mode": {
+      "toggle-theme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
     }
   }
 }
