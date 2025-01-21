@@ -16,5 +16,14 @@
     "seo": {
       "title": "Utilisateurs"
     }
+  },
+  "components": {
+    "navbar": {
+      "toggle-menu": "Basculer le menu",
+      "toggle-user-menu": "Basculer le menu utilisateur",
+      "settings": "Paramètres",
+      "help": "Aide",
+      "logout": "Se déconnecter"
+    }
   }
 }

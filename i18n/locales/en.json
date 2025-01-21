@@ -16,5 +16,14 @@
     "seo": {
       "title": "Users"
     }
+  },
+  "components": {
+    "navbar": {
+      "toggle-menu": "Toggle menu",
+      "toggle-user-menu": "Toggle user menu",
+      "settings": "Settings",
+      "help": "Help",
+      "logout": "Logout"
+    }
   }
 }
