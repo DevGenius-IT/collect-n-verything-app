@@ -1,18 +1,28 @@
 <template>
-  <li
-    :class="
-      cn('flex items-center gap-3 w-full rounded-md px-2', {
-        'bg-primary': route.path === item.to,
-      })
-    "
-  >
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger as-child>
-          <NuxtLink
-            class="flex gap-3 items-center text-muted-foreground"
-            :to="localePath(item.to)"
-            active-class="text-primary-foreground"
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger as-child>
+        <NuxtLink
+          :class="
+            cn(
+              'flex items-center gap-3 w-full rounded-md px-2 transition-all',
+              {
+                'bg-primary': isCurrent,
+              },
+            )
+          "
+          :to="localePath(item.to)"
+          active-class="text-primary-foreground"
+        >
+          <li
+            :class="
+              cn(
+                'flex gap-3 items-center text-muted-foreground transition-all w-full rounded-md',
+                {
+                  'text-primary-foreground': isCurrent,
+                },
+              )
+            "
           >
             <i
               :class="
@@ -29,20 +39,23 @@
             </i>
             <span
               :class="[
-                cn('span text-foreground whitespace-nowrap', {
-                  hidden: useDesign.state.toggleRetract,
-                }),
-                cn(route.path === item.to && 'text-primary-foreground'),
+                cn(
+                  'span text-muted-foreground whitespace-nowrap transition-all overflow-hidden',
+                  {
+                    hidden: useDesign.state.toggleRetract,
+                    'text-primary-foreground': isCurrent,
+                  },
+                ),
               ]"
             >
               {{ t(item.title) }}
             </span>
-          </NuxtLink>
-        </TooltipTrigger>
-        <TooltipContent side="right">{{ t(item.tooltip) }}</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  </li>
+          </li>
+        </NuxtLink>
+      </TooltipTrigger>
+      <TooltipContent side="right">{{ t(item.tooltip) }}</TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
 </template>
 
 <script lang="ts" setup>
@@ -63,4 +76,6 @@ const route = useRoute();
 const useDesign = designStore();
 
 const { item, isFirst } = defineProps<NavItemProps>();
+
+const isCurrent = computed(() => route.path === item.to);
 </script>
