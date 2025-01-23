@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@pinia/nuxt",
     "pinia-plugin-persistedstate",
+    "@hebilicious/vue-query-nuxt",
   ],
   typescript: {
     shim: true,
