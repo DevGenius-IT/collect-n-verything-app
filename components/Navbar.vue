@@ -24,7 +24,7 @@
             }}</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" class="sm:max-w-xs p  -4">
+        <SheetContent side="left" class="sm:max-w-xs p-4">
           <div class="flex flex-col gap-4">
             <div class="flex items-center gap-2">
               <img
