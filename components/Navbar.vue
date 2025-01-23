@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-    <nav
+  <nav class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+    <div
       :class="
         cn(
           'sticky sm:pl-44 transition-all ease-in-out duration-200 top-0 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6',
@@ -12,40 +12,40 @@
     >
       <Sheet>
         <SheetTrigger as-child>
-          <Button size="icon" variant="outline" class="sm:hidden">
+          <Button
+            size="icon"
+            variant="outline"
+            class="sm:hidden"
+            @click="useDesign.state.toggleRetract = false"
+          >
             <PanelLeft class="h-5 w-5" />
             <span class="sr-only">{{
               t("components.navbar.toggle-menu")
             }}</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" class="sm:max-w-xs">
-          <div class="flex flex-col gap-20">
+        <SheetContent side="left" class="sm:max-w-xs p  -4">
+          <div class="flex flex-col gap-4">
             <div class="flex items-center gap-2">
               <img
                 src="/logo-desktop-small.png"
                 alt="Logo fiches péagogiques"
                 class="h-10 w-10"
               />
-              <span class="text-secondary-foreground-foreground whitespace-nowrap text-md">
-              Collect & Verything
+              <span
+                class="text-secondary-foreground-foreground whitespace-nowrap text-md"
+              >
+                Collect & Verything
               </span>
             </div>
+            <Separator />
             <ul class="grid gap-6 text-lg font-medium">
-              <li
-                class="flex items-center gap-3"
+              <NavItem
                 v-for="(item, index) in navigation"
+                :item="item"
+                :is-first="index === 0"
                 :key="index"
-              >
-                <NuxtLink
-                  active-class="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary hover:text-white text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
-                  :to="item.to"
-                  class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Icon :stroke-width="2" :name="item.icon" class="h-5 w-5" />
-                </NuxtLink>
-                <span>{{ t(item.title) }}</span>
-              </li>
+              />
             </ul>
           </div>
         </SheetContent>
@@ -83,14 +83,15 @@
           }}</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </template>
 
 <script lang="ts" setup>
+import { navigation } from "~/constants";
 import { cn } from "@/lib/utils";
 import { CircleUser, PanelLeft, Search } from "lucide-vue-next";
-import { navigation } from "~/constants";
+import { Separator } from "./ui/separator";
 
 const { t } = useI18n();
 
