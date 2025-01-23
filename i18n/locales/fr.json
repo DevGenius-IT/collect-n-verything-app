@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Collect & Verything"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "tooltip": "Tableau de bord",
+    "welcome": "Bienvenue sur le tableau de bord",
+    "seo": {
+      "title": "Tableau de bord"
+    }
+  },
+  "users": {
+    "title": "Utilisateurs",
+    "tooltip": "Utilisateurs",
+    "seo": {
+      "title": "Utilisateurs"
+    }
+  },
+  "components": {
+    "navbar": {
+      "toggle-menu": "Basculer le menu",
+      "toggle-user-menu": "Basculer le menu utilisateur",
+      "settings": "Paramètres",
+      "help": "Aide",
+      "logout": "Se déconnecter"
+    },
+    "color-mode": {
+      "toggle-theme": "Basculer le thème",
+      "dark": "Sombre",
+      "light": "Clair",
+      "system": "Système"
+    }
+  }
+}

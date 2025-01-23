@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Collect & Verything"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "tooltip": "Dashboard",
+    "welcome": "Welcome to the dashboard",
+    "seo": {
+      "title": "Dashboard"
+    }
+  },
+  "users": {
+    "title": "Users",
+    "tooltip": "Users",
+    "seo": {
+      "title": "Users"
+    }
+  },
+  "components": {
+    "navbar": {
+      "toggle-menu": "Toggle menu",
+      "toggle-user-menu": "Toggle user menu",
+      "settings": "Settings",
+      "help": "Help",
+      "logout": "Logout"
+    },
+    "color-mode": {
+      "toggle-theme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    }
+  }
+}
