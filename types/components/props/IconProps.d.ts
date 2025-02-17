@@ -6,4 +6,4 @@ type IconProps = {
   defaultClass?: string
 }
 
-export { IconProps }
+export default IconProps;

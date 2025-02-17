@@ -1,6 +1,8 @@
 import type { NavItem } from "~/types/NavItem";
 
-export type NavItemProps = {
+type NavItemProps = {
   item: NavItem;
   isFirst: boolean;
 };
+
+export default NavItemProps;
