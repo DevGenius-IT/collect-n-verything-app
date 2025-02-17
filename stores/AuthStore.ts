@@ -22,6 +22,7 @@ export const authStore = defineStore(
       if (localStorageIsAvailable()) {
         localStorage.setItem('token', token)
       }
+      user.username = `${user.firstname}.${user.lastname}`
       state.value.user = user
       state.value.token = token
     }
@@ -101,8 +102,16 @@ export const authStore = defineStore(
     const isAdmin = () => {
       return state.value.user?.roles.some(role => role === 'admin' || role === 'super-admin') ?? false
     }
+    
+    const getFullName = () => {
+      return `${state.value.user?.firstname} ${state.value.user?.lastname}`
+    }
+    
+    const getInitials = () => {
+      return `${state.value.user?.firstname.charAt(0)}${state.value.user?.lastname.charAt(0)}`
+    }
 
-    return { state, signUp, signIn, signOut, isAdmin }
+    return { state, signUp, signIn, signOut, isAdmin, getFullName, getInitials }
   },
   {
     persist: true,

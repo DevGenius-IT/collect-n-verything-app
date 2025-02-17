@@ -1,6 +1,6 @@
 import type { Tabs } from "~/types/pages/auth/values";
 
-type SignInProps = {
+export type SignInProps = {
   changeTab: (tab: Tabs) => void;
 };
 

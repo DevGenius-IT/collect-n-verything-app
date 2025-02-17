@@ -1,3 +1,1 @@
-import { User } from "./User";
-
-export type { User };
+export { default as User } from "./User";

@@ -12,6 +12,4 @@ definePageMeta({
   title: "users.seo.title",
   middleware: ["admin"],
 });
-
-const useDesign = designStore();
 </script>

@@ -1,6 +1,6 @@
 import type { User } from "../models"
 
-type AuthStore = {
+export type AuthStore = {
   user: User | null
   token: string
   isLoading: boolean

@@ -1,9 +1,9 @@
-type Credentials = {
+export type Credentials = {
   email: string;
   password: string;
 }
 
-type SignUpCredentials = {
+export type SignUpCredentials = {
   firstname: string;
   lastname: string;
   username: string;
@@ -13,6 +13,4 @@ type SignUpCredentials = {
   passwordConfirmation: string;
 }
 
-type Tabs = "login" | "register";
-
-export { Credentials, SignUpCredentials, Tabs };
+export type Tabs = "login" | "register";
