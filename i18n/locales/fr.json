@@ -17,6 +17,89 @@
       "title": "Utilisateurs"
     }
   },
+  "auth": {
+    "title": "Authentification",
+    "tabs": {
+      "login": "Se connecter",
+      "register": "S'incrire"
+    },
+    "seo": {
+      "title": "Authentification"
+    }
+  },
+  "toasts": {
+    "error": {
+      "title": "Erreur"
+    }
+  },
+  "forms": {
+    "sign-in": {
+      "title": "Se connecter",
+      "description": "Entrez votre email ci-dessous pour vous connecter à votre compte",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez votre email",
+          "error": "Email invalide"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez votre mot de passe",
+          "error": "La chaîne doit contenir au moins 6 caractère(s)"
+        }
+      },
+      "submit": "Connexion",
+      "google": "Connexion avec Google",
+      "forgot-password": "Mot de passe oublié?",
+      "dont-have-account": "Vous n'avez pas de compte?",
+      "register-here": "Inscrivez-vous ici"
+    },
+    "sign-up": {
+      "title": "S'inscrire",
+      "description": "Renseigner les champs ci-dessous pour créer un compte",
+      "fields": {
+        "firstname": {
+          "label": "Prénom",
+          "placeholder": "Entrez votre prénom",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "lastname": {
+          "label": "Nom de famille",
+          "placeholder": "Entrez votre nom de famille",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "username": {
+          "label": "Nom d'utilisateur",
+          "placeholder": "Entrez votre nom d'utilisateur",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez votre email",
+          "error": "Email invalide"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "Entrez votre téléphone",
+          "error": "La chaîne doit contenir au moins 10 caractère(s) et au plus 14 caractère(s)"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez votre mot de passe",
+          "error": "La chaîne doit contenir au moins 6 caractère(s)"
+        },
+        "password-confirmation": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "Confirmez votre mot de passe",
+          "error": "La chaîne doit contenir au moins 6 caractère(s)"
+        }
+      },
+      "submit": "Inscription",
+      "google": "Inscription avec Google",
+      "already-have-account": "Vous avez déjà un compte?",
+      "login-here": "Connectez-vous ici"
+    }
+  },
   "components": {
     "navbar": {
       "toggle-menu": "Basculer le menu",
