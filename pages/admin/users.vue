@@ -1,11 +1,37 @@
 <template>
   <div class="w-full flex justify-center">
-    <h1 class="text-2xl">{{ t("users.title") }}</h1>
+    <DataTable :columns-to-display="columnsToDisplay" />
   </div>
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
+import {DataTable} from "@/components/tables";
+import type {User} from "@/types/models";
+
+const {t} = useI18n();
+
+const columnsToDisplay: { propertyName: keyof User; displayName: string }[] = [
+  {
+    propertyName: "id",
+    displayName: "ID",
+  },
+  {
+    propertyName: "firstname",
+    displayName: "Prénom",
+  },
+  {
+    propertyName: "lastname",
+    displayName: "Nom",
+  },
+  {
+    propertyName: "username",
+    displayName: t("components.data-table.user.username"),
+  },
+  {
+    propertyName: "email",
+    displayName: "Email",
+  }
+]
 
 definePageMeta({
   layout: "admin",
