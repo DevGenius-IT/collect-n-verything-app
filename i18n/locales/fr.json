@@ -113,6 +113,15 @@
       "dark": "Sombre",
       "light": "Clair",
       "system": "Système"
+    },
+    "data-table": {
+      "add-btn": "Ajouter",
+      "user": {
+        "title": "Utilisateurs",
+        "description": "",
+        "btn-title": "Utilisateur",
+        "username": "Nom d'utilisateur"
+      }
     }
   }
 }

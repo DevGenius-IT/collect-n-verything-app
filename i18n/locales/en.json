@@ -113,6 +113,15 @@
       "dark": "Dark",
       "light": "Light",
       "system": "System"
+    },
+    "data-table": {
+      "add-btn": "Add",
+      "user": {
+        "title": "Users",
+        "description": "",
+        "btn-title": "User",
+        "username": "Username"
+      }
     }
   }
 }
