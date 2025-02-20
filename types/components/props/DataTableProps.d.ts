@@ -1,9 +1,6 @@
 export type DataTableProps<T> = {
-  columnsToDisplay: {
-    propertyName: keyof T;
-    displayName: string;
-  }[],
-  itemsPerPage?: number;
+  fields: (keyof T)[];
+  apiPath: string;
 };
 
 export default DataTableProps;

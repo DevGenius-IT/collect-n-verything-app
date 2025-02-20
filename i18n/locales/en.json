@@ -116,11 +116,24 @@
     },
     "data-table": {
       "add-btn": "Add",
-      "user": {
+      "items": "items",
+      "display": "Display",
+      "export": "Export",
+      "users": {
         "title": "Users",
-        "description": "",
         "btn-title": "User",
-        "username": "Username"
+        "id": "ID",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "username": "Username",
+        "email": "Email"
+      },
+      "filters": {
+        "filter": "Filter",
+        "filter-by": "Filter by",
+        "all": "All",
+        "active": "Active",
+        "archived": "Archived"
       }
     }
   }

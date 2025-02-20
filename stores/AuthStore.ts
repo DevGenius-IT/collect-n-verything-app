@@ -5,7 +5,7 @@ import type { User } from '~/types/models';
 import type { AuthStore } from '~/types/stores';
 import { localStorageIsAvailable } from '~/utils/client';
 
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:3333';
+const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1';
 
 export const authStore = defineStore(
   'auth',
@@ -35,7 +35,7 @@ export const authStore = defineStore(
           method: 'POST',
           body: JSON.stringify({ email, password }),
           headers: {
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
           },
         }
       )
@@ -43,7 +43,7 @@ export const authStore = defineStore(
       if (status.value === "error") {
         state.value.isLoading = false
         state.value.isError = true
-        state.value.error = error.value?.data.errors[0].message
+        state.value.error = error.value?.data.message
       }
 
       if (status.value === "pending")
@@ -66,7 +66,7 @@ export const authStore = defineStore(
           method: 'POST',
           body: JSON.stringify(user),
           headers: {
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
           },
         }
       )
@@ -74,7 +74,7 @@ export const authStore = defineStore(
       if (status.value === "error") {
         state.value.isLoading = false
         state.value.isError = true
-        state.value.error = error.value
+        state.value.error = error.value?.data.message
       }
 
       if (status.value === "pending")
