@@ -9,10 +9,12 @@ import {DataTable} from "@/components/tables";
 import type {User} from "@/types/models";
 
 const fields: (keyof User)[] = [
-  "firstname",
   "lastname",
+  "firstname",
   "username",
   "email",
+  "phone_number",
+  "has_newsletter"
 ]
 
 definePageMeta({

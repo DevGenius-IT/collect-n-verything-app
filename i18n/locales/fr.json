@@ -120,14 +120,19 @@
       "display": "Afficher",
       "export": "Exporter",
       "error": "Une erreur est survenue lors de la récupération des données, veuillez réessayer.",
+      "dichotomous-answers": {
+        "yes": "Oui",
+        "no": "Non"
+      },
       "users": {
         "title": "Utilisateurs",
         "btn-title": "Utilisateur",
-        "id": "ID",
         "firstname": "Prénom",
         "lastname": "Nom",
         "username": "Nom d'utilisateur",
-        "email": "Email"
+        "email": "Email",
+        "phone_number": "N° Téléphone",
+        "has_newsletter": "Newsletter"
       },
       "filters": {
         "filter": "Filtrer",

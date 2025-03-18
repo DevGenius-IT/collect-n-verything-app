@@ -110,16 +110,17 @@
                 {{ t("components.data-table.error") }}
               </TableCell>
             </TableRow>
-            <TableRow v-else-if="data?.items"
-                      v-for="(item, indexRow) in data?.items"
-                      :key="item.id"
-            >
+            <TableRow v-else-if="data?.items" v-for="(item, indexRow) in data?.items">
               <TableCell
                   v-for="field in fields"
                   :key="`row${indexRow}-${field}`"
                   class="font-medium"
               >
-                {{ item[field] }}
+                {{
+                  typeof item[field] === 'boolean' ?
+                    t(`components.data-table.dichotomous-answers.${item[field] ? 'yes' : 'no'}`) :
+                    item[field]
+                }}
               </TableCell>
             </TableRow>
           </TableBody>
@@ -195,7 +196,7 @@ const {isPending, isError, data} = useQuery<Pagination<User>>({
       method: 'GET',
       headers: {
         'Accept': 'application/json',
-        'fields': fields.join(','),
+        'fields': 'id,' + fields.join(','),
         'Authorization': `Bearer ${auth.state.token}`,
       },
     });
