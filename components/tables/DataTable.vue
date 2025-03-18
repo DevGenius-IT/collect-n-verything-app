@@ -105,7 +105,11 @@
                 <Skeleton class="w-full h-[21px]"/>
               </TableCell>
             </TableRow>
-            <div v-else-if="isError">Une erreur est survenue : {{ error }}</div>
+            <TableRow v-else-if="isError">
+              <TableCell :colspan="fields.length">
+                {{ t("components.data-table.error") }}
+              </TableCell>
+            </TableRow>
             <TableRow v-else-if="data?.items"
                       v-for="(item, indexRow) in data?.items"
                       :key="item.id"
@@ -182,7 +186,7 @@ const queryParams = ref({
   trash: selectedTrashFilter.value
 });
 
-const {isPending, isError, data, error} = useQuery<Pagination<User>>({
+const {isPending, isError, data} = useQuery<Pagination<User>>({
   queryKey: [apiPath, queryParams],
   queryFn: () => {
     setUrlSearchParams(url, queryParams.value);
@@ -216,7 +220,6 @@ const handleItemPerPageChange = (newItemPerPage: string) => {
 const handlePageChange = (newPage: number) => {
   queryParams.value.page = newPage.toString();
 };
-
 
 const sortByColumn = (column: keyof User) => {
   let sortDirection = 'asc';

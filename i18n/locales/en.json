@@ -119,6 +119,7 @@
       "items": "items",
       "display": "Display",
       "export": "Export",
+      "error": "An error occurred during data recovery, please try again.",
       "users": {
         "title": "Users",
         "btn-title": "User",

@@ -119,6 +119,7 @@
       "items": "éléments",
       "display": "Afficher",
       "export": "Exporter",
+      "error": "Une erreur est survenue lors de la récupération des données, veuillez réessayer.",
       "users": {
         "title": "Utilisateurs",
         "btn-title": "Utilisateur",
