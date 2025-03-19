@@ -187,12 +187,27 @@ const formSchema = toTypedSchema(
     lastname: z.string().min(3, t("forms.sign-up.fields.lastname.error")),
     username: z.string().min(3, t("forms.sign-up.fields.username.error")),
     email: z.string().email(t("forms.sign-up.fields.email.error")),
-    phone_number: z.string().optional().refine((val) => val !== undefined && val.length >= 10 && val.length <= 14, {
-      message: t("forms.sign-up.fields.phone-number.error"),
-    }),
-    password: z.string().min(6, t("forms.sign-up.fields.password.error")),
-    passwordConfirmation: z.string().min(6, t("forms.sign-up.fields.password-confirmation.error")),
-  }),
+    phone_number: z
+      .string()
+      .optional()
+      .refine(
+        (val) => !val || /^\+?\d{2,15}$/.test(val),
+        t("forms.sign-up.fields.phone-number.error")
+      ),
+    password: z
+      .string()
+      .min(6, t("forms.sign-up.fields.password.error"))
+      .regex(/[A-Z]/, t("forms.sign-up.fields.password.error"))
+      .regex(/[a-z]/, t("forms.sign-up.fields.password.error"))
+      .regex(/\d/, t("forms.sign-up.fields.password.error"))
+      .regex(/[\W_]/, t("forms.sign-up.fields.password.error")),
+    passwordConfirmation: z
+      .string()
+      .min(6, t("forms.sign-up.fields.password-confirmation.error")),
+  }).refine((data) => data.password === data.passwordConfirmation, {
+    message: t("forms.sign-up.fields.password-confirmation.error"),
+    path: ["passwordConfirmation"],
+  })
 );
 
 const { handleSubmit } = useForm({
