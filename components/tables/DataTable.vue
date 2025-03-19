@@ -93,6 +93,9 @@
                   <Icon v-if="sortColumn === field" name="ArrowUpDown" class="ml-2 h-4 w-4 min-h-4 min-w-4"/>
                 </span>
               </TableHead>
+              <TableHead>
+                <Icon name="Shield" class="h-5 w-5 min-h-5 min-w-5"/>
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -106,8 +109,8 @@
               </TableCell>
             </TableRow>
             <TableRow v-else-if="isError">
-              <TableCell :colspan="fields.length">
-                {{ t("components.data-table.error") }}
+              <TableCell :colspan="fields.length" class="text-red-500">
+                {{ t("components.fetch-error") }}
               </TableCell>
             </TableRow>
             <TableRow v-else-if="data?.items" v-for="(item, indexRow) in data?.items">
@@ -118,9 +121,31 @@
               >
                 {{
                   typeof item[field] === 'boolean' ?
-                    t(`components.data-table.dichotomous-answers.${item[field] ? 'yes' : 'no'}`) :
+                    t(`dichotomous-answers.${item[field] ? 'yes' : 'no'}`) :
                     item[field]
                 }}
+              </TableCell>
+              <TableCell>
+                <DropdownMenu>
+                  <DropdownMenuTrigger class="flex items-center">
+                    <Icon name="EllipsisVertical" class="h-5 w-5 min-h-5 min-w-5"/>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>
+                      {{ t("components.data-table.actions.title") }}
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem @click="openDetails(item.id)">
+                      {{ t("components.data-table.actions.details") }}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      {{ t("components.data-table.actions.edit") }}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      {{ t("components.data-table.actions.delete") }}
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </TableCell>
             </TableRow>
           </TableBody>
@@ -156,6 +181,8 @@
         </div>
       </CardFooter>
     </Card>
+
+    <Details :id="selectedId" :apiPath="apiPath" :isOpen="isSheetOpen" :onClose="closeSheet" />
   </div>
 </template>
 
@@ -168,6 +195,7 @@ import {
 import {useQuery} from '@tanstack/vue-query'
 import type {Pagination} from "~/types/constants";
 import type {User} from "~/types/models";
+import {Details} from "~/components/details";
 
 const {t} = useI18n();
 
@@ -240,5 +268,18 @@ const sortByColumn = (column: keyof User) => {
     orderBy: sortColumn.value,
     order: sortDirection,
   };
+};
+
+const selectedId = ref<number | null>(null);
+const isSheetOpen = ref(false);
+
+const openDetails = (id: number) => {
+  selectedId.value = id;
+  isSheetOpen.value = true;
+};
+
+const closeSheet = () => {
+  selectedId.value = null;
+  isSheetOpen.value = false;
 };
 </script>

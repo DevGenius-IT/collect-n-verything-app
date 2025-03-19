@@ -100,7 +100,12 @@
       "login-here": "Login here"
     }
   },
+  "dichotomous-answers": {
+    "yes": "Yes",
+    "no": "No"
+  },
   "components": {
+    "fetch-error": "An error occurred during data recovery, please try again.",
     "navbar": {
       "toggle-menu": "Toggle menu",
       "toggle-user-menu": "Toggle user menu",
@@ -119,10 +124,11 @@
       "items": "items",
       "display": "Display",
       "export": "Export",
-      "error": "An error occurred during data recovery, please try again.",
-      "dichotomous-answers": {
-        "yes": "Yes",
-        "no": "No"
+      "actions": {
+        "title": "Actions",
+        "details": "Détails",
+        "edit": "Modifier",
+        "delete": "Supprimer"
       },
       "users": {
         "title": "Users",
@@ -141,6 +147,21 @@
         "all": "All",
         "active": "Active",
         "archived": "Archived"
+      }
+    },
+    "details": {
+      "dates": {
+        "format": "YYYY-MM-DD at HH:mm",
+        "created-at": "Created on",
+        "updated-at": "Updated on",
+        "deleted-at": "Deleted on"
+      },
+      "user": {
+        "username": "Username",
+        "email": "Email",
+        "phone-number": "Phone number",
+        "has-newsletter": "Newsletter subscriber",
+        "roles": "Roles"
       }
     }
   }
