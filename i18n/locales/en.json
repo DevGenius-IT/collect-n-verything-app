@@ -29,7 +29,8 @@
   },
   "toasts": {
     "error": {
-      "title": "Error"
+      "title": "Error",
+      "description": "An error occurred, please try again."
     }
   },
   "forms": {
@@ -78,7 +79,7 @@
           "placeholder": "Enter your email",
           "error": "Invalid email"
         },
-        "phone": {
+        "phone-number": {
           "label": "Phone",
           "placeholder": "Enter your phone number",
           "error": "Phone number must be between 10 and 14 characters"

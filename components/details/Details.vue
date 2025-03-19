@@ -54,11 +54,11 @@ watch(
     if (!newData) return;
 
     datesList.value = [
-      {
+      newData.created_at && {
         label: t("components.details.dates.created-at"),
         value: useDateFormat(new Date(newData.created_at), t("components.details.dates.format")).value,
       },
-      {
+      newData.updated_at && {
         label: t("components.details.dates.updated-at"),
         value: useDateFormat(new Date(newData.updated_at), t("components.details.dates.format")).value,
       },
@@ -89,7 +89,7 @@ watch(
         },
         {
           label: t("components.details.user.roles"),
-          value: Object.keys(newData.roles).map(role => role.split('.').pop()),
+          value: Object.keys(newData.roles ?? []).map(role => role.split('.').pop()),
         }
       ];
     }

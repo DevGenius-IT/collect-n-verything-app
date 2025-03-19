@@ -79,16 +79,16 @@
           <FormMessage />
         </FormItem>
       </FormField>
-      <FormField v-slot="{ componentField }" name="phone">
+      <FormField v-slot="{ componentField }" name="phone_number">
         <FormItem v-auto-animate>
-          <FormLabel for="phone">{{
-            t("forms.sign-up.fields.phone.label")
+          <FormLabel for="phone_number">{{
+            t("forms.sign-up.fields.phone-number.label")
           }}</FormLabel>
           <FormControl>
             <Input
-              id="phone"
+              id="phone_number"
               type="tel"
-              :placeholder="t('forms.sign-up.fields.phone.placeholder')"
+              :placeholder="t('forms.sign-up.fields.phone-number.placeholder')"
               v-bind="componentField"
             />
           </FormControl>
@@ -187,8 +187,8 @@ const formSchema = toTypedSchema(
     lastname: z.string().min(3, t("forms.sign-up.fields.lastname.error")),
     username: z.string().min(3, t("forms.sign-up.fields.username.error")),
     email: z.string().email(t("forms.sign-up.fields.email.error")),
-    phone: z.string().optional().refine((val) => val !== undefined && val.length >= 10 && val.length <= 14, {
-      message: t("forms.sign-up.fields.phone.error"),
+    phone_number: z.string().optional().refine((val) => val !== undefined && val.length >= 10 && val.length <= 14, {
+      message: t("forms.sign-up.fields.phone-number.error"),
     }),
     password: z.string().min(6, t("forms.sign-up.fields.password.error")),
     passwordConfirmation: z.string().min(6, t("forms.sign-up.fields.password-confirmation.error")),
@@ -203,8 +203,7 @@ const onSubmit = handleSubmit(async (values) => {
   await auth.signUp(values);
   if (auth.state.isError && auth.state.error)
     toast({
-      title: t("toasts.error.title"),
-      description: auth.state.error,
+      description: t("toasts.error.description"),
       variant: "destructive",
     });
 });

@@ -1,4 +1,3 @@
-import { toast } from '@/components/ui/toast';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import type { User } from '~/types/models';
@@ -15,7 +14,7 @@ export const authStore = defineStore(
       token: '',
       isLoading: false,
       isError: false,
-      error: '',
+      error: {},
     })
 
     const setUser = (user: User, token: string) => {
@@ -29,7 +28,7 @@ export const authStore = defineStore(
 
     const signIn = async (email: string, password: string) => {
       const url = `${apiUrl}/auth/signin`;
-      const { data, status, error, refresh, clear } = await useFetch<{ token: string, user: User}>(
+      const { data, status, error} = await useFetch<{ token: string, user: User}>(
         url,
         {
           method: 'POST',
@@ -43,7 +42,7 @@ export const authStore = defineStore(
       if (status.value === "error") {
         state.value.isLoading = false
         state.value.isError = true
-        state.value.error = error.value?.data.message
+        state.value.error = error.value?.data.errors
       }
 
       if (status.value === "pending")
@@ -52,15 +51,15 @@ export const authStore = defineStore(
       if (status.value === "success" && data.value) {
         state.value.isLoading = false
         state.value.isError = false
-        state.value.error = ""
+        state.value.error = {}
         setUser(data.value.user, data.value.token)
-        return await navigateTo('/admin', { replace: true })
+        return navigateTo('/admin', {replace: true});
       }
     }
 
     const signUp = async (user: User) => {
       const url = `${apiUrl}/auth/signup`;
-      const { data, status, error, refresh, clear } = await useFetch<{ token: string, user: User}>(
+      const { data, status, error } = await useFetch<{ token: string, user: User}>(
         url,
         {
           method: 'POST',
@@ -74,7 +73,7 @@ export const authStore = defineStore(
       if (status.value === "error") {
         state.value.isLoading = false
         state.value.isError = true
-        state.value.error = error.value?.data.message
+        state.value.error = error.value?.data.errors
       }
 
       if (status.value === "pending")
@@ -83,7 +82,7 @@ export const authStore = defineStore(
       if (status.value === "success" && data.value) {
         state.value.isLoading = false
         state.value.isError = false
-        state.value.error = ""
+        state.value.error = {}
         setUser(data.value.user, data.value.token)
         await navigateTo('/admin', { replace: true })
       }
@@ -100,7 +99,7 @@ export const authStore = defineStore(
     }
 
     const isAdmin = () => {
-      return state.value.user?.roles.some(role => role === 'admin' || role === 'super-admin') ?? false
+      return state.value.user?.roles?.some(role => role === 'admin' || role === 'super-admin') ?? false
     }
     
     const getFullName = () => {

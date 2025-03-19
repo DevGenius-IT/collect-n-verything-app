@@ -29,7 +29,8 @@
   },
   "toasts": {
     "error": {
-      "title": "Erreur"
+      "title": "Erreur",
+      "description": "Une erreur est survenue, veuillez réessayer."
     }
   },
   "forms": {
@@ -78,7 +79,7 @@
           "placeholder": "Entrez votre email",
           "error": "Email invalide"
         },
-        "phone": {
+        "phone-number": {
           "label": "Téléphone",
           "placeholder": "Entrez votre téléphone",
           "error": "La chaîne doit contenir au moins 10 caractère(s) et au plus 14 caractère(s)"

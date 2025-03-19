@@ -126,7 +126,7 @@
                 }}
               </TableCell>
               <TableCell>
-                <DropdownMenu>
+                <DropdownMenu >
                   <DropdownMenuTrigger class="flex items-center">
                     <Icon name="EllipsisVertical" class="h-5 w-5 min-h-5 min-w-5"/>
                   </DropdownMenuTrigger>
@@ -135,7 +135,7 @@
                       {{ t("components.data-table.actions.title") }}
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem @click="openDetails(item.id)">
+                    <DropdownMenuItem @click="openDetails(item.id ?? 0)">
                       {{ t("components.data-table.actions.details") }}
                     </DropdownMenuItem>
                     <DropdownMenuItem>

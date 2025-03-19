@@ -109,8 +109,7 @@ const onSubmit = handleSubmit(async (values) => {
   await auth.signIn(values.email, values.password);
   if (auth.state.isError && auth.state.error)
     toast({
-      title: t("toasts.error.title"),
-      description: auth.state.error,
+      description: t("toasts.error.description"),
       variant: "destructive"
     })
 });

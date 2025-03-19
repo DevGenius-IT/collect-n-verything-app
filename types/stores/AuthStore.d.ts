@@ -5,7 +5,7 @@ export type AuthStore = {
   token: string
   isLoading: boolean
   isError: boolean
-  error: any
+  error: Record<string, string>
 }
 
 export default AuthStore;
