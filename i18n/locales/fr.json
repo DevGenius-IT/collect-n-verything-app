@@ -100,7 +100,12 @@
       "login-here": "Connectez-vous ici"
     }
   },
+  "dichotomous-answers": {
+    "yes": "Oui",
+    "no": "Non"
+  },
   "components": {
+    "fetch-error": "Une erreur est survenue lors de la récupération des données, veuillez réessayer.",
     "navbar": {
       "toggle-menu": "Basculer le menu",
       "toggle-user-menu": "Basculer le menu utilisateur",
@@ -119,10 +124,11 @@
       "items": "éléments",
       "display": "Afficher",
       "export": "Exporter",
-      "error": "Une erreur est survenue lors de la récupération des données, veuillez réessayer.",
-      "dichotomous-answers": {
-        "yes": "Oui",
-        "no": "Non"
+      "actions": {
+        "title": "Actions",
+        "details": "Détails",
+        "edit": "Modifier",
+        "delete": "Supprimer"
       },
       "users": {
         "title": "Utilisateurs",
@@ -140,6 +146,21 @@
         "all": "Tout",
         "active": "Actif",
         "archived": "Archivé"
+      }
+    },
+    "details": {
+      "dates": {
+        "format": "DD/MM/YYYY à HH:mm",
+        "created-at": "Crée le",
+        "updated-at": "Mis à jour le",
+        "deleted-at": "Supprimé le"
+      },
+      "user": {
+        "username": "Nom d'utilisateur",
+        "email": "Email",
+        "phone-number": "N° Téléphone",
+        "has-newsletter": "Abonné à la newsletter",
+        "roles": "Roles"
       }
     }
   }

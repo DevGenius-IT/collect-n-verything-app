@@ -4,7 +4,7 @@ export type User = {
   lastname: string;
   username: string;
   email: string;
-  phone_number: string;
+  phone_number: string | null;
   has_newsletter: boolean;
   roles: string[];
   created_at: string;
