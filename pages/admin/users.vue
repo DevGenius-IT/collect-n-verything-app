@@ -1,17 +1,25 @@
 <template>
-  <div class="w-full flex justify-center">
-    <h1 class="text-2xl">Users</h1>
+  <div class="w-full flex justify-center overflow-x-auto">
+    <DataTable :fields api-path="users"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { cn } from "~/lib/utils";
-const { t } = useI18n();
+import {DataTable} from "@/components/tables";
+import type {User} from "@/types/models";
+
+const fields: (keyof User)[] = [
+  "lastname",
+  "firstname",
+  "username",
+  "email",
+  "phone_number",
+  "has_newsletter"
+]
 
 definePageMeta({
   layout: "admin",
   title: "users.seo.title",
+  middleware: ["admin"],
 });
-
-const useDesign = designStore();
 </script>

@@ -1,5 +1,1 @@
-import { NavItem } from "./NavItem";
-
-export {
-  NavItem
-}
+export { default as NavItem } from "./NavItem";

@@ -19,29 +19,26 @@
       </template>
     </Head>
     <Body>
-      <main class="flex min-h-screen w-full flex-col bg-muted/40">
-        <Sidebar />
-        <Navbar />
-        <div
-          :class="
-            cn(
-              'grid transition-all duration-300 ease-in-out flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8',
-              {
-                'sm:pl-64': !useDesign.state.toggleRetract,
-                'sm:pl-20': useDesign.state.toggleRetract,
-              },
-            )
-          "
-        >
-          <slot />
-        </div>
+      <main class="flex min-h-screen w-full bg-muted/40">
+        <SidebarProvider>
+          <AdminSidebar />
+          <SidebarInset>
+            <Navbar />
+            <div
+              class="grid transition-all duration-300 ease-in-out flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8"
+            >
+              <slot />
+            </div>
+          </SidebarInset>
+        </SidebarProvider>
       </main>
     </Body>
   </Html>
 </template>
 
 <script lang="ts" setup>
-import { cn } from "~/lib/utils";
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import { Separator } from "@/components/ui/separator";
 
 const { t } = useI18n();
 const route = useRoute();

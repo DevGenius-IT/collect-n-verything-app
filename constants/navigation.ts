@@ -1,6 +1,6 @@
-import type { NavItem } from "~/types"
+import type { Navigation } from "~/types/constants"
 
-const navigation : NavItem[] = [
+const navigation : Navigation[] = [
   {
     title: 'dashboard.title',
     icon: 'Package2',

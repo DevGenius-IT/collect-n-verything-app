@@ -17,6 +17,89 @@
       "title": "Users"
     }
   },
+  "auth": {
+    "title": "Authentication",
+    "tabs": {
+      "login": "Sign in",
+      "register": "Sign up"
+    },
+    "seo": {
+      "title": "Authentication"
+    }
+  },
+  "toasts": {
+    "error": {
+      "title": "Error"
+    }
+  },
+  "forms": {
+    "sign-in": {
+      "title": "Sign in",
+      "description": "Enter your email below to log in to your account",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "error": "Invalid email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "String must contain at least 6 character(s)"
+        }
+      },
+      "submit": "Login",
+      "google": "Login with Google",
+      "forgot-password": "Forgot password?",
+      "dont-have-account": "Don't have an account?",
+      "register-here": "Register here"
+    },
+    "sign-up": {
+      "title": "Sign up",
+      "description": "Fill in the fields below to create an account",
+      "fields": {
+        "firstname": {
+          "label": "First name",
+          "placeholder": "Enter your first name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "lastname": {
+          "label": "Last name",
+          "placeholder": "Enter your last name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter your username",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "error": "Invalid email"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter your phone number",
+          "error": "Phone number must be between 10 and 14 characters"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "String must contain at least 6 character(s)"
+        },
+        "password-confirmation": {
+          "label": "Confirm password",
+          "placeholder": "Confirm your password",
+          "error": "String must contain at least 6 character(s)"
+        }
+      },
+      "submit": "Register",
+      "google": "Register with Google",
+      "already-have-account": "Already have an account?",
+      "login-here": "Login here"
+    }
+  },
   "components": {
     "navbar": {
       "toggle-menu": "Toggle menu",
@@ -30,6 +113,35 @@
       "dark": "Dark",
       "light": "Light",
       "system": "System"
+    },
+    "data-table": {
+      "add-btn": "Add",
+      "items": "items",
+      "display": "Display",
+      "export": "Export",
+      "error": "An error occurred during data recovery, please try again.",
+      "dichotomous-answers": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "users": {
+        "title": "Users",
+        "btn-title": "User",
+        "id": "ID",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "username": "Username",
+        "email": "Email",
+        "phone_number": "Phone number",
+        "has_newsletter": "Newsletter"
+      },
+      "filters": {
+        "filter": "Filter",
+        "filter-by": "Filter by",
+        "all": "All",
+        "active": "Active",
+        "archived": "Archived"
+      }
     }
   }
 }

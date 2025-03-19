@@ -11,6 +11,7 @@ const { t } = useI18n();
 definePageMeta({
   layout: "admin",
   title: "dashboard.seo.title",
+  middleware: ["admin"],
 });
 
 const useDesign = designStore();

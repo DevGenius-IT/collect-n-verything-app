@@ -1,4 +1,4 @@
-type IconProps = {
+export type IconProps = {
   name: string
   size?: number
   color?: string
@@ -6,4 +6,4 @@ type IconProps = {
   defaultClass?: string
 }
 
-export { IconProps }
+export default IconProps;

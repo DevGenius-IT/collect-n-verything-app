@@ -4,3 +4,5 @@ export type NavItem = {
   to: string;
   tooltip: string;
 };
+
+export default NavItem;
