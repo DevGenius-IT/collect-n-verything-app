@@ -127,9 +127,9 @@
       "export": "Export",
       "actions": {
         "title": "Actions",
-        "details": "Détails",
-        "edit": "Modifier",
-        "delete": "Supprimer"
+        "details": "Details",
+        "edit": "Edit",
+        "delete": "Delete"
       },
       "users": {
         "title": "Users",
@@ -151,6 +151,9 @@
       }
     },
     "details": {
+      "sheet": {
+        "title": "Details"
+      },
       "dates": {
         "format": "YYYY-MM-DD at HH:mm",
         "created-at": "Created on",

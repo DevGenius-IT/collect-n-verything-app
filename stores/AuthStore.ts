@@ -17,11 +17,15 @@ export const authStore = defineStore(
       error: {},
     })
 
+    const router = useRouter();
+    const localePath = useLocalePath();
+
     const setUser = (user: User, token: string) => {
       if (localStorageIsAvailable()) {
         localStorage.setItem('token', token)
       }
       user.username = `${user.firstname}.${user.lastname}`
+
       state.value.user = user
       state.value.token = token
     }
@@ -53,7 +57,7 @@ export const authStore = defineStore(
         state.value.isError = false
         state.value.error = {}
         setUser(data.value.user, data.value.token)
-        return navigateTo('/admin', {replace: true});
+        return router.push(localePath("/admin"));
       }
     }
 
@@ -84,7 +88,7 @@ export const authStore = defineStore(
         state.value.isError = false
         state.value.error = {}
         setUser(data.value.user, data.value.token)
-        await navigateTo('/admin', { replace: true })
+        return router.push(localePath("/admin"))
       }
     }
 
@@ -95,11 +99,11 @@ export const authStore = defineStore(
       }
       state.value.user = null
       state.value.token = ''
-      navigateTo('/auth', { replace: true })
+      return router.push(localePath("/auth"));
     }
 
     const isAdmin = () => {
-      return state.value.user?.roles?.some(role => role === 'admin' || role === 'super-admin') ?? false
+      return Object.keys(state.value.user?.roles ?? []).some(role => role === 'admin' || role === 'super-admin');
     }
     
     const getFullName = () => {

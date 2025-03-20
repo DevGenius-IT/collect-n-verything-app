@@ -45,16 +45,11 @@
 </template>
 
 <script lang="ts" setup>
-import { navigation } from "~/constants";
-import { cn } from "@/lib/utils";
 import { CircleUser, Search } from "lucide-vue-next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "./ui/separator";
 
 const { t } = useI18n();
-
-const useDesign = designStore();
-
 const auth = authStore();
 
 const fullName = computed(

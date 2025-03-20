@@ -150,6 +150,9 @@
       }
     },
     "details": {
+      "sheet": {
+        "title": "Détails"
+      },
       "dates": {
         "format": "DD/MM/YYYY à HH:mm",
         "created-at": "Crée le",

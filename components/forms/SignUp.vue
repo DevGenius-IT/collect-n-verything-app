@@ -70,6 +70,7 @@
             <Input
               id="email"
               type="email"
+              autocomplete="username"
               :placeholder="t('forms.sign-up.fields.email.placeholder')"
               v-bind="componentField"
               required
@@ -88,6 +89,7 @@
             <Input
               id="phone_number"
               type="tel"
+              autocomplete="tel"
               :placeholder="t('forms.sign-up.fields.phone-number.placeholder')"
               v-bind="componentField"
             />
@@ -107,6 +109,7 @@
             <Input
               id="password"
               type="password"
+              autocomplete="new-password"
               :placeholder="t('forms.sign-up.fields.password.placeholder')"
               v-bind="componentField"
               required
@@ -127,6 +130,7 @@
             <Input
               id="passwordConfirmation"
               type="password"
+              autocomplete="new-password"
               :placeholder="
                 t('forms.sign-up.fields.password-confirmation.placeholder')
               "

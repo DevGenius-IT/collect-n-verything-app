@@ -16,6 +16,7 @@
             <Input
               id="email"
               type="email"
+              autocomplete="username"
               :placeholder="t('forms.sign-in.fields.email.placeholder')"
               v-bind="componentField"
               required
@@ -42,6 +43,7 @@
             <Input
               id="password"
               type="password"
+              autocomplete="current-password"
               :placeholder="t('forms.sign-in.fields.password.placeholder')"
               v-bind="componentField"
               required
