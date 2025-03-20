@@ -16,6 +16,7 @@
             <Input
               id="email"
               type="email"
+              autocomplete="username"
               :placeholder="t('forms.sign-in.fields.email.placeholder')"
               v-bind="componentField"
               required
@@ -42,6 +43,7 @@
             <Input
               id="password"
               type="password"
+              autocomplete="current-password"
               :placeholder="t('forms.sign-in.fields.password.placeholder')"
               v-bind="componentField"
               required
@@ -109,8 +111,7 @@ const onSubmit = handleSubmit(async (values) => {
   await auth.signIn(values.email, values.password);
   if (auth.state.isError && auth.state.error)
     toast({
-      title: t("toasts.error.title"),
-      description: auth.state.error,
+      description: t("toasts.error.description"),
       variant: "destructive"
     })
 });

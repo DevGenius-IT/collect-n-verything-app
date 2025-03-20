@@ -29,7 +29,8 @@
   },
   "toasts": {
     "error": {
-      "title": "Error"
+      "title": "Error",
+      "description": "An error occurred, please try again."
     }
   },
   "forms": {
@@ -78,20 +79,20 @@
           "placeholder": "Enter your email",
           "error": "Invalid email"
         },
-        "phone": {
+        "phone-number": {
           "label": "Phone",
           "placeholder": "Enter your phone number",
-          "error": "Phone number must be between 10 and 14 characters"
+          "error": "Phone number must be between 2 and 15 characters"
         },
         "password": {
           "label": "Password",
           "placeholder": "Enter your password",
-          "error": "String must contain at least 6 character(s)"
+          "error": "The password must contain at least 6 characters, including an uppercase and a lowercase letter, a number and a special character."
         },
         "password-confirmation": {
           "label": "Confirm password",
           "placeholder": "Confirm your password",
-          "error": "String must contain at least 6 character(s)"
+          "error": "Passwords must match"
         }
       },
       "submit": "Register",
@@ -126,9 +127,9 @@
       "export": "Export",
       "actions": {
         "title": "Actions",
-        "details": "Détails",
-        "edit": "Modifier",
-        "delete": "Supprimer"
+        "details": "Details",
+        "edit": "Edit",
+        "delete": "Delete"
       },
       "users": {
         "title": "Users",
@@ -150,6 +151,9 @@
       }
     },
     "details": {
+      "sheet": {
+        "title": "Details"
+      },
       "dates": {
         "format": "YYYY-MM-DD at HH:mm",
         "created-at": "Created on",

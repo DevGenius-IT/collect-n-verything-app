@@ -1,8 +1,9 @@
 <template>
   <Sheet :open="isOpen" @update:open="onClose">
-    <SheetContent class="w-full sm:min-w-[480px]">
+    <SheetContent class="w-full sm:min-w-[480px]" aria-description="test">
       <SheetHeader class="mb-5">
-        <SheetTitle>Détails</SheetTitle>
+        <SheetTitle>{{ t('components.details.sheet.title') }}</SheetTitle>
+        <SheetDescription />
       </SheetHeader>
 
       <div v-if="isPending">
@@ -25,6 +26,7 @@ import type {DetailsProps} from "~/types/components/props";
 import {useDateFormat} from "@vueuse/core";
 import type {User} from "~/types/models";
 import {isUser} from "~/types/guards";
+import {useQuery} from "@tanstack/vue-query";
 
 const {id, apiPath, isOpen, onClose} = defineProps<DetailsProps>();
 const {t} = useI18n();
@@ -54,11 +56,11 @@ watch(
     if (!newData) return;
 
     datesList.value = [
-      {
+      newData.created_at && {
         label: t("components.details.dates.created-at"),
         value: useDateFormat(new Date(newData.created_at), t("components.details.dates.format")).value,
       },
-      {
+      newData.updated_at && {
         label: t("components.details.dates.updated-at"),
         value: useDateFormat(new Date(newData.updated_at), t("components.details.dates.format")).value,
       },
@@ -89,7 +91,7 @@ watch(
         },
         {
           label: t("components.details.user.roles"),
-          value: Object.keys(newData.roles).map(role => role.split('.').pop()),
+          value: Object.keys(newData.roles ?? []).map(role => role.split('.').pop()),
         }
       ];
     }

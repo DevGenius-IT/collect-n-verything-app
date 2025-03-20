@@ -10,12 +10,12 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@pinia/nuxt",
     "pinia-plugin-persistedstate",
-    "@hebilicious/vue-query-nuxt",
   ],
   typescript: {
     shim: true,
   },
   i18n: {
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     locales: [
       {
         name: "Français",
@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     ],
     lazy: true,
     defaultLocale: "fr",
+    strategy: "prefix_except_default",
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "i18n_redirected",

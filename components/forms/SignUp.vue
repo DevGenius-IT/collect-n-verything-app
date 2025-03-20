@@ -70,6 +70,7 @@
             <Input
               id="email"
               type="email"
+              autocomplete="username"
               :placeholder="t('forms.sign-up.fields.email.placeholder')"
               v-bind="componentField"
               required
@@ -79,16 +80,17 @@
           <FormMessage />
         </FormItem>
       </FormField>
-      <FormField v-slot="{ componentField }" name="phone">
+      <FormField v-slot="{ componentField }" name="phone_number">
         <FormItem v-auto-animate>
-          <FormLabel for="phone">{{
-            t("forms.sign-up.fields.phone.label")
+          <FormLabel for="phone_number">{{
+            t("forms.sign-up.fields.phone-number.label")
           }}</FormLabel>
           <FormControl>
             <Input
-              id="phone"
+              id="phone_number"
               type="tel"
-              :placeholder="t('forms.sign-up.fields.phone.placeholder')"
+              autocomplete="tel"
+              :placeholder="t('forms.sign-up.fields.phone-number.placeholder')"
               v-bind="componentField"
             />
           </FormControl>
@@ -107,6 +109,7 @@
             <Input
               id="password"
               type="password"
+              autocomplete="new-password"
               :placeholder="t('forms.sign-up.fields.password.placeholder')"
               v-bind="componentField"
               required
@@ -127,6 +130,7 @@
             <Input
               id="passwordConfirmation"
               type="password"
+              autocomplete="new-password"
               :placeholder="
                 t('forms.sign-up.fields.password-confirmation.placeholder')
               "
@@ -187,12 +191,27 @@ const formSchema = toTypedSchema(
     lastname: z.string().min(3, t("forms.sign-up.fields.lastname.error")),
     username: z.string().min(3, t("forms.sign-up.fields.username.error")),
     email: z.string().email(t("forms.sign-up.fields.email.error")),
-    phone: z.string().optional().refine((val) => val !== undefined && val.length >= 10 && val.length <= 14, {
-      message: t("forms.sign-up.fields.phone.error"),
-    }),
-    password: z.string().min(6, t("forms.sign-up.fields.password.error")),
-    passwordConfirmation: z.string().min(6, t("forms.sign-up.fields.password-confirmation.error")),
-  }),
+    phone_number: z
+      .string()
+      .optional()
+      .refine(
+        (val) => !val || /^\+?\d{2,15}$/.test(val),
+        t("forms.sign-up.fields.phone-number.error")
+      ),
+    password: z
+      .string()
+      .min(6, t("forms.sign-up.fields.password.error"))
+      .regex(/[A-Z]/, t("forms.sign-up.fields.password.error"))
+      .regex(/[a-z]/, t("forms.sign-up.fields.password.error"))
+      .regex(/\d/, t("forms.sign-up.fields.password.error"))
+      .regex(/[\W_]/, t("forms.sign-up.fields.password.error")),
+    passwordConfirmation: z
+      .string()
+      .min(6, t("forms.sign-up.fields.password-confirmation.error")),
+  }).refine((data) => data.password === data.passwordConfirmation, {
+    message: t("forms.sign-up.fields.password-confirmation.error"),
+    path: ["passwordConfirmation"],
+  })
 );
 
 const { handleSubmit } = useForm({
@@ -203,8 +222,7 @@ const onSubmit = handleSubmit(async (values) => {
   await auth.signUp(values);
   if (auth.state.isError && auth.state.error)
     toast({
-      title: t("toasts.error.title"),
-      description: auth.state.error,
+      description: t("toasts.error.description"),
       variant: "destructive",
     });
 });

@@ -76,7 +76,7 @@
                         "
                         as-child
                       >
-                        <NuxtLink :to="subItem.to">
+                        <NuxtLink :to="localePath(subItem.to)">
                           <span>{{ t(subItem.title) }}</span>
                         </NuxtLink>
                       </SidebarMenuSubButton>
@@ -89,7 +89,7 @@
               v-else
               class="hover:bg-foreground/10 rounded-md transition-all"
             >
-              <NuxtLink :to="item.to" active-class="text-primary">
+              <NuxtLink :to="localePath(item.to ?? '')" active-class="text-primary">
                 <SidebarMenuButton :tooltip="item.title">
                   <Icon :name="item.icon" :stroke-width="2" />
                   <span>{{ t(item.title) }}</span>
@@ -124,7 +124,7 @@
                     auth.state.user?.email
                   }}</span>
                 </div>
-                <ChevronsUpDown class="ml-auto size-4" />
+                <Icon name="ChevronsUpDown" class="ml-auto size-4" />
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -183,7 +183,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -202,6 +201,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 
+const localePath = useLocalePath();
 const auth = authStore();
 const route = useRoute();
 const { t } = useI18n();

@@ -1,7 +1,14 @@
-export default defineNuxtRouteMiddleware((to, from) => {
-  const auth = authStore()
+export default defineNuxtRouteMiddleware(async (to, from) => {
+  const auth = authStore();
 
-  if (!auth.state.user && !auth.state.token && auth.isAdmin()) {
-    return navigateTo('/auth')
+  if (!auth.isAdmin()) {
+    const localePath = useLocalePath();
+    const router = useRouter();
+
+    if (!auth.state.user || !auth.state.token) {
+      return await router.replace(localePath('/auth'));
+    }
+
+    return await router.replace(localePath('/'));
   }
 })

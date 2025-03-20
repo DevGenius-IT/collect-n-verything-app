@@ -29,7 +29,8 @@
   },
   "toasts": {
     "error": {
-      "title": "Erreur"
+      "title": "Erreur",
+      "description": "Une erreur est survenue, veuillez réessayer."
     }
   },
   "forms": {
@@ -78,20 +79,20 @@
           "placeholder": "Entrez votre email",
           "error": "Email invalide"
         },
-        "phone": {
+        "phone-number": {
           "label": "Téléphone",
           "placeholder": "Entrez votre téléphone",
-          "error": "La chaîne doit contenir au moins 10 caractère(s) et au plus 14 caractère(s)"
+          "error": "La chaîne doit contenir au moins 2 caractère(s) et au plus 15 caractère(s)"
         },
         "password": {
           "label": "Mot de passe",
           "placeholder": "Entrez votre mot de passe",
-          "error": "La chaîne doit contenir au moins 6 caractère(s)"
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
         },
         "password-confirmation": {
           "label": "Confirmer le mot de passe",
           "placeholder": "Confirmez votre mot de passe",
-          "error": "La chaîne doit contenir au moins 6 caractère(s)"
+          "error": "Les mots de passe doivent correspondre"
         }
       },
       "submit": "Inscription",
@@ -149,6 +150,9 @@
       }
     },
     "details": {
+      "sheet": {
+        "title": "Détails"
+      },
       "dates": {
         "format": "DD/MM/YYYY à HH:mm",
         "created-at": "Crée le",

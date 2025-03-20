@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from "~/lib/utils";
+
 const { t } = useI18n();
 
 definePageMeta({
@@ -14,5 +14,5 @@ definePageMeta({
   middleware: ["admin"],
 });
 
-const useDesign = designStore();
+
 </script>
