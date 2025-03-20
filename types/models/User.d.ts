@@ -6,7 +6,7 @@ export type User = {
   email: string;
   phone_number?: string | null;
   has_newsletter?: boolean;
-  roles?: string[];
+  roles?: Record<string, string>;
   created_at?: string;
   updated_at?: string;
   deleted_at?: string;
