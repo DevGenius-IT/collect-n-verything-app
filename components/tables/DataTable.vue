@@ -24,20 +24,20 @@
                   <DropdownMenuLabel>{{ t(`components.data-table.filters.filter-by`) }}</DropdownMenuLabel>
                   <DropdownMenuSeparator/>
                   <DropdownMenuItem
-                      :checked="selectedTrashFilter === 'with'"
-                      @click="handleTrashFilterChange('with')"
+                    :checked="selectedTrashFilter === 'with'"
+                    @click="handleTrashFilterChange('with')"
                   >
                     {{ t(`components.data-table.filters.all`) }}
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                      :checked="selectedTrashFilter === ''"
-                      @click="handleTrashFilterChange('')"
+                    :checked="selectedTrashFilter === ''"
+                    @click="handleTrashFilterChange('')"
                   >
                     {{ t(`components.data-table.filters.active`) }}
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                      :checked="selectedTrashFilter === 'only'"
-                      @click="handleTrashFilterChange('only')"
+                    :checked="selectedTrashFilter === 'only'"
+                    @click="handleTrashFilterChange('only')"
                   >
                     {{ t(`components.data-table.filters.archived`) }}
                   </DropdownMenuItem>
@@ -83,10 +83,10 @@
           <TableHeader>
             <TableRow>
               <TableHead
-                  v-for="field in fields"
-                  :key="`th-${field}`"
-                  @click="sortByColumn(field)"
-                  class="cursor-pointer hover:text-neutral-50 hover:fill-neutral-50"
+                v-for="field in fields"
+                :key="`th-${field}`"
+                @click="sortByColumn(field)"
+                class="cursor-pointer hover:text-neutral-50 hover:fill-neutral-50"
               >
                 <span class="flex items-center">
                   {{ t(`components.data-table.${apiPath}.${field}`) }}
@@ -100,9 +100,9 @@
           </TableHeader>
           <TableBody>
             <TableRow
-                v-if="isPending"
-                v-for="index in (parseInt(queryParams.limit) || 10)"
-                :key="`skeleton-${index}`"
+              v-if="isPending"
+              v-for="index in (parseInt(queryParams.limit) || 10)"
+              :key="`skeleton-${index}`"
             >
               <TableCell v-for="field in fields" :key="`row${index}-skeleton-${field}`">
                 <Skeleton class="w-full h-[21px]"/>
@@ -115,9 +115,9 @@
             </TableRow>
             <TableRow v-else-if="data?.items" v-for="(item, indexRow) in data?.items">
               <TableCell
-                  v-for="field in fields"
-                  :key="`row${indexRow}-${field}`"
-                  class="font-medium"
+                v-for="field in fields"
+                :key="`row${indexRow}-${field}`"
+                class="font-medium"
               >
                 {{
                   typeof item[field] === 'boolean' ?
@@ -126,7 +126,7 @@
                 }}
               </TableCell>
               <TableCell>
-                <DropdownMenu >
+                <DropdownMenu>
                   <DropdownMenuTrigger class="flex items-center">
                     <Icon name="EllipsisVertical" class="h-5 w-5 min-h-5 min-w-5"/>
                   </DropdownMenuTrigger>
@@ -134,15 +134,24 @@
                     <DropdownMenuLabel>
                       {{ t("components.data-table.actions.title") }}
                     </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem @click="openDetails(item.id ?? 0)">
+                    <DropdownMenuSeparator/>
+                    <DropdownMenuItem @click="openDetails(item.id ?? 0)" class="cursor-pointer">
+                      <Icon name="Eye" class="h-4 w-4"/>
                       {{ t("components.data-table.actions.details") }}
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem class="cursor-pointer">
+                      <Icon name="Pencil" class="h-4 w-4"/>
                       {{ t("components.data-table.actions.edit") }}
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem v-if="!item.deleted_at" @click="confirmDelete(item.id ?? 0)"
+                                      class="bg-red-900 focus:bg-red-800 cursor-pointer">
+                      <Icon name="Trash2" class="h-4 w-4"/>
                       {{ t("components.data-table.actions.delete") }}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem v-else @click="restore(item.id ?? 0)"
+                                      class="bg-green-900 focus:bg-green-800 cursor-pointer">
+                      <Icon name="History" class="h-4 w-4"/>
+                      {{ t("components.data-table.actions.restore") }}
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -155,13 +164,13 @@
       <CardFooter v-if="data?.meta">
         <div class="flex mt-2 w-full justify-center">
           <PaginationC
-              v-slot="{ page }"
-              :total="data.meta.total"
-              :sibling-count="1"
-              show-edges
-              :items-per-page="data.meta.limit"
-              :default-page="data.meta.current_page"
-              @update:page="handlePageChange"
+            v-slot="{ page }"
+            :total="data.meta.total"
+            :sibling-count="1"
+            show-edges
+            :items-per-page="data.meta.limit"
+            :default-page="data.meta.current_page"
+            @update:page="handlePageChange"
           >
             <PaginationList v-slot="{ items }" class="flex items-center gap-1">
               <PaginationPrev/>
@@ -182,7 +191,13 @@
       </CardFooter>
     </Card>
 
-    <Details :id="selectedId" :apiPath="apiPath" :isOpen="isSheetOpen" :onClose="closeSheet" />
+    <Details :id="selectedId" :apiPath="apiPath" :isOpen="isSheetOpen" :onClose="closeSheet"/>
+
+    <DeleteConfirmationDialog
+      :open="isDeleteDialogOpen"
+      @update:open="isDeleteDialogOpen = $event"
+      @confirm="deleteItem"
+    />
   </div>
 </template>
 
@@ -192,10 +207,12 @@ import type {DataTableProps} from "@/types/components/props";
 import {
   Pagination as PaginationC,
 } from '@/components/ui/pagination'
-import {useQuery} from '@tanstack/vue-query'
+import {useMutation, useQuery} from '@tanstack/vue-query'
 import type {Pagination} from "~/types/constants";
 import type {User} from "~/types/models";
 import {Details} from "~/components/details";
+import {toast} from "~/components/ui/toast";
+import {DeleteConfirmationDialog} from "~/components/dialogs";
 
 const {t} = useI18n();
 
@@ -215,7 +232,7 @@ const queryParams = ref({
   trash: selectedTrashFilter.value
 });
 
-const {isPending, isError, data} = useQuery<Pagination<User>>({
+const {isPending, isError, data, refetch} = useQuery<Pagination<User>>({
   queryKey: [apiPath, queryParams],
   queryFn: () => {
     setUrlSearchParams(url, queryParams.value);
@@ -224,7 +241,7 @@ const {isPending, isError, data} = useQuery<Pagination<User>>({
       method: 'GET',
       headers: {
         'Accept': 'application/json',
-        'fields': 'id,' + fields.join(','),
+        'fields': 'id,deleted_at,' + fields.join(','),
         'Authorization': `Bearer ${auth.state.token}`,
       },
     });
@@ -282,4 +299,77 @@ const closeSheet = () => {
   selectedId.value = null;
   isSheetOpen.value = false;
 };
+
+const isDeleteDialogOpen = ref(false);
+
+const confirmDelete = (id: number) => {
+  selectedId.value = id;
+  isDeleteDialogOpen.value = true;
+};
+
+const deleteItemMutation = useMutation({
+  mutationFn: async () => {
+    if (!selectedId.value) throw new Error();
+
+    return $fetch(`${apiUrl}/admin/${apiPath}`, {
+      method: "DELETE",
+      body: {
+        ids: [selectedId.value]
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${auth.state.token}`,
+      },
+    });
+  },
+  onSuccess: () => {
+    toast({description: t("toasts.delete"), variant: "success"});
+    refetch();
+  },
+  onError: () => {
+    toast({
+      description: t("toasts.error"),
+      variant: "destructive"
+    });
+  },
+  onSettled: () => {
+    selectedId.value = null;
+    isDeleteDialogOpen.value = false;
+  }
+});
+
+const deleteItem = () => {
+  deleteItemMutation.mutate();
+};
+
+const restoreItemMutation = useMutation({
+  mutationFn: (id: number) =>
+    $fetch(`${apiUrl}/admin/${apiPath}/restore`, {
+      method: "PATCH",
+      body: {
+        ids: [id],
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${auth.state.token}`,
+      },
+    }),
+  onSuccess: () => {
+    toast({description: t("toasts.restore"), variant: "success"});
+    refetch();
+  },
+  onError: () => {
+    toast({
+      description: t("toasts.error"),
+      variant: "destructive",
+    });
+  },
+});
+
+const restore = (id: number) => {
+  if (!id) return;
+  restoreItemMutation.mutate(id);
+};
+
+
 </script>

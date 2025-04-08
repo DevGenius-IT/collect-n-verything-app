@@ -28,10 +28,9 @@
     }
   },
   "toasts": {
-    "error": {
-      "title": "Erreur",
-      "description": "Une erreur est survenue, veuillez réessayer."
-    }
+    "error": "Une erreur est survenue, veuillez réessayer.",
+    "delete": "L'élément a été supprimé avec succès.",
+    "restore": "L'élément a été restauré avec succès."
   },
   "forms": {
     "sign-in": {
@@ -129,7 +128,8 @@
         "title": "Actions",
         "details": "Détails",
         "edit": "Modifier",
-        "delete": "Supprimer"
+        "delete": "Supprimer",
+        "restore": "Restaurer"
       },
       "users": {
         "title": "Utilisateurs",
@@ -166,6 +166,14 @@
         "has-newsletter": "Abonné à la newsletter",
         "roles": "Roles"
       }
+    },
+    "delete-confirmation-dialog": {
+      "actions": {
+        "cancel": "Annuler",
+        "delete": "Supprimer"
+      },
+      "title": "Confirmation de suppression",
+      "description": "Êtes-vous sûr de vouloir supprimer cet élément ?"
     }
   }
 }
