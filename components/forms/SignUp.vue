@@ -222,7 +222,7 @@ const onSubmit = handleSubmit(async (values) => {
   await auth.signUp(values);
   if (auth.state.isError && auth.state.error)
     toast({
-      description: t("toasts.error.description"),
+      description: t("toasts.error"),
       variant: "destructive",
     });
 });
