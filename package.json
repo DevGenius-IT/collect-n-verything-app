@@ -28,7 +28,8 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@hebilicious/vue-query-nuxt": "^0.3.0",

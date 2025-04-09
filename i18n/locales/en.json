@@ -32,7 +32,8 @@
     "delete": "The item has been successfully deleted.",
     "restore": "The item has been successfully restored.",
     "add": "The item has been successfully created.",
-    "update": "The item has been successfully updated."
+    "update": "The item has been successfully updated.",
+    "export": "The data has been successfully exported."
   },
   "forms": {
     "sign-in": {

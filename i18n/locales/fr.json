@@ -32,7 +32,8 @@
     "delete": "L'élément a été supprimé avec succès.",
     "restore": "L'élément a été restauré avec succès.",
     "add": "L'élément a été créé avec succès.",
-    "update": "L'élément a été mis à jour avec succès."
+    "update": "L'élément a été mis à jour avec succès.",
+    "export": "Les données ont été exportées avec succès."
   },
   "forms": {
     "sign-in": {
