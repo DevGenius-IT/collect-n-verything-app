@@ -30,7 +30,9 @@
   "toasts": {
     "error": "An error occurred, please try again.",
     "delete": "The item has been successfully deleted.",
-    "restore": "The item has been successfully restored."
+    "restore": "The item has been successfully restored.",
+    "add": "The item has been successfully created.",
+    "update": "The item has been successfully updated."
   },
   "forms": {
     "sign-in": {
@@ -98,6 +100,44 @@
       "google": "Register with Google",
       "already-have-account": "Already have an account?",
       "login-here": "Login here"
+    },
+    "actions": {
+      "add": "Add",
+      "update": "Update"
+    },
+    "user": {
+      "fields": {
+        "firstname": {
+          "label": "First name",
+          "placeholder": "Enter the first name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "lastname": {
+          "label": "Last name",
+          "placeholder": "Enter the last name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter the username",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter the email",
+          "error": "Invalid email"
+        },
+        "phone-number": {
+          "label": "Phone",
+          "placeholder": "Enter the phone number",
+          "error": "Phone number must be between 2 and 15 characters"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter the password",
+          "error": "The password must contain at least 6 characters, including an uppercase and a lowercase letter, a number and a special character."
+        }
+      }
     }
   },
   "dichotomous-answers": {
@@ -120,7 +160,6 @@
       "system": "System"
     },
     "data-table": {
-      "add-btn": "Add",
       "items": "items",
       "display": "Display",
       "export": "Export",
@@ -133,7 +172,7 @@
       },
       "users": {
         "title": "Users",
-        "btn-title": "User",
+        "add-title": "Add User",
         "id": "ID",
         "firstname": "Firstname",
         "lastname": "Lastname",
