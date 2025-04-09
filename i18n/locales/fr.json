@@ -30,7 +30,9 @@
   "toasts": {
     "error": "Une erreur est survenue, veuillez réessayer.",
     "delete": "L'élément a été supprimé avec succès.",
-    "restore": "L'élément a été restauré avec succès."
+    "restore": "L'élément a été restauré avec succès.",
+    "add": "L'élément a été créé avec succès.",
+    "update": "L'élément a été mis à jour avec succès."
   },
   "forms": {
     "sign-in": {
@@ -45,7 +47,7 @@
         "password": {
           "label": "Mot de passe",
           "placeholder": "Entrez votre mot de passe",
-          "error": "La chaîne doit contenir au moins 6 caractère(s)"
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
         }
       },
       "submit": "Connexion",
@@ -80,7 +82,7 @@
         },
         "phone-number": {
           "label": "Téléphone",
-          "placeholder": "Entrez votre téléphone",
+          "placeholder": "Entrez votre numéro de téléphone",
           "error": "La chaîne doit contenir au moins 2 caractère(s) et au plus 15 caractère(s)"
         },
         "password": {
@@ -98,6 +100,44 @@
       "google": "Inscription avec Google",
       "already-have-account": "Vous avez déjà un compte?",
       "login-here": "Connectez-vous ici"
+    },
+    "actions": {
+      "add": "Créer",
+      "update": "Mettre à jour"
+    },
+    "user": {
+      "fields": {
+        "firstname": {
+          "label": "Prénom",
+          "placeholder": "Entrez le prénom",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "lastname": {
+          "label": "Nom de famille",
+          "placeholder": "Entrez le nom de famille",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "username": {
+          "label": "Nom d'utilisateur",
+          "placeholder": "Entrez le nom d'utilisateur",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez l'email",
+          "error": "Email invalide"
+        },
+        "phone-number": {
+          "label": "Téléphone",
+          "placeholder": "Entrez le numéro de téléphone",
+          "error": "La chaîne doit contenir au moins 2 caractère(s) et au plus 15 caractère(s)"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez le mot de passe",
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
+        }
+      }
     }
   },
   "dichotomous-answers": {
@@ -120,7 +160,6 @@
       "system": "Système"
     },
     "data-table": {
-      "add-btn": "Ajouter",
       "items": "éléments",
       "display": "Afficher",
       "export": "Exporter",
@@ -133,7 +172,7 @@
       },
       "users": {
         "title": "Utilisateurs",
-        "btn-title": "Utilisateur",
+        "add-title": "Créer Utilisateur",
         "firstname": "Prénom",
         "lastname": "Nom",
         "username": "Nom d'utilisateur",

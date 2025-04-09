@@ -52,6 +52,7 @@
             <Input
               id="username"
               type="text"
+              autocomplete="username"
               :placeholder="t('forms.sign-up.fields.username.placeholder')"
               v-bind="componentField"
               required
@@ -70,7 +71,6 @@
             <Input
               id="email"
               type="email"
-              autocomplete="username"
               :placeholder="t('forms.sign-up.fields.email.placeholder')"
               v-bind="componentField"
               required

@@ -49,10 +49,10 @@
                   {{ t(`components.data-table.export`) }}
                 </span>
               </Button>
-              <Button size="sm" class="h-7 gap-1">
+              <Button @click="openUpdateOrCreateSheet(null)" size="sm" class="h-7 gap-1">
                 <Icon name="PlusCircle" class="h-3.5 w-3.5"/>
                 <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  {{ t(`components.data-table.add-btn`) }} {{ t(`components.data-table.${apiPath}.btn-title`) }}
+                  {{ t(`components.data-table.${apiPath}.add-title`) }}
                 </span>
               </Button>
             </div>
@@ -139,7 +139,7 @@
                       <Icon name="Eye" class="h-4 w-4"/>
                       {{ t("components.data-table.actions.details") }}
                     </DropdownMenuItem>
-                    <DropdownMenuItem class="cursor-pointer">
+                    <DropdownMenuItem @click="openUpdateOrCreateSheet(item.id ?? 0)" class="cursor-pointer">
                       <Icon name="Pencil" class="h-4 w-4"/>
                       {{ t("components.data-table.actions.edit") }}
                     </DropdownMenuItem>
@@ -193,6 +193,28 @@
 
     <Details :id="selectedId" :apiPath="apiPath" :isOpen="isSheetOpen" :onClose="closeSheet"/>
 
+    <Sheet v-model:open="isUpdateOrCreateSheetOpen">
+      <SheetContent class="w-full sm:min-w-[480px] max-h-screen overflow-y-auto" aria-description="test">
+        <SheetHeader class="mb-5">
+          <SheetTitle>
+            {{
+              selectedId ?
+                t("components.data-table.actions.edit") :
+                t(`components.data-table.${apiPath}.add-title`)
+            }}
+          </SheetTitle>
+          <SheetDescription/>
+        </SheetHeader>
+
+        <UserForm v-if="apiPath === 'users'" :id="selectedId"
+                  @submitted="() => {
+                    refetch();
+                    closeSheet();
+                  }"
+        />
+      </SheetContent>
+    </Sheet>
+
     <DeleteConfirmationDialog
       :open="isDeleteDialogOpen"
       @update:open="isDeleteDialogOpen = $event"
@@ -212,6 +234,7 @@ import type {Pagination} from "~/types/constants";
 import type {User} from "~/types/models";
 import {Details} from "~/components/details";
 import {toast} from "~/components/ui/toast";
+import {UserForm} from "~/components/forms";
 import {DeleteConfirmationDialog} from "~/components/dialogs";
 
 const {t} = useI18n();
@@ -289,15 +312,22 @@ const sortByColumn = (column: keyof User) => {
 
 const selectedId = ref<number | null>(null);
 const isSheetOpen = ref(false);
+const isUpdateOrCreateSheetOpen = ref(false);
 
-const openDetails = (id: number) => {
+const openDetails = (id: number | null) => {
   selectedId.value = id;
   isSheetOpen.value = true;
+};
+
+const openUpdateOrCreateSheet = (id: number | null) => {
+  selectedId.value = id;
+  isUpdateOrCreateSheetOpen.value = true;
 };
 
 const closeSheet = () => {
   selectedId.value = null;
   isSheetOpen.value = false;
+  isUpdateOrCreateSheetOpen.value = false;
 };
 
 const isDeleteDialogOpen = ref(false);
@@ -366,7 +396,7 @@ const restoreItemMutation = useMutation({
   },
 });
 
-const restore = (id: number) => {
+const restore = (id: number | null) => {
   if (!id) return;
   restoreItemMutation.mutate(id);
 };
