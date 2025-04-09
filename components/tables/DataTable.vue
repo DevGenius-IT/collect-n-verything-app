@@ -43,7 +43,7 @@
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Button size="sm" variant="outline" class="h-7 gap-1">
+              <Button @click="exportAllToExcel" :disabled="isLoadingExport" size="sm" variant="outline" class="h-7 gap-1">
                 <Icon name="File" class="h-3.5 w-3.5"/>
                 <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
                   {{ t(`components.data-table.export`) }}
@@ -236,6 +236,7 @@ import {Details} from "~/components/details";
 import {toast} from "~/components/ui/toast";
 import {UserForm} from "~/components/forms";
 import {DeleteConfirmationDialog} from "~/components/dialogs";
+import * as XLSX from 'xlsx';
 
 const {t} = useI18n();
 
@@ -401,5 +402,77 @@ const restore = (id: number | null) => {
   restoreItemMutation.mutate(id);
 };
 
+const isLoadingExport = ref<boolean>(false);
+
+const exportAllToExcel = async () => {
+  isLoadingExport.value = true;
+  let page = 1;
+  let allItems: any[] = [];
+  let total = 0;
+  let hasMore = true;
+
+  const baseUrl = `${apiUrl}/admin/${apiPath}`;
+  const baseParams = {
+    ...queryParams.value,
+    limit: '50',
+  };
+
+  try {
+    while (hasMore) {
+      const url = new URL(baseUrl);
+      Object.entries({...baseParams, page: page.toString()}).forEach(([key, value]) => {
+        url.searchParams.set(key, value);
+      });
+
+      const response = await $fetch<Pagination<any>>(url.toString(), {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${auth.state.token}`,
+        },
+      });
+
+      allItems.push(...response.items);
+
+      total = response.meta.total ?? allItems.length;
+      hasMore = allItems.length < total;
+      page++;
+    }
+
+    const fields = Object.keys(allItems[0] ?? {});
+
+    const formatted = allItems.map(item => {
+      const row: Record<string, any> = {};
+
+      fields.forEach(field => {
+        const value = item[field];
+        row[field] =
+          typeof value === 'boolean'
+            ? value ? 'Yes' : 'No' : value ?? '';
+      });
+
+      return row;
+    });
+
+    const worksheet = XLSX.utils.json_to_sheet(formatted);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Export');
+
+    const dateTime = new Date().toISOString().replace(/[-:T]/g, '').split('.')[0];
+    XLSX.writeFile(workbook, `${apiPath}_export_${dateTime}.xlsx`);
+
+    toast({
+      description: t("toasts.export"),
+      variant: "success"
+    });
+  } catch {
+    toast({
+      description: t("toasts.error"),
+      variant: "destructive"
+    });
+  } finally {
+    isLoadingExport.value = false;
+  }
+};
 
 </script>
