@@ -1,7 +1,6 @@
 <template>
-  <div class="w-full flex flex-col items-center">
-    <h1>Home</h1>
-    <Button> Go to Dashboard </Button>
+  <div class="min-h-screen">
+    <ClientNavbar />
   </div>
 </template>
 
