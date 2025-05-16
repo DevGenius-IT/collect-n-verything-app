@@ -5,7 +5,6 @@ export type Pagination<T> = {
     pages_count: number
     current_page: number
     limit: number
-    pages: string[]
     selected_fields: string[] | null
   }
 };

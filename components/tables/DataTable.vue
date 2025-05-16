@@ -242,9 +242,9 @@ const {t} = useI18n();
 
 const {apiPath, fields} = defineProps<DataTableProps<User>>();
 
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1';
+const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
 const auth = authStore();
-const url = new URL(`${apiUrl}/admin/${apiPath}`)
+const url = new URL(`${apiUrl}/${apiPath}`)
 
 const sortColumn = ref<keyof User | ''>('');
 const selectedTrashFilter = ref<'with' | 'only' | ''>('');
@@ -342,7 +342,7 @@ const deleteItemMutation = useMutation({
   mutationFn: async () => {
     if (!selectedId.value) throw new Error();
 
-    return $fetch(`${apiUrl}/admin/${apiPath}`, {
+    return $fetch(`${apiUrl}/${apiPath}`, {
       method: "DELETE",
       body: {
         ids: [selectedId.value]
@@ -375,7 +375,7 @@ const deleteItem = () => {
 
 const restoreItemMutation = useMutation({
   mutationFn: (id: number) =>
-    $fetch(`${apiUrl}/admin/${apiPath}/restore`, {
+    $fetch(`${apiUrl}/${apiPath}/restore`, {
       method: "PATCH",
       body: {
         ids: [id],
@@ -411,7 +411,7 @@ const exportAllToExcel = async () => {
   let total = 0;
   let hasMore = true;
 
-  const baseUrl = `${apiUrl}/admin/${apiPath}`;
+  const baseUrl = `${apiUrl}/${apiPath}`;
   const baseParams = {
     ...queryParams.value,
     limit: '50',

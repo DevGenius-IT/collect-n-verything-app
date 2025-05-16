@@ -110,7 +110,7 @@ const {id} = defineProps<{ id: number | null }>();
 const emit = defineEmits(['submitted']);
 const {t} = useI18n();
 const auth = authStore();
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1';
+const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
 
 const schema = z.object({
   firstname: z.string().min(3, t("forms.user.fields.firstname.error")),
@@ -153,7 +153,7 @@ const {handleSubmit, setValues} = useForm<FormValues>({
 const {data, isPending} = useQuery<User>({
   queryKey: computed(() => [id]),
   queryFn: () =>
-    $fetch(`${apiUrl}/admin/users/${id}`, {
+    $fetch(`${apiUrl}/users/${id}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -180,12 +180,12 @@ watchEffect(() => {
 const onSubmit = handleSubmit(async (values: FormValues) => {
   try {
     let method: 'POST' | 'PUT' = 'POST';
-    let url = `${apiUrl}/admin/users`;
+    let url = `${apiUrl}/users`;
     let successToastMessage = 'toasts.add';
 
     if (id) {
       method = 'PUT';
-      url = `${apiUrl}/admin/users/${id}`;
+      url = `${apiUrl}/users/${id}`;
       successToastMessage = 'toasts.update';
     }
 

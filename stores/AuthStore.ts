@@ -4,7 +4,7 @@ import type { User } from '~/types/models';
 import type { AuthStore } from '~/types/stores';
 import { localStorageIsAvailable } from '~/utils/client';
 
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1';
+const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
 
 export const authStore = defineStore(
   'auth',
@@ -32,63 +32,61 @@ export const authStore = defineStore(
 
     const signIn = async (email: string, password: string) => {
       const url = `${apiUrl}/auth/signin`;
-      const { data, status, error} = await useFetch<{ token: string, user: User}>(
-        url,
-        {
-          method: 'POST',
-          body: JSON.stringify({ email, password }),
-          headers: {
-            'Accept': 'application/json',
-          },
-        }
-      )
 
-      if (status.value === "error") {
-        state.value.isLoading = false
-        state.value.isError = true
-        state.value.error = error.value?.data.errors
-      }
-
-      if (status.value === "pending")
+      try {
         state.value.isLoading = true
 
-      if (status.value === "success" && data.value) {
+        const response = await $fetch<{ token: string, user: User}>(
+          url,
+          {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: {
+              'Accept': 'application/json',
+            },
+          }
+        )
+
         state.value.isLoading = false
         state.value.isError = false
         state.value.error = {}
-        setUser(data.value.user, data.value.token)
+        setUser(response.user, response.token)
         return router.push(localePath("/admin"));
+      } catch (err: any) {
+        state.value.isLoading = false
+        state.value.isError = true
+        state.value.error = err.data?.errors || { message: 'An error occurred during sign in' }
+        return null
       }
     }
 
     const signUp = async (user: User) => {
       const url = `${apiUrl}/auth/signup`;
-      const { data, status, error } = await useFetch<{ token: string, user: User}>(
-        url,
-        {
-          method: 'POST',
-          body: JSON.stringify(user),
-          headers: {
-            'Accept': 'application/json',
-          },
-        }
-      )
 
-      if (status.value === "error") {
-        state.value.isLoading = false
-        state.value.isError = true
-        state.value.error = error.value?.data.errors
-      }
-
-      if (status.value === "pending")
+      try {
         state.value.isLoading = true
 
-      if (status.value === "success" && data.value) {
+        const response = await $fetch<{ token: string, user: User}>(
+          url,
+          {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+              'Accept': 'application/json',
+            },
+          }
+        )
+
         state.value.isLoading = false
         state.value.isError = false
         state.value.error = {}
-        setUser(data.value.user, data.value.token)
+        setUser(response.user, response.token)
         return router.push(localePath("/admin"))
+      } catch (err: any) {
+        state.value.isLoading = false
+        state.value.isError = true
+        state.value.error = err.data?.errors || { message: 'An error occurred during sign up' }
+        return null
       }
     }
 
@@ -103,13 +101,15 @@ export const authStore = defineStore(
     }
 
     const isAdmin = () => {
-      return Object.keys(state.value.user?.roles ?? []).some(role => role === 'admin' || role === 'super-admin');
+      const role = state.value.user?.type;
+
+      return role === 'admin' || role === 'superadmin';
     }
-    
+
     const getFullName = () => {
       return `${state.value.user?.firstname} ${state.value.user?.lastname}`
     }
-    
+
     const getInitials = () => {
       return `${state.value.user?.firstname.charAt(0)}${state.value.user?.lastname.charAt(0)}`
     }
