@@ -1,12 +1,12 @@
 export type User = {
-  id?: number;
+  id: number;
   firstname: string;
   lastname: string;
   username: string;
   email: string;
   phone_number?: string | null;
-  has_newsletter?: boolean;
-  roles?: Record<string, string>;
+  stripe_id?: string | null;
+  type: 'admin'| 'superadmin' | 'client';
   created_at?: string;
   updated_at?: string;
   deleted_at?: string;

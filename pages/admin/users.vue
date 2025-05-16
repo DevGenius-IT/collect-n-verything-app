@@ -8,15 +8,12 @@
 import {DataTable} from "@/components/tables";
 import type {User} from "@/types/models";
 
-const { t } = useI18n();
-
 const fields: (keyof User)[] = [
   "lastname",
   "firstname",
   "username",
   "email",
   "phone_number",
-  "has_newsletter"
 ]
 
 definePageMeta({

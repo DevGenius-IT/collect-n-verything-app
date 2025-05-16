@@ -31,12 +31,12 @@ import {useQuery} from "@tanstack/vue-query";
 const {id, apiPath, isOpen, onClose} = defineProps<DetailsProps>();
 const {t} = useI18n();
 const auth = authStore();
-const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1";
+const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
 
 const {isPending, isError, data} = useQuery<User>({
   queryKey: computed(() => [apiPath, id]),
   queryFn: () =>
-    $fetch(`${apiUrl}/admin/${apiPath}/${id}`, {
+    $fetch(`${apiUrl}/${apiPath}/${id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
