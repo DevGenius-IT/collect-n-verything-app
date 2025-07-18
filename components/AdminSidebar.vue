@@ -12,15 +12,15 @@
                 <div
                   class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground"
                 >
-                  <Logo class="h-6 w-6" />
+                  <Logo class="h-6 w-6"/>
                 </div>
                 <div class="grid flex-1 text-left text-sm leading-tight">
                   <span class="truncate font-semibold"
-                    >Collect & Verything</span
+                  >Collect & Verything</span
                   >
-                  <span class="truncate text-xs">Tableau de bord</span>
+                  <span class="truncate text-xs">{{ t("dashboard.title") }}</span>
                 </div>
-                <Icon name="ChevronsUpDown" class="ml-auto" />
+                <Icon name="ChevronsUpDown" class="ml-auto"/>
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -41,7 +41,7 @@
     </SidebarHeader>
     <SidebarContent>
       <SidebarGroup>
-        <SidebarGroupLabel>Principal</SidebarGroupLabel>
+        <SidebarGroupLabel>{{ t("dashboard.main") }}</SidebarGroupLabel>
         <SidebarMenu>
           <template v-for="item in navigation">
             <Collapsible
@@ -54,7 +54,7 @@
               <SidebarMenuItem>
                 <CollapsibleTrigger as-child>
                   <SidebarMenuButton :tooltip="item.title">
-                    <Icon :name="item.icon" :stroke-width="2" />
+                    <Icon :name="item.icon" :stroke-width="2"/>
                     <span>{{ t(item.title) }}</span>
                     <Icon
                       name="ChevronRight"
@@ -91,7 +91,7 @@
             >
               <NuxtLink :to="localePath(item.to ?? '')" active-class="text-primary">
                 <SidebarMenuButton :tooltip="item.title">
-                  <Icon :name="item.icon" :stroke-width="2" />
+                  <Icon :name="item.icon" :stroke-width="2"/>
                   <span>{{ t(item.title) }}</span>
                 </SidebarMenuButton>
               </NuxtLink>
@@ -112,19 +112,20 @@
                 <Avatar class="h-8 w-8 rounded-lg">
                   <!-- <AvatarImage :src="data.user.avatar" :alt="data.user.name" /> -->
                   <AvatarFallback class="rounded-lg">
-                    {{ auth.state.user?.lastname.slice(0, 1)
+                    {{
+                      auth.state.user?.lastname.slice(0, 1)
                     }}{{ auth.state.user?.firstname.slice(0, 1) }}
                   </AvatarFallback>
                 </Avatar>
                 <div class="grid flex-1 text-left text-sm leading-tight">
                   <span class="truncate font-semibold">{{
-                    auth.state.user?.username
-                  }}</span>
+                      auth.state.user?.username
+                    }}</span>
                   <span class="truncate text-xs">{{
-                    auth.state.user?.email
-                  }}</span>
+                      auth.state.user?.email
+                    }}</span>
                 </div>
-                <Icon name="ChevronsUpDown" class="ml-auto size-4" />
+                <Icon name="ChevronsUpDown" class="ml-auto size-4"/>
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -145,33 +146,33 @@
                   </Avatar>
                   <div class="grid flex-1 text-left text-sm leading-tight">
                     <span class="truncate font-semibold">{{
-                      auth.getFullName()
-                    }}</span>
+                        auth.getFullName()
+                      }}</span>
                     <span class="truncate text-xs">{{
-                      auth.state.user?.email
-                    }}</span>
+                        auth.state.user?.email
+                      }}</span>
                   </div>
                 </div>
               </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem @click="">
-                <Icon name="LogOut" />
-                Se déconnecter
+              <DropdownMenuSeparator/>
+              <DropdownMenuItem class="cursor-pointer" @click="auth.signOut">
+                <Icon name="LogOut"/>
+                {{ t("components.navbar.logout") }}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarFooter>
-    <SidebarRail />
+    <SidebarRail/>
   </Sidebar>
 </template>
 
 <script lang="ts" setup>
-import { navigation } from "~/constants";
-import { Logo } from "./icons";
+import {navigation} from "~/constants";
+import {Logo} from "./icons";
 import Icon from "./Icon.vue";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {Avatar, AvatarFallback} from "@/components/ui/avatar";
 import {
   Collapsible,
   CollapsibleContent,
@@ -204,5 +205,5 @@ import {
 const localePath = useLocalePath();
 const auth = authStore();
 const route = useRoute();
-const { t } = useI18n();
+const {t} = useI18n();
 </script>

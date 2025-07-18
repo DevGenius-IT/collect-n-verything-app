@@ -1,48 +1,128 @@
 <template>
-  <header class="sticky top-0 white:bg-white shadow-sm z-50 transition-colors duration-300">
+  <header class="sticky top-0 white:bg-white shadow-md backdrop-blur z-50 transition-colors duration-300">
     <div class="container mx-auto px-4 py-3">
       <nav class="flex items-center justify-between">
         <div class="flex items-center">
-          <Logo class="h-7 w-7 text-primary mr-2" />
+          <Logo class="h-7 w-7 text-primary mr-2"/>
           <h1 class="text-lg text-gray-900 dark:text-white">Collect & Verything</h1>
         </div>
-        <div class="hidden md:flex items-center space-x-6">
-          <ColorMode />
-          <NuxtLink to="#" class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">Service</NuxtLink>
-          <NuxtLink to="#" class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">Demo</NuxtLink>
-          <NuxtLink to="#" class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">Tarifs</NuxtLink>
-          <NuxtLink to="#" class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">Contact</NuxtLink>
-          <NuxtLink to="#" class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">Sign in</NuxtLink>
-          <NuxtLink to="#" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors">Sign up</NuxtLink>
+        <div class="hidden lg:flex items-center space-x-6">
+          <div v-if="!auth.state.user" class="flex items-center space-x-3">
+            <LocaleSwitcher/>
+            <ColorMode/>
+          </div>
+          <NuxtLink to="#"
+                    class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
+            {{ t("sections.service.name") }}
+          </NuxtLink>
+          <NuxtLink to="#"
+                    class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
+            {{ t("sections.demo.name") }}
+          </NuxtLink>
+          <NuxtLink to="#"
+                    class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
+            {{ t("sections.prices.name") }}
+          </NuxtLink>
+          <NuxtLink to="#"
+                    class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
+            {{ t("sections.contact.name") }}
+          </NuxtLink>
+          <div v-if="!auth.state.user" class="flex items-center space-x-3">
+            <NuxtLink :to="localePath('auth')"
+                      class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
+              {{ t("auth.tabs.login") }}
+            </NuxtLink>
+            <NuxtLink :to="localePath({name: 'auth', query: {tab: 'register'}})"
+                      class="bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors">
+              {{ t("auth.tabs.register") }}
+            </NuxtLink>
+          </div>
+          <div v-else class="flex items-center space-x-3">
+            <LocaleSwitcher/>
+            <ColorMode/>
+            <DropdownMenu>
+              <DropdownMenuTrigger as-child>
+                <Button variant="secondary" size="icon" class="rounded-full">
+                  <CircleUser class="h-5 w-5"/>
+                  <span class="sr-only">{{
+                      t("components.navbar.toggle-user-menu")
+                    }}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>{{ auth.getFullName() }}</DropdownMenuLabel>
+                <DropdownMenuSeparator/>
+                <DropdownMenuItem>{{
+                    t("components.navbar.settings")
+                  }}
+                </DropdownMenuItem>
+                <DropdownMenuItem>{{ t("components.navbar.help") }}</DropdownMenuItem>
+                <DropdownMenuSeparator/>
+                <DropdownMenuItem class="cursor-pointer" @click="auth.signOut">{{
+                    t("components.navbar.logout")
+                  }}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
-        <div class="md:hidden flex items-center space-x-3">
-          <ColorMode />
+        <div class="lg:hidden flex items-center space-x-4 sm:space-x-6">
+          <div class="flex items-center space-x-2 sm:space-x-3">
+            <LocaleSwitcher/>
+            <ColorMode/>
+          </div>
           <button class="text-gray-700 dark:text-gray-300" @click="toggleMobileMenu">
-            <Icon name="Menu" class="h-7 w-7" />
+            <Icon name="Menu" class="h-7 w-7"/>
           </button>
         </div>
       </nav>
 
-      <div v-if="mobileMenuOpen" class="md:hidden py-4 space-y-3">
-        <NuxtLink to="#" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">Service</NuxtLink>
-        <NuxtLink to="#" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">Demo</NuxtLink>
-        <NuxtLink to="#" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">Tarifs</NuxtLink>
-        <NuxtLink to="#" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">Contact</NuxtLink>
-        <NuxtLink to="#" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">Sign in</NuxtLink>
-        <NuxtLink to="#" class="block bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-600 text-center mt-4 transition-colors">
-          Sign up
+      <div v-if="mobileMenuOpen" class="lg:hidden py-4 space-y-3">
+        <NuxtLink to="#"
+                  class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+          {{ t("sections.service.name") }}
         </NuxtLink>
+        <NuxtLink to="#"
+                  class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+          {{ t("sections.demo.name") }}
+        </NuxtLink>
+        <NuxtLink to="#"
+                  class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+          {{ t("sections.prices.name") }}
+        </NuxtLink>
+        <NuxtLink to="#"
+                  class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+          {{ t("sections.contact.name") }}
+        </NuxtLink>
+        <NuxtLink v-if="auth.state.user" to="#"
+                  class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+          {{ t("account.title") }}
+        </NuxtLink>
+        <div v-else class="space-y-3">
+          <NuxtLink :to="localePath('auth')"
+                    class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+            {{ t("auth.tabs.login") }}
+          </NuxtLink>
+          <NuxtLink :to="localePath({name: 'auth', query: {tab: 'register'}})"
+                    class="block bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-600 text-center mt-4 transition-colors">
+            {{ t("auth.tabs.register") }}
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { Logo } from "./icons";
+import {ref} from 'vue';
+import {Logo} from "./icons";
 import Icon from "~/components/Icon.vue";
+import {CircleUser} from "lucide-vue-next";
 
+const {t} = useI18n();
+const localePath = useLocalePath();
 const mobileMenuOpen = ref(false);
+const auth = authStore();
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;

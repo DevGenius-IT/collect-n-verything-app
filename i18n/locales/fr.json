@@ -2,10 +2,28 @@
   "app": {
     "title": "Collect & Verything"
   },
+  "sections": {
+    "service": {
+      "name": "Service"
+    },
+    "demo": {
+      "name": "Demo"
+    },
+    "prices": {
+      "name": "Tarifs"
+    },
+    "contact": {
+      "name": "Contact"
+    }
+  },
+  "account": {
+    "title": "Mon compte"
+  },
   "dashboard": {
     "title": "Tableau de bord",
     "tooltip": "Tableau de bord",
     "welcome": "Bienvenue sur le tableau de bord",
+    "main": "Principal",
     "seo": {
       "title": "Tableau de bord"
     }
@@ -152,7 +170,8 @@
       "toggle-user-menu": "Basculer le menu utilisateur",
       "settings": "Paramètres",
       "help": "Aide",
-      "logout": "Se déconnecter"
+      "logout": "Se déconnecter",
+      "search-placeholder": "Rechercher..."
     },
     "color-mode": {
       "toggle-theme": "Basculer le thème",
@@ -214,6 +233,9 @@
       },
       "title": "Confirmation de suppression",
       "description": "Êtes-vous sûr de vouloir supprimer cet élément ?"
+    },
+    "locale-switcher": {
+      "toggle-locale": "Changer de langue"
     }
   }
 }

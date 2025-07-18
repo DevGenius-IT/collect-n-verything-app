@@ -1,5 +1,5 @@
 <template>
-  <div v-if="apiPath" class="w-full my-4">
+  <div v-if="apiPath" class="w-full mb-4">
     <Card>
       <CardHeader class="pb-1">
         <CardTitle class="flex items-start justify-between">
