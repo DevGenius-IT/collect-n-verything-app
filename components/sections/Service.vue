@@ -12,9 +12,6 @@
       <NuxtImg src="/dashboard.png" class="ml-5 w-11/12 -rotate-3 sm:-rotate-6 shadow-xl dark:shadow-neutral-700"/>
     </div>
   </section>
-  <section>
-    test
-  </section>
 </template>
 
 <script setup lang="ts">
