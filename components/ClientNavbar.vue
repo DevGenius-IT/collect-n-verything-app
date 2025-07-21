@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 white:bg-white shadow-md backdrop-blur z-50 transition-colors duration-300">
+  <header class="sticky top-0 white:bg-white shadow-md backdrop-blur z-50 transition-colors duration-300 mb-4">
     <div class="container mx-auto px-4 py-3">
       <nav class="flex items-center justify-between">
         <div class="flex items-center">
