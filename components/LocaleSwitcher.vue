@@ -33,8 +33,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {Globe} from "lucide-vue-next";
 import {computed} from 'vue';
-import UKFlag from "~/components/icons/UKFlag.vue";
-import FrenchFlag from "~/components/icons/FrenchFlag.vue";
+import {FrenchFlag, UKFlag} from "~/components/icons";
 
 const {t, locale, locales} = useI18n();
 const switchLocalePath = useSwitchLocalePath();
