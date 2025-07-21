@@ -4,6 +4,7 @@
     <div class="flex flex-col w-full px-4 md:w-11/12 xl:w-10/12 2xl:w-8/12">
       <slot/>
     </div>
+    <Footer/>
   </main>
 </template>
 
