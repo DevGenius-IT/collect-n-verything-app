@@ -1,10 +1,10 @@
 <template>
-  <div class="min-h-screen">
-    <ClientNavbar />
-  </div>
+  <Service/>
 </template>
 
 <script setup lang="ts">
+
+import {Service} from "~/components/sections";
 
 definePageMeta({
   layout: "default",

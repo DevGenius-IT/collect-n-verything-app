@@ -1,11 +1,13 @@
 <template>
-  <header class="sticky top-0 white:bg-white shadow-md backdrop-blur z-50 transition-colors duration-300 mb-4">
+  <header class="w-full sticky top-0 white:bg-white shadow-md bg-neutral-50 dark:bg-neutral-900 z-50 transition-colors duration-300 mb-4">
     <div class="container mx-auto px-4 py-3">
       <nav class="flex items-center justify-between">
-        <div class="flex items-center">
-          <Logo class="h-7 w-7 text-primary mr-2"/>
-          <h1 class="text-lg text-gray-900 dark:text-white">Collect & Verything</h1>
-        </div>
+        <NuxtLink :to="localePath('/')">
+          <div class="flex items-center">
+            <Logo class="h-7 w-7 text-primary mr-2"/>
+            <h1 class="text-lg text-gray-900 dark:text-white">Collect & Verything</h1>
+          </div>
+        </NuxtLink>
         <div class="hidden lg:flex items-center space-x-6">
           <div v-if="!auth.state.user" class="flex items-center space-x-3">
             <LocaleSwitcher/>
@@ -113,7 +115,7 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref} from 'vue';
 import {Logo} from "./icons";
 import Icon from "~/components/Icon.vue";

@@ -4,7 +4,13 @@
   },
   "sections": {
     "service": {
-      "name": "Service"
+      "name": "Service",
+      "title": "Créez & personnalisez votre e-commerce en toute simplicité avec notre solution innovante et flexible",
+      "description": "Explorez des designs personnalisés et des fonctionnalités avancées pour votre boutique",
+      "btn": {
+        "primary": "Commencer",
+        "secondary": "Présentation des fonctionnalités"
+      }
     },
     "demo": {
       "name": "Demo"
