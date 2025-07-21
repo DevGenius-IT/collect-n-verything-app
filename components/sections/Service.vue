@@ -1,5 +1,5 @@
 <template>
-  <section id="service" class="flex flex-col w-full mt-5">
+  <section id="service" class="flex flex-col w-full mt-5 scroll-mt-[100px]">
     <h2 class="font-bold text-2xl md:text-3xl mb-5">{{ t("sections.service.title") }}</h2>
     <h3 class="font-semibold text-xl md:text-2xl mb-4 text-neutral-500 dark:text-neutral-400">
       {{ t("sections.service.description") }}

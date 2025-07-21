@@ -13,7 +13,7 @@
             <LocaleSwitcher/>
             <ColorMode/>
           </div>
-          <NuxtLink to="#"
+          <NuxtLink :to="localePath('/#service')"
                     class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
             {{ t("sections.service.name") }}
           </NuxtLink>
