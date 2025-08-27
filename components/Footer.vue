@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="w-full flex flex-col justify-center items-center mt-5 bg-neutral-900 text-white dark:bg-neutral-50 dark:text-neutral-900">
+    class="w-full flex flex-col justify-center items-center mt-20 bg-neutral-900 text-white dark:bg-neutral-50 dark:text-neutral-900">
     <div class="flex w-11/12 sm:w-10/12 md:w-8/12 py-10">
       <div class="flex w-1/2 flex-col py-2 items-start border-r">
         <NuxtLink :to="localePath('/')">
