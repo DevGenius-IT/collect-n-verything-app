@@ -18,11 +18,7 @@
                     class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
             {{ t("sections.service.name") }}
           </NuxtLink>
-          <NuxtLink to="#"
-                    class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
-            {{ t("sections.demo.name") }}
-          </NuxtLink>
-          <NuxtLink to="#"
+          <NuxtLink :to="localePath('/#prices')"
                     class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
             {{ t("sections.prices.name") }}
           </NuxtLink>
@@ -85,11 +81,7 @@
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.service.name") }}
         </NuxtLink>
-        <NuxtLink to="#"
-                  class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
-          {{ t("sections.demo.name") }}
-        </NuxtLink>
-        <NuxtLink to="#"
+        <NuxtLink :to="localePath('/#prices')"
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.prices.name") }}
         </NuxtLink>

@@ -12,11 +12,22 @@
         "secondary": "Overview of features"
       }
     },
-    "demo": {
-      "name": "Demo"
-    },
     "prices": {
-      "name": "Prices"
+      "name": "Prices",
+      "title": "Prices and subscriptions",
+      "description": "Browse our offers and find the one that perfectly suits your needs. Any questions? We are here to help!",
+      "card": {
+        "header": {
+          "or": "or",
+          "per-month": "/month",
+          "per-year": "/year, equivalent to",
+          "saving": "two months free"
+        },
+        "body": {
+          "title": "Features",
+          "btn": "Select"
+        }
+      }
     },
     "contact": {
       "name": "Contact",

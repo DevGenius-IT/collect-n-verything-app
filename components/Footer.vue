@@ -17,10 +17,6 @@
         </NuxtLink>
         <NuxtLink to="#"
                   class="text-gray-300 dark:text-gray-700 hover:hover:text-orange-400 dark:hover:primary transition-colors">
-          {{ t("sections.demo.name") }}
-        </NuxtLink>
-        <NuxtLink to="#"
-                  class="text-gray-300 dark:text-gray-700 hover:hover:text-orange-400 dark:hover:primary transition-colors">
           {{ t("sections.prices.name") }}
         </NuxtLink>
         <NuxtLink :to="localePath('/#contact')"

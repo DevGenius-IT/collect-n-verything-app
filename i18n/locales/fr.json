@@ -12,11 +12,22 @@
         "secondary": "Présentation des fonctionnalités"
       }
     },
-    "demo": {
-      "name": "Demo"
-    },
     "prices": {
-      "name": "Tarifs"
+      "name": "Tarifs",
+      "title": "Tarifs et abonnements",
+      "description": "Parcourez nos offres et trouvez celle qui correspond parfaitement à vos besoins. Une question ? Nous sommes là pour vous aider !",
+      "card": {
+        "header": {
+          "or": "ou",
+          "per-month": "/ mois",
+          "per-year": "/ an, soit",
+          "saving": "2 mois offert"
+        },
+        "body": {
+          "title": "Fonctionnalités",
+          "btn": "Sélectionner"
+        }
+      }
     },
     "contact": {
       "name": "Contact",

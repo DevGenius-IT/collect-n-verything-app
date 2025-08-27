@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="flex flex-col items-center w-full mt-5 scroll-mt-[84px]">
+  <section id="contact" class="flex flex-col items-center w-full mt-12 md:mt-20 scroll-mt-[84px]">
     <div class="grid gap-4 text-center">
       <h1 class="text-3xl font-bold">{{ t("sections.contact.title") }}</h1>
       <p class="text-balance text-muted-foreground">
