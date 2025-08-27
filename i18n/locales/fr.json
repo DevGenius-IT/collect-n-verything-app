@@ -2,10 +2,47 @@
   "app": {
     "title": "Collect & Verything"
   },
+  "sections": {
+    "service": {
+      "name": "Service",
+      "title": "Créez & personnalisez votre e-commerce en toute simplicité avec notre solution innovante et flexible",
+      "description": "Explorez des designs personnalisés et des fonctionnalités avancées pour votre boutique",
+      "btn": {
+        "primary": "Commencer",
+        "secondary": "Présentation des fonctionnalités"
+      }
+    },
+    "prices": {
+      "name": "Tarifs",
+      "title": "Tarifs et abonnements",
+      "description": "Parcourez nos offres et trouvez celle qui correspond parfaitement à vos besoins. Une question ? Nous sommes là pour vous aider !",
+      "card": {
+        "header": {
+          "or": "ou",
+          "per-month": "/ mois",
+          "per-year": "/ an, soit",
+          "saving": "2 mois offert"
+        },
+        "body": {
+          "title": "Fonctionnalités",
+          "btn": "Sélectionner"
+        }
+      }
+    },
+    "contact": {
+      "name": "Contact",
+      "title": "Contactez-nous",
+      "description": "Contactez-nous pour toute question ou demande. Nous sommes là nour vous aider."
+    }
+  },
+  "account": {
+    "title": "Mon compte"
+  },
   "dashboard": {
     "title": "Tableau de bord",
     "tooltip": "Tableau de bord",
     "welcome": "Bienvenue sur le tableau de bord",
+    "main": "Principal",
     "seo": {
       "title": "Tableau de bord"
     }
@@ -139,6 +176,36 @@
           "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
         }
       }
+    },
+    "contact": {
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez votre email",
+          "error": "Email invalide"
+        },
+        "subject": {
+          "label": "Sujet",
+          "placeholder": "Sélectionnez un sujet",
+          "error": "Le sujet est requis",
+          "options": {
+            "general-inquiry": "Demande générale",
+            "technical-support": "Support technique",
+            "account-issue": "Problème de compte",
+            "bug-report": "Signalement de bug",
+            "feedback": "Commentaires",
+            "job-application": "Candidature",
+            "other": "Autre"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Entrez votre message",
+          "error": "Le message est requis"
+        }
+      },
+      "success-message": "Votre message a été envoyé avec succès.",
+      "submit": "Envoyer"
     }
   },
   "dichotomous-answers": {
@@ -152,7 +219,8 @@
       "toggle-user-menu": "Basculer le menu utilisateur",
       "settings": "Paramètres",
       "help": "Aide",
-      "logout": "Se déconnecter"
+      "logout": "Se déconnecter",
+      "search-placeholder": "Rechercher..."
     },
     "color-mode": {
       "toggle-theme": "Basculer le thème",
@@ -214,6 +282,9 @@
       },
       "title": "Confirmation de suppression",
       "description": "Êtes-vous sûr de vouloir supprimer cet élément ?"
+    },
+    "locale-switcher": {
+      "toggle-locale": "Changer de langue"
     }
   }
 }

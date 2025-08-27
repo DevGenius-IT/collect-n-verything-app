@@ -1,11 +1,14 @@
 <template>
-  <div class="w-full flex flex-col items-center">
-    <h1>Home</h1>
-    <Button> Go to Dashboard </Button>
+  <div>
+    <Service/>
+    <Prices/>
+    <Contact/>
   </div>
 </template>
 
 <script setup lang="ts">
+
+import {Contact, Prices, Service} from "~/components/sections";
 
 definePageMeta({
   layout: "default",

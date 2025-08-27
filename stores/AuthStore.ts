@@ -97,7 +97,7 @@ export const authStore = defineStore(
       }
       state.value.user = null
       state.value.token = ''
-      return router.push(localePath("/auth"));
+      return router.push(localePath("/"));
     }
 
     const isAdmin = () => {

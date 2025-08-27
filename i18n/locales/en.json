@@ -2,10 +2,47 @@
   "app": {
     "title": "Collect & Verything"
   },
+  "sections": {
+    "service": {
+      "name": "Service",
+      "title": "Create & customise your e-commerce easily with our innovative and flexible solution",
+      "description": "Explore custom designs and advanced features for your shop",
+      "btn": {
+        "primary": "Get started",
+        "secondary": "Overview of features"
+      }
+    },
+    "prices": {
+      "name": "Prices",
+      "title": "Prices and subscriptions",
+      "description": "Browse our offers and find the one that perfectly suits your needs. Any questions? We are here to help!",
+      "card": {
+        "header": {
+          "or": "or",
+          "per-month": "/month",
+          "per-year": "/year, equivalent to",
+          "saving": "two months free"
+        },
+        "body": {
+          "title": "Features",
+          "btn": "Select"
+        }
+      }
+    },
+    "contact": {
+      "name": "Contact",
+      "title": "Contact us",
+      "description": "Contact us if you have any questions or requests. We're here to help."
+    }
+  },
+  "account": {
+    "title": "My account"
+  },
   "dashboard": {
     "title": "Dashboard",
     "tooltip": "Dashboard",
     "welcome": "Welcome to the dashboard",
+    "main": "Main",
     "seo": {
       "title": "Dashboard"
     }
@@ -139,6 +176,36 @@
           "error": "The password must contain at least 6 characters, including an uppercase and a lowercase letter, a number and a special character."
         }
       }
+    },
+    "contact": {
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter the email",
+          "error": "Invalid email"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Select a subject",
+          "error": "The subject is required",
+          "options": {
+            "general-inquiry": "General Inquiry",
+            "technical-support": "Technical Support",
+            "account-issue": "Account Issue",
+            "bug-report": "Bug Report",
+            "feedback": "Feedback",
+            "job-application": "Job Application",
+            "other": "Other"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Enter your message",
+          "error": "The message is required"
+        }
+      },
+      "success-message": "Your message has been sent successfully.",
+      "submit": "Send"
     }
   },
   "dichotomous-answers": {
@@ -152,7 +219,8 @@
       "toggle-user-menu": "Toggle user menu",
       "settings": "Settings",
       "help": "Help",
-      "logout": "Logout"
+      "logout": "Logout",
+      "search-placeholder": "Search..."
     },
     "color-mode": {
       "toggle-theme": "Toggle theme",
@@ -215,6 +283,9 @@
       },
       "title": "Deletion confirmation",
       "description": "Are you sure you want to delete this item?"
+    },
+    "locale-switcher": {
+      "toggle-locale": "Change language"
     }
   }
 }
