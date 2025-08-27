@@ -1,12 +1,12 @@
 <template>
   <footer
     class="w-full flex flex-col justify-center items-center mt-5 bg-neutral-900 text-white dark:bg-neutral-50 dark:text-neutral-900">
-    <div class="flex w-8/12 py-10">
-      <div class="flex w-1/2 flex-col py-2 justify-between border-r">
+    <div class="flex w-11/12 sm:w-10/12 md:w-8/12 py-10">
+      <div class="flex w-1/2 flex-col py-2 items-start border-r">
         <NuxtLink :to="localePath('/')">
-          <div class="flex items-center">
+          <div class="flex flex-col sm:flex-row items-center">
             <Logo class="h-7 w-7 text-primary mr-2"/>
-            <h1 class="text-lg">Collect & Verything</h1>
+            <h1 class="sm:text-lg">Collect & Verything</h1>
           </div>
         </NuxtLink>
       </div>
@@ -23,7 +23,7 @@
                   class="text-gray-300 dark:text-gray-700 hover:hover:text-orange-400 dark:hover:primary transition-colors">
           {{ t("sections.prices.name") }}
         </NuxtLink>
-        <NuxtLink to="#"
+        <NuxtLink :to="localePath('/#contact')"
                   class="text-gray-300 dark:text-gray-700 hover:hover:text-orange-400 dark:hover:primary transition-colors">
           {{ t("sections.contact.name") }}
         </NuxtLink>

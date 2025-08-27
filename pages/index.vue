@@ -1,10 +1,13 @@
 <template>
-  <Service/>
+  <div>
+    <Service/>
+    <Contact/>
+  </div>
 </template>
 
 <script setup lang="ts">
 
-import {Service} from "~/components/sections";
+import {Contact, Service} from "~/components/sections";
 
 definePageMeta({
   layout: "default",

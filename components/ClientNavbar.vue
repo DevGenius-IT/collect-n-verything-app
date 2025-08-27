@@ -1,5 +1,6 @@
 <template>
-  <header class="w-full sticky top-0 white:bg-white shadow-md bg-neutral-50 dark:bg-neutral-900 z-50 transition-colors duration-300 mb-4">
+  <header
+    class="w-full sticky top-0 white:bg-white shadow-md bg-neutral-50 dark:bg-neutral-900 z-50 transition-colors duration-300 mb-4">
     <div class="container mx-auto px-4 py-3">
       <nav class="flex items-center justify-between">
         <NuxtLink :to="localePath('/')">
@@ -25,12 +26,12 @@
                     class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
             {{ t("sections.prices.name") }}
           </NuxtLink>
-          <NuxtLink to="#"
+          <NuxtLink :to="localePath('/#contact')"
                     class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
             {{ t("sections.contact.name") }}
           </NuxtLink>
           <div v-if="!auth.state.user" class="flex items-center space-x-3">
-            <NuxtLink :to="localePath('auth')"
+            <NuxtLink :to="localePath({name: 'auth', query: {tab: 'login'}})"
                       class="text-gray-700 dark:text-gray-300 hover:primary dark:hover:text-orange-400 transition-colors">
               {{ t("auth.tabs.login") }}
             </NuxtLink>
@@ -80,7 +81,7 @@
       </nav>
 
       <div v-if="mobileMenuOpen" class="lg:hidden py-4 space-y-3">
-        <NuxtLink to="#"
+        <NuxtLink :to="localePath('/#service')"
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.service.name") }}
         </NuxtLink>
@@ -92,7 +93,7 @@
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.prices.name") }}
         </NuxtLink>
-        <NuxtLink to="#"
+        <NuxtLink :to="localePath('/#contact')"
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.contact.name") }}
         </NuxtLink>
@@ -101,7 +102,7 @@
           {{ t("account.title") }}
         </NuxtLink>
         <div v-else class="space-y-3">
-          <NuxtLink :to="localePath('auth')"
+          <NuxtLink :to="localePath({name: 'auth', query: {tab: 'login'}})"
                     class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
             {{ t("auth.tabs.login") }}
           </NuxtLink>

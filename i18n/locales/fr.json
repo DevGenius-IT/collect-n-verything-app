@@ -19,7 +19,9 @@
       "name": "Tarifs"
     },
     "contact": {
-      "name": "Contact"
+      "name": "Contact",
+      "title": "Contactez-nous",
+      "description": "Contactez-nous pour toute question ou demande. Nous sommes là nour vous aider."
     }
   },
   "account": {
@@ -163,6 +165,36 @@
           "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
         }
       }
+    },
+    "contact": {
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez votre email",
+          "error": "Email invalide"
+        },
+        "subject": {
+          "label": "Sujet",
+          "placeholder": "Sélectionnez un sujet",
+          "error": "Le sujet est requis",
+          "options": {
+            "general-inquiry": "Demande générale",
+            "technical-support": "Support technique",
+            "account-issue": "Problème de compte",
+            "bug-report": "Signalement de bug",
+            "feedback": "Commentaires",
+            "job-application": "Candidature",
+            "other": "Autre"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Entrez votre message",
+          "error": "Le message est requis"
+        }
+      },
+      "success-message": "Votre message a été envoyé avec succès.",
+      "submit": "Envoyer"
     }
   },
   "dichotomous-answers": {
