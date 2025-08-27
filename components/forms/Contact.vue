@@ -58,7 +58,7 @@
         <FormMessage/>
       </FormItem>
     </FormField>
-    <Button type="submit" class="w-full">
+    <Button type="submit" variant="secondary" class="w-fit">
       {{ t("forms.contact.submit") }}
     </Button>
   </form>
