@@ -1,7 +1,8 @@
 import type { Tabs } from "~/types/pages/auth/values";
 
-export type SignUpProps = {
+export type SignInProps = {
   changeTab: (tab: Tabs) => void;
+  redirectAfterLogin?: boolean;
 };
 
-export default SignUpProps;
+export default SignInProps;

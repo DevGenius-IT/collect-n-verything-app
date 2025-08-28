@@ -64,7 +64,10 @@
             </ul>
           </CardContent>
           <CardFooter>
-            <Button :variant="product.metadata.order === '2' ? 'default' : 'secondary'">
+            <Button 
+              :variant="product.metadata.order === '2' ? 'default' : 'secondary'"
+              @click="navigateToCheckout(getSortedPrices(product.prices)[0].id)"
+            >
               {{ t("sections.prices.card.body.btn") }}
             </Button>
           </CardFooter>
@@ -81,6 +84,8 @@ import type {ProductPagination} from "~/types/constants";
 import type {Price} from "~/types/models";
 
 const {t, locale} = useI18n();
+const router = useRouter();
+const localePath = useLocalePath();
 const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
 
 const {isPending, isError, data} = useQuery({
@@ -125,5 +130,12 @@ const formatPrice = (amount: number, currency: string): string => {
     style: 'currency',
     currency: currency.toUpperCase(),
   }).format(price);
+};
+
+const navigateToCheckout = (priceId: string) => {
+  router.push(localePath({
+    path: '/checkout',
+    query: { price_id: priceId }
+  }));
 };
 </script>

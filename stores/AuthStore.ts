@@ -30,7 +30,7 @@ export const authStore = defineStore(
       state.value.token = token
     }
 
-    const signIn = async (email: string, password: string) => {
+    const signIn = async (email: string, password: string, redirect: boolean) => {
       const url = `${apiUrl}/auth/signin`;
 
       try {
@@ -51,7 +51,7 @@ export const authStore = defineStore(
         state.value.isError = false
         state.value.error = {}
         setUser(response.user, response.token)
-        return router.push(localePath("/admin"));
+        if (redirect) return router.push(localePath("/admin"));
       } catch (err: any) {
         state.value.isLoading = false
         state.value.isError = true
@@ -60,7 +60,7 @@ export const authStore = defineStore(
       }
     }
 
-    const signUp = async (user: User) => {
+    const signUp = async (user: User, redirect: boolean) => {
       const url = `${apiUrl}/auth/signup`;
 
       try {
@@ -81,7 +81,7 @@ export const authStore = defineStore(
         state.value.isError = false
         state.value.error = {}
         setUser(response.user, response.token)
-        return router.push(localePath("/admin"))
+        if (redirect) return router.push(localePath("/admin"))
       } catch (err: any) {
         state.value.isLoading = false
         state.value.isError = true

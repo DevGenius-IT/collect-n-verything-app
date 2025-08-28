@@ -36,7 +36,20 @@
     }
   },
   "account": {
-    "title": "My account"
+    "title": "My account",
+    "seo": {
+      "title": "My account"
+    }
+  },
+  "session": {
+    "success": {
+      "title": "Payment successful – Welcome aboard!",
+      "description": "Your subscription is now active! You can access your account and start creating your e-commerce site by clicking",
+      "descriptionLink": "here",
+      "seo": {
+        "title": "Payment successful"
+      }
+    }
   },
   "dashboard": {
     "title": "Dashboard",
@@ -217,8 +230,7 @@
     "navbar": {
       "toggle-menu": "Toggle menu",
       "toggle-user-menu": "Toggle user menu",
-      "settings": "Settings",
-      "help": "Help",
+      "my-account": "My account",
       "logout": "Logout",
       "search-placeholder": "Search..."
     },
@@ -287,5 +299,20 @@
     "locale-switcher": {
       "toggle-locale": "Change language"
     }
+  },
+  "checkout": {
+    "title": "Checkout",
+    "seo": {
+      "title": "Checkout"
+    },
+    "order-summary": "Order summary",
+    "price": "Price",
+    "billing-period": "Billing period",
+    "total": "Total due today",
+    "tax-info": "VAT included if applicable",
+    "interval-month": "Monthly",
+    "interval-year": "Annual",
+    "logged-in-as": "Logged in as",
+    "proceed": "Proceed"
   }
 }

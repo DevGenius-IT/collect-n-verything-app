@@ -36,7 +36,20 @@
     }
   },
   "account": {
-    "title": "Mon compte"
+    "title": "Mon compte",
+    "seo": {
+      "title": "Mon compte"
+    }
+  },
+  "session": {
+    "success": {
+      "title": "Paiement effectué – Bienvenue à bord !",
+      "description": "Votre abonnement est désormais actif ! Vous pouvez accéder à votre compte et commencer à créer votre site e-commerce en cliquant",
+      "descriptionLink": "ici",
+      "seo": {
+        "title": "Paiement réussi"
+      }
+    }
   },
   "dashboard": {
     "title": "Tableau de bord",
@@ -217,8 +230,7 @@
     "navbar": {
       "toggle-menu": "Basculer le menu",
       "toggle-user-menu": "Basculer le menu utilisateur",
-      "settings": "Paramètres",
-      "help": "Aide",
+      "my-account": "Mon compte",
       "logout": "Se déconnecter",
       "search-placeholder": "Rechercher..."
     },
@@ -286,5 +298,20 @@
     "locale-switcher": {
       "toggle-locale": "Changer de langue"
     }
+  },
+  "checkout": {
+    "title": "Paiement",
+    "seo": {
+      "title": "Paiement"
+    },
+    "order-summary": "Récapitulatif de commande",
+    "price": "Prix",
+    "billing-period": "Période de facturation",
+    "total": "Total dû aujourd'hui",
+    "tax-info": "TVA incluse si applicable",
+    "interval-month": "Mensuelle",
+    "interval-year": "Annuelle",
+    "logged-in-as": "Connecté en tant que",
+    "proceed": "Continuer"
   }
 }

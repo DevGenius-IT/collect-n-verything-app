@@ -90,7 +90,7 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
 import * as z from "zod";
 
-const { changeTab } = defineProps<SignInProps>();
+const { changeTab, redirectAfterLogin = true } = defineProps<SignInProps>();
 
 const { t } = useI18n();
 
@@ -108,7 +108,7 @@ const { handleSubmit } = useForm({
 });
 
 const onSubmit = handleSubmit(async (values) => {
-  await auth.signIn(values.email, values.password);
+  await auth.signIn(values.email, values.password, redirectAfterLogin);
   if (auth.state.isError && auth.state.error)
     toast({
       description: t("toasts.error"),

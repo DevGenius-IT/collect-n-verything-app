@@ -119,16 +119,16 @@
           <FormMessage />
         </FormItem>
       </FormField>
-      <FormField v-slot="{ componentField }" name="passwordConfirmation">
+      <FormField v-slot="{ componentField }" name="password_confirmation">
         <FormItem v-auto-animate>
           <div class="flex items-center">
-            <FormLabel for="passwordConfirmation">{{
+            <FormLabel for="password_confirmation">{{
               t("forms.sign-up.fields.password-confirmation.label")
             }}</FormLabel>
           </div>
           <FormControl>
             <Input
-              id="passwordConfirmation"
+              id="password_confirmation"
               type="password"
               autocomplete="new-password"
               :placeholder="
@@ -179,7 +179,7 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
 import * as z from "zod";
 
-const { changeTab } = defineProps<SignUpProps>();
+const { changeTab, redirectAfterLogin = true } = defineProps<SignUpProps>();
 
 const { t } = useI18n();
 
@@ -205,12 +205,12 @@ const formSchema = toTypedSchema(
       .regex(/[a-z]/, t("forms.sign-up.fields.password.error"))
       .regex(/\d/, t("forms.sign-up.fields.password.error"))
       .regex(/[\W_]/, t("forms.sign-up.fields.password.error")),
-    passwordConfirmation: z
+    password_confirmation: z
       .string()
       .min(6, t("forms.sign-up.fields.password-confirmation.error")),
-  }).refine((data) => data.password === data.passwordConfirmation, {
+  }).refine((data) => data.password === data.password_confirmation, {
     message: t("forms.sign-up.fields.password-confirmation.error"),
-    path: ["passwordConfirmation"],
+    path: ["password_confirmation"],
   })
 );
 
@@ -219,7 +219,7 @@ const { handleSubmit } = useForm({
 });
 
 const onSubmit = handleSubmit(async (values) => {
-  await auth.signUp(values);
+  await auth.signUp(values, redirectAfterLogin);
   if (auth.state.isError && auth.state.error)
     toast({
       description: t("toasts.error"),

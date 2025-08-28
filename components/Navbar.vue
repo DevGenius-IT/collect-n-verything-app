@@ -31,11 +31,11 @@
           <DropdownMenuLabel>{{ fullName }}</DropdownMenuLabel>
           <DropdownMenuLabel>{{ auth.state.user?.email }}</DropdownMenuLabel>
           <DropdownMenuSeparator/>
-          <DropdownMenuItem>{{
-              t("components.navbar.settings")
-            }}
+          <DropdownMenuItem>
+            <NuxtLink :to="localePath('account')">
+              {{ t("components.navbar.my-account") }}
+            </NuxtLink>
           </DropdownMenuItem>
-          <DropdownMenuItem>{{ t("components.navbar.help") }}</DropdownMenuItem>
           <DropdownMenuSeparator/>
           <DropdownMenuItem class="cursor-pointer" @click="auth.signOut">{{
               t("components.navbar.logout")
@@ -54,6 +54,7 @@ import {Separator} from "./ui/separator";
 
 const {t} = useI18n();
 const auth = authStore();
+const localePath = useLocalePath();
 
 const fullName = computed(
   () => `${auth.state.user?.firstname} ${auth.state.user?.lastname}`,
