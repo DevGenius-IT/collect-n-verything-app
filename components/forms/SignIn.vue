@@ -53,7 +53,7 @@
           <FormMessage />
         </FormItem>
       </FormField>
-      <Button type="submit" class="w-full">
+      <Button :aria-label="t('forms.sign-in.submit')" type="submit" class="w-full">
         {{ t("forms.sign-in.submit") }}
       </Button>
       <Button variant="outline" class="w-full">

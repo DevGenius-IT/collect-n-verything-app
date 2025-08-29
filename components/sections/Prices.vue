@@ -2,9 +2,9 @@
   <section id="prices" class="flex flex-col items-center w-full mt-5 scroll-mt-[84px] space-y-8 md:space-y-12">
     <div class="grid gap-4 text-center">
       <h1 class="text-3xl font-bold">{{ t("sections.prices.title") }}</h1>
-      <p class="text-balance text-muted-foreground">
+      <h2 class="text-balance text-muted-foreground">
         {{ t("sections.prices.description") }}
-      </p>
+      </h2>
     </div>
     <div class="w-full">
       <div v-if="isPending" class="flex justify-center items-center p-8">
@@ -52,7 +52,7 @@
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <h2 class="font-semibold">{{ t("sections.prices.card.body.title") }}</h2>
+            <h4 class="font-semibold">{{ t("sections.prices.card.body.title") }}</h4>
             <ul class="text-sm mt-3 space-y-1">
               <li
                 v-for="feature in locale !== 'fr' ? product.metadata.enDescription.split('|') : product.description.split('|')">
@@ -64,7 +64,8 @@
             </ul>
           </CardContent>
           <CardFooter>
-            <Button 
+            <Button
+              :aria-label="t('sections.prices.card.body.btn')"
               :variant="product.metadata.order === '2' ? 'default' : 'secondary'"
               @click="navigateToCheckout(getSortedPrices(product.prices)[0].id)"
             >

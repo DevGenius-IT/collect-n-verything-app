@@ -41,7 +41,7 @@
             <ColorMode/>
             <DropdownMenu>
               <DropdownMenuTrigger as-child>
-                <Button variant="secondary" size="icon" class="rounded-full">
+                <Button :aria-label="t('components.navbar.toggle-user-menu')" variant="secondary" size="icon" class="rounded-full">
                   <CircleUser class="h-5 w-5"/>
                   <span class="sr-only">{{
                       t("components.navbar.toggle-user-menu")
@@ -70,7 +70,7 @@
             <LocaleSwitcher/>
             <ColorMode/>
           </div>
-          <button class="text-gray-700 dark:text-gray-300" @click="toggleMobileMenu">
+          <button aria-label="menu" class="text-gray-700 dark:text-gray-300" @click="toggleMobileMenu">
             <Icon name="Menu" class="h-7 w-7"/>
           </button>
         </div>

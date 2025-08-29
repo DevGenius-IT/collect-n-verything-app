@@ -142,7 +142,7 @@
           <FormMessage />
         </FormItem>
       </FormField>
-      <Button type="submit" class="w-full">
+      <Button :aria-label="t('forms.sign-up.submit')" type="submit" class="w-full">
         {{ t("forms.sign-up.submit") }}
       </Button>
       <Button variant="outline" class="w-full">

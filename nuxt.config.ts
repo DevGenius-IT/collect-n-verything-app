@@ -66,4 +66,15 @@ export default defineNuxtConfig({
      */
     componentDir: "./components/ui",
   },
+  nitro: {
+    compressPublicAssets: true,
+  },
+  ssr: true,
+  vite: {
+    build: {
+      rollupOptions: {
+        treeshake: true
+      }
+    }
+  }
 });

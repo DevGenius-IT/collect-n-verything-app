@@ -69,7 +69,7 @@
           <FormMessage/>
         </FormItem>
       </FormField>
-      <Button type="submit" class="md:ml-5 mt-2 md:mt-0 md:mb-2">
+      <Button :aria-label="t('forms.update-password.submit')" type="submit" class="md:ml-5 mt-2 md:mt-0 md:mb-2">
         {{ t("forms.update-password.submit") }}
       </Button>
     </div>

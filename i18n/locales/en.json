@@ -1,6 +1,9 @@
 {
   "app": {
-    "title": "Collect & Verything"
+    "title": "Collect & Verything",
+    "meta": {
+      "description": "Discover Collect & Verything to easily create and manage your online shop."
+    }
   },
   "sections": {
     "service": {
@@ -10,7 +13,8 @@
       "btn": {
         "primary": "Get started",
         "secondary": "Overview of features"
-      }
+      },
+      "img-alt": "Overview of the administration dashboard for an e-commerce site"
     },
     "prices": {
       "name": "Prices",

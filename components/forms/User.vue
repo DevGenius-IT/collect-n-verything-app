@@ -89,7 +89,7 @@
       </FormField>
     </div>
 
-    <Button type="submit" class="mt-8">
+    <Button :aria-label=" id ? t('forms.actions.update') : t('forms.actions.add')" type="submit" class="mt-8">
       {{ id ? t('forms.actions.update') : t('forms.actions.add') }}
     </Button>
   </form>

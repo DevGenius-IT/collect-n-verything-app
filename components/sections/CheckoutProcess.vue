@@ -30,6 +30,7 @@
             :disabled="isProcessing"
             @click="createCheckoutSession"
             class="w-full"
+            :aria-label="t('checkout.proceed')"
           >
             <span v-if="isProcessing" class="mr-2">
               <span class="animate-spin inline-block h-4 w-4 border-b-2 border-white rounded-full"></span>

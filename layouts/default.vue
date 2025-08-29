@@ -19,11 +19,17 @@ const title = computed(() => t((route.meta.title as string) ?? "app.title"));
 
 useHead({
   title,
-  meta: head.value.meta,
+  meta: [
+    ...head.value.meta,
+    {
+      name: "description",
+      content: t("app.meta.description"),
+    },
+  ],
   link: head.value.link,
   htmlAttrs: {
     lang: head.value.htmlAttrs?.lang,
-    dir: head.value.htmlAttrs?.dir,
+    dir: (head.value.htmlAttrs?.dir as "ltr" | "rtl" | "auto") ?? "ltr",
   },
 });
 </script>
