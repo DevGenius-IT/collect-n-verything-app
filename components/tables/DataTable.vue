@@ -206,7 +206,7 @@
           <SheetDescription/>
         </SheetHeader>
 
-        <UserForm v-if="apiPath === 'users'" :id="selectedId"
+        <UserForm v-if="apiPath === 'users'" :id="selectedId" :is-for-admin="true"
                   @submitted="() => {
                     refetch();
                     closeSheet();

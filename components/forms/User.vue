@@ -69,7 +69,7 @@
         </FormItem>
       </FormField>
 
-      <FormField v-slot="{ componentField }" name="password">
+      <FormField v-if="isForAdmin" v-slot="{ componentField }" name="password">
         <FormItem>
           <FormLabel for="password">
             {{ t("forms.user.fields.password.label") }}
@@ -106,7 +106,7 @@ import {toast} from "~/components/ui/toast";
 import {FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "~/components/ui/form";
 import {Input} from "~/components/ui/input";
 
-const {id} = defineProps<{ id: number | null }>();
+const {id, isForAdmin} = defineProps<{ id: number | null, isForAdmin: boolean }>();
 const emit = defineEmits(['submitted']);
 const {t} = useI18n();
 const auth = authStore();

@@ -86,12 +86,8 @@ watch(
           value: newData.phone_number ?? '',
         },
         {
-          label: t("components.details.user.has-newsletter"),
-          value: newData.has_newsletter ? t("dichotomous-answers.yes") : t("dichotomous-answers.no"),
-        },
-        {
-          label: t("components.details.user.roles"),
-          value: Object.keys(newData.roles ?? []).map(role => role.split('.').pop()),
+          label: t("components.details.user.role"),
+          value: newData.type,
         }
       ];
     }

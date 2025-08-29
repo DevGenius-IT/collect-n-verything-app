@@ -37,6 +37,8 @@
   },
   "account": {
     "title": "My account",
+    "myInfo": "My personal details",
+    "passwordUpdate": "Password modification",
     "seo": {
       "title": "My account"
     }
@@ -152,6 +154,29 @@
       "already-have-account": "Already have an account?",
       "login-here": "Login here"
     },
+    "update-password": {
+      "fields": {
+        "password": {
+          "error": "The password must contain at least 6 characters, including an uppercase and a lowercase letter, a number and a special character."
+        },
+        "old-password": {
+          "label": "Old password",
+          "placeholder": "Enter your old password"
+        },
+        "new-password": {
+          "label": "New password",
+          "placeholder": "Enter your password"
+        },
+        "password-confirmation": {
+          "label": "Confirm new password",
+          "placeholder": "Confirm your new password",
+          "error": "Passwords must match"
+        }
+      },
+      "success": "Password successfully updated.",
+      "error": "Incorrect old password, please try again.",
+      "submit": "Update"
+    },
     "actions": {
       "add": "Add",
       "update": "Update"
@@ -259,8 +284,7 @@
         "lastname": "Lastname",
         "username": "Username",
         "email": "Email",
-        "phone_number": "Phone number",
-        "has_newsletter": "Newsletter"
+        "phone_number": "Phone number"
       },
       "filters": {
         "filter": "Filter",
@@ -284,8 +308,7 @@
         "username": "Username",
         "email": "Email",
         "phone-number": "Phone number",
-        "has-newsletter": "Newsletter subscriber",
-        "roles": "Roles"
+        "role": "Role"
       }
     },
     "delete-confirmation-dialog": {

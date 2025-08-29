@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import type { User } from '~/types/models';
 import type { AuthStore } from '~/types/stores';
 import { localStorageIsAvailable } from '~/utils/client';
+import type { CreateUserDto } from "~/types/dto";
 
 const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
 
@@ -60,7 +61,7 @@ export const authStore = defineStore(
       }
     }
 
-    const signUp = async (user: User, redirect: boolean) => {
+    const signUp = async (user: CreateUserDto, redirect: boolean) => {
       const url = `${apiUrl}/auth/signup`;
 
       try {

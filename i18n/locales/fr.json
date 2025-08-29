@@ -37,6 +37,8 @@
   },
   "account": {
     "title": "Mon compte",
+    "myInfo": "Mes informations personnelles",
+    "passwordUpdate": "Modification du mot de passe",
     "seo": {
       "title": "Mon compte"
     }
@@ -152,6 +154,29 @@
       "already-have-account": "Vous avez déjà un compte?",
       "login-here": "Connectez-vous ici"
     },
+    "update-password": {
+      "fields": {
+        "password": {
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
+        },
+        "old-password": {
+          "label": "Ancien mot de passe",
+          "placeholder": "Entrez votre mot de passe"
+        },
+        "new-password": {
+          "label": "Nouveau mot de passe",
+          "placeholder": "Entrez votre nouveau mot de passe"
+        },
+        "password-confirmation": {
+          "label": "Confirmer le nouveau mot de passe",
+          "placeholder": "Confirmez votre nouveau mot de passe",
+          "error": "Les mots de passe doivent correspondre"
+        }
+      },
+      "success": "Mot de passe mis à jour avec succès.",
+      "error": "Ancien mot de passe incorrect, veuillez réessayer.",
+      "submit": "Modifier"
+    },
     "actions": {
       "add": "Créer",
       "update": "Mettre à jour"
@@ -258,8 +283,7 @@
         "lastname": "Nom",
         "username": "Nom d'utilisateur",
         "email": "Email",
-        "phone_number": "N° Téléphone",
-        "has_newsletter": "Newsletter"
+        "phone_number": "N° Téléphone"
       },
       "filters": {
         "filter": "Filtrer",
@@ -283,8 +307,7 @@
         "username": "Nom d'utilisateur",
         "email": "Email",
         "phone-number": "N° Téléphone",
-        "has-newsletter": "Abonné à la newsletter",
-        "roles": "Roles"
+        "role": "Role"
       }
     },
     "delete-confirmation-dialog": {
