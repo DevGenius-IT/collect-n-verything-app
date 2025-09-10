@@ -33,14 +33,14 @@
                 >
                   <div v-if="price.recurring?.interval === 'month'" class="text-base">
                     <span class="font-semibold">
-                      {{ formatPrice(price.unit_amount, price.currency) }}
+                      {{ formatPrice(price.unit_amount, locale, price.currency) }}
                     </span>
                     {{ t("sections.prices.card.header.per-month") }}
                   </div>
                   <div v-else>
                     {{ t("sections.prices.card.header.or") }}
                     <span class="font-semibold">
-                      {{ formatPrice(price.unit_amount, price.currency) }}
+                      {{ formatPrice(price.unit_amount, locale, price.currency) }}
                     </span>
                     {{ t("sections.prices.card.header.per-year") }}
                     <span class="font-semibold text-primary">
@@ -83,6 +83,7 @@ import {useQuery} from "@tanstack/vue-query";
 import {Button} from "@/components/ui/button";
 import type {ProductPagination} from "~/types/constants";
 import type {Price} from "~/types/models";
+import {formatPrice} from "~/utils/format";
 
 const {t, locale} = useI18n();
 const router = useRouter();
@@ -123,14 +124,6 @@ const getSortedPrices = (prices: Price[]): Price[] => {
 
     return 0;
   });
-};
-
-const formatPrice = (amount: number, currency: string): string => {
-  const price = amount / 100;
-  return new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
-    currency: currency.toUpperCase(),
-  }).format(price);
 };
 
 const navigateToCheckout = (priceId: string) => {

@@ -301,6 +301,9 @@
       "sheet": {
         "title": "Détails"
       },
+      "product": {
+        "not-found": "Abonnement introuvable."
+      },
       "dates": {
         "format": "DD/MM/YYYY à HH:mm",
         "created-at": "Crée le",
@@ -312,6 +315,28 @@
         "email": "Email",
         "phone-number": "N° Téléphone",
         "role": "Role"
+      },
+      "subscription": {
+        "title": "Mon abonnement",
+        "description": "Informations sur votre abonnement",
+        "amount": "Montant :",
+        "period": {
+          "title": "Période :",
+          "separator": "au"
+        },
+        "status": {
+          "title": "Statut :",
+          "values": {
+            "active": "Actif",
+            "incomplete": "Incomplet",
+            "incomplete_expired": "Paiement expiré",
+            "trialing": "Période d’essai",
+            "past_due": "Paiement en retard",
+            "unpaid": "Impayé",
+            "canceled": "Annulé"
+          }
+        },
+        "download-invoice": "Télécharger la facture"
       }
     },
     "delete-confirmation-dialog": {

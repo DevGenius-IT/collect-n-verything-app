@@ -302,6 +302,9 @@
       "sheet": {
         "title": "Details"
       },
+      "product": {
+        "not-found": "Subscription not found."
+      },
       "dates": {
         "format": "YYYY-MM-DD at HH:mm",
         "created-at": "Created on",
@@ -313,6 +316,28 @@
         "email": "Email",
         "phone-number": "Phone number",
         "role": "Role"
+      },
+      "subscription": {
+        "title": "My subscription",
+        "description": "Subscription details",
+        "amount": "Amount:",
+        "period": {
+          "title": "Period:",
+          "separator": "to"
+        },
+        "status": {
+          "title": "Status:",
+          "values": {
+            "active": "Active",
+            "incomplete": "Incomplete",
+            "incomplete_expired": "Payment expired",
+            "trialing": "Trialing",
+            "past_due": "Past due",
+            "unpaid": "Unpaid",
+            "canceled": "Canceled"
+          }
+        },
+        "download-invoice": "Download the invoice"
       }
     },
     "delete-confirmation-dialog": {

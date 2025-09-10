@@ -2,8 +2,8 @@
   <div class="flex flex-col gap-5 md:gap-8">
     <div class="flex w-full justify-between gap-5 md:gap-8 flex-col md:flex-row">
       <Card class="w-full md:max-w-[480px]">
-        <CardHeader class="text-xl">
-          {{ t("account.myInfo") }}
+        <CardHeader>
+          <CardTitle>{{ t("account.myInfo") }}</CardTitle>
         </CardHeader>
         <CardContent>
           <div v-if="isPending" class="space-y-5">
@@ -17,15 +17,11 @@
           <div v-else-if="isError" class="text-red-500">{{ t("components.fetch-error") }}</div>
         </CardContent>
       </Card>
-      <Card class="w-full">
-        <CardHeader class="text-xl">
-          {{ t("account.myInfo") }}
-        </CardHeader>
-      </Card>
+      <SubscriptionDetails/>
     </div>
     <Card class="w-full">
-      <CardHeader class="text-xl">
-        {{ t("account.passwordUpdate") }}
+      <CardHeader>
+        <CardTitle>{{ t("account.passwordUpdate") }}</CardTitle>
       </CardHeader>
       <CardContent>
         <UpdatePassword/>
@@ -38,6 +34,7 @@
 import {useQuery} from "@tanstack/vue-query";
 import type {User} from "~/types/models";
 import {UpdatePassword, UserForm} from "~/components/forms";
+import {SubscriptionDetails} from "~/components/details";
 
 const {t} = useI18n();
 const {id} = defineProps<{ id: number }>();
