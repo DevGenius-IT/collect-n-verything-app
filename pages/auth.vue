@@ -1,12 +1,12 @@
 <template>
   <div
-    class="w-full lg:grid h-screen lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]"
+    class="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]"
   >
     <Tabs
       :model-value="tab"
       @update:model-value="changeTab"
       default-value="login"
-      class="mx-auto my-auto grid sm:w-[450px] gap-6 h-fit p-4"
+      class="mx-auto grid sm:w-[450px] gap-6 h-fit p-4"
     >
       <TabsList class="grid w-full grid-cols-2 h-fit">
         <TabsTrigger value="login">{{ t("auth.tabs.login") }}</TabsTrigger>
@@ -17,13 +17,13 @@
       <SignIn :changeTab/>
       <SignUp :changeTab/>
     </Tabs>
-    <div class="hidden lg:block bg-muted">
+    <div class="hidden lg:block p-4">
       <img
-        src="/placeholder.svg"
-        alt="Placeholder"
+        src="/login.avif"
+        alt="Authentification background"
         width="1920"
         height="1080"
-        class="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+        class="w-full object-contain dark:brightness-[0.7]"
       />
     </div>
   </div>
