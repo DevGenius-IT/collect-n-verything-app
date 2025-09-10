@@ -55,6 +55,13 @@
       "seo": {
         "title": "Paiement réussi"
       }
+    },
+    "cancel": {
+      "title": "Paiement échoué",
+      "description": "Le paiement n’a pas pu être finalisé. Cela peut être dû à une carte refusée, une erreur technique ou une annulation volontaire. Veuillez vérifier vos informations de paiement ou réessayer ultérieurement. Si le problème persiste, n’hésitez pas à contacter notre support.",
+      "seo": {
+        "title": "Paiement échoué"
+      }
     }
   },
   "dashboard": {

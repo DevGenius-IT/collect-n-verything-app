@@ -55,6 +55,13 @@
       "seo": {
         "title": "Payment successful"
       }
+    },
+    "cancel": {
+      "title": "Payment failed",
+      "description": "The payment could not be completed. This may be due to a declined card, a technical error, or a voluntary cancellation. Please check your payment details or try again later. If the problem persists, please do not hesitate to contact our support team.",
+      "seo": {
+        "title": "Payment failed"
+      }
     }
   },
   "dashboard": {
