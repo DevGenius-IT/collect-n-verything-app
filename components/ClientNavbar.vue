@@ -41,7 +41,7 @@
             <ColorMode/>
             <DropdownMenu>
               <DropdownMenuTrigger as-child>
-                <Button variant="secondary" size="icon" class="rounded-full">
+                <Button :aria-label="t('components.navbar.toggle-user-menu')" variant="secondary" size="icon" class="rounded-full">
                   <CircleUser class="h-5 w-5"/>
                   <span class="sr-only">{{
                       t("components.navbar.toggle-user-menu")
@@ -51,11 +51,11 @@
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>{{ auth.getFullName() }}</DropdownMenuLabel>
                 <DropdownMenuSeparator/>
-                <DropdownMenuItem>{{
-                    t("components.navbar.settings")
-                  }}
+                <DropdownMenuItem>
+                  <NuxtLink :to="localePath('account')">
+                    {{ t("components.navbar.my-account") }}
+                  </NuxtLink>
                 </DropdownMenuItem>
-                <DropdownMenuItem>{{ t("components.navbar.help") }}</DropdownMenuItem>
                 <DropdownMenuSeparator/>
                 <DropdownMenuItem class="cursor-pointer" @click="auth.signOut">{{
                     t("components.navbar.logout")
@@ -70,35 +70,41 @@
             <LocaleSwitcher/>
             <ColorMode/>
           </div>
-          <button class="text-gray-700 dark:text-gray-300" @click="toggleMobileMenu">
+          <button aria-label="menu" class="text-gray-700 dark:text-gray-300" @click="toggleMobileMenu">
             <Icon name="Menu" class="h-7 w-7"/>
           </button>
         </div>
       </nav>
 
       <div v-if="mobileMenuOpen" class="lg:hidden py-4 space-y-3">
-        <NuxtLink :to="localePath('/#service')"
+        <NuxtLink :to="localePath('/#service')" @click="toggleMobileMenu"
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.service.name") }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/#prices')"
+        <NuxtLink :to="localePath('/#prices')" @click="toggleMobileMenu"
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.prices.name") }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/#contact')"
+        <NuxtLink :to="localePath('/#contact')" @click="toggleMobileMenu"
                   class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
           {{ t("sections.contact.name") }}
         </NuxtLink>
-        <NuxtLink v-if="auth.state.user" to="#"
-                  class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
-          {{ t("account.title") }}
-        </NuxtLink>
+        <div v-if="auth.state.user" class="space-y-3">
+          <NuxtLink :to="localePath('account')" @click="toggleMobileMenu"
+                    class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+            {{ t("components.navbar.my-account") }}
+          </NuxtLink>
+          <span @click="auth.signOut();toggleMobileMenu()"
+                class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
+            {{ t("components.navbar.logout") }}
+          </span>
+        </div>
         <div v-else class="space-y-3">
-          <NuxtLink :to="localePath({name: 'auth', query: {tab: 'login'}})"
+          <NuxtLink :to="localePath({name: 'auth', query: {tab: 'login'}})" @click="toggleMobileMenu"
                     class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-orange-400 py-2 transition-colors">
             {{ t("auth.tabs.login") }}
           </NuxtLink>
-          <NuxtLink :to="localePath({name: 'auth', query: {tab: 'register'}})"
+          <NuxtLink :to="localePath({name: 'auth', query: {tab: 'register'}})" @click="toggleMobileMenu"
                     class="block bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-600 text-center mt-4 transition-colors">
             {{ t("auth.tabs.register") }}
           </NuxtLink>

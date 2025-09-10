@@ -20,7 +20,8 @@
       <ColorMode/>
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
-          <Button variant="secondary" size="icon" class="rounded-full">
+          <Button :aria-label="t('components.navbar.toggle-user-menu')" variant="secondary" size="icon"
+                  class="rounded-full">
             <CircleUser class="h-5 w-5"/>
             <span class="sr-only">{{
                 t("components.navbar.toggle-user-menu")
@@ -31,11 +32,11 @@
           <DropdownMenuLabel>{{ fullName }}</DropdownMenuLabel>
           <DropdownMenuLabel>{{ auth.state.user?.email }}</DropdownMenuLabel>
           <DropdownMenuSeparator/>
-          <DropdownMenuItem>{{
-              t("components.navbar.settings")
-            }}
+          <DropdownMenuItem>
+            <NuxtLink :to="localePath('account')">
+              {{ t("components.navbar.my-account") }}
+            </NuxtLink>
           </DropdownMenuItem>
-          <DropdownMenuItem>{{ t("components.navbar.help") }}</DropdownMenuItem>
           <DropdownMenuSeparator/>
           <DropdownMenuItem class="cursor-pointer" @click="auth.signOut">{{
               t("components.navbar.logout")
@@ -54,6 +55,7 @@ import {Separator} from "./ui/separator";
 
 const {t} = useI18n();
 const auth = authStore();
+const localePath = useLocalePath();
 
 const fullName = computed(
   () => `${auth.state.user?.firstname} ${auth.state.user?.lastname}`,

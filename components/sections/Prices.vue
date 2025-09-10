@@ -2,9 +2,9 @@
   <section id="prices" class="flex flex-col items-center w-full mt-5 scroll-mt-[84px] space-y-8 md:space-y-12">
     <div class="grid gap-4 text-center">
       <h1 class="text-3xl font-bold">{{ t("sections.prices.title") }}</h1>
-      <p class="text-balance text-muted-foreground">
+      <h2 class="text-balance text-muted-foreground">
         {{ t("sections.prices.description") }}
-      </p>
+      </h2>
     </div>
     <div class="w-full">
       <div v-if="isPending" class="flex justify-center items-center p-8">
@@ -33,14 +33,14 @@
                 >
                   <div v-if="price.recurring?.interval === 'month'" class="text-base">
                     <span class="font-semibold">
-                      {{ formatPrice(price.unit_amount, price.currency) }}
+                      {{ formatPrice(price.unit_amount, locale, price.currency) }}
                     </span>
                     {{ t("sections.prices.card.header.per-month") }}
                   </div>
                   <div v-else>
                     {{ t("sections.prices.card.header.or") }}
                     <span class="font-semibold">
-                      {{ formatPrice(price.unit_amount, price.currency) }}
+                      {{ formatPrice(price.unit_amount, locale, price.currency) }}
                     </span>
                     {{ t("sections.prices.card.header.per-year") }}
                     <span class="font-semibold text-primary">
@@ -52,7 +52,7 @@
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <h2 class="font-semibold">{{ t("sections.prices.card.body.title") }}</h2>
+            <h4 class="font-semibold">{{ t("sections.prices.card.body.title") }}</h4>
             <ul class="text-sm mt-3 space-y-1">
               <li
                 v-for="feature in locale !== 'fr' ? product.metadata.enDescription.split('|') : product.description.split('|')">
@@ -64,7 +64,11 @@
             </ul>
           </CardContent>
           <CardFooter>
-            <Button :variant="product.metadata.order === '2' ? 'default' : 'secondary'">
+            <Button
+              :aria-label="t('sections.prices.card.body.btn')"
+              :variant="product.metadata.order === '2' ? 'default' : 'secondary'"
+              @click="navigateToCheckout(getSortedPrices(product.prices)[0].id)"
+            >
               {{ t("sections.prices.card.body.btn") }}
             </Button>
           </CardFooter>
@@ -79,8 +83,11 @@ import {useQuery} from "@tanstack/vue-query";
 import {Button} from "@/components/ui/button";
 import type {ProductPagination} from "~/types/constants";
 import type {Price} from "~/types/models";
+import {formatPrice} from "~/utils/format";
 
 const {t, locale} = useI18n();
+const router = useRouter();
+const localePath = useLocalePath();
 const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
 
 const {isPending, isError, data} = useQuery({
@@ -119,11 +126,10 @@ const getSortedPrices = (prices: Price[]): Price[] => {
   });
 };
 
-const formatPrice = (amount: number, currency: string): string => {
-  const price = amount / 100;
-  return new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
-    currency: currency.toUpperCase(),
-  }).format(price);
+const navigateToCheckout = (priceId: string) => {
+  router.push(localePath({
+    path: '/checkout',
+    query: { price_id: priceId }
+  }));
 };
 </script>

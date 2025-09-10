@@ -1,7 +1,7 @@
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="secondary" size="icon" class="rounded-full">
+      <Button :aria-label="t('components.color-mode.toggle-theme')" variant="secondary" size="icon" class="rounded-full">
         <Moon
           class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
         />

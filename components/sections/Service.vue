@@ -5,11 +5,14 @@
       {{ t("sections.service.description") }}
     </h3>
     <div class="flex items-center gap-x-4 flex-wrap gap-y-2">
-      <Button>{{ t("sections.service.btn.primary") }}</Button>
-      <Button variant="secondary">{{ t("sections.service.btn.secondary") }}</Button>
+      <Button :aria-label="t('sections.service.btn.primary')">{{ t("sections.service.btn.primary") }}</Button>
+      <Button :aria-label="t('sections.service.btn.secondary')" variant="secondary">
+        {{ t("sections.service.btn.secondary") }}
+      </Button>
     </div>
     <div class="w-full mt-5 mb-10 sm:mb-14 md:mb-16 lg:mb-24">
-      <NuxtImg src="/dashboard.png" class="ml-5 w-11/12 -rotate-3 sm:-rotate-6 shadow-xl dark:shadow-neutral-700"/>
+      <NuxtImg src="/dashboard.png" :alt="t('sections.service.img-alt')"
+               class="ml-5 w-11/12 -rotate-3 sm:-rotate-6 shadow-xl dark:shadow-neutral-700"/>
     </div>
   </section>
 </template>

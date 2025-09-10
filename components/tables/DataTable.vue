@@ -13,10 +13,11 @@
             <div class="flex items-center justify-end gap-2 mb-2 flex-wrap">
               <DropdownMenu>
                 <DropdownMenuTrigger as-child>
-                  <Button variant="outline" size="sm" class="h-7 gap-1">
+                  <Button :aria-label="t('components.data-table.filters.filter')" variant="outline" size="sm"
+                          class="h-7 gap-1">
                     <Icon name="ListFilter" class="h-3.5 w-3.5"/>
                     <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                      {{ t(`components.data-table.filters.filter`) }}
+                      {{ t("components.data-table.filters.filter") }}
                     </span>
                   </Button>
                 </DropdownMenuTrigger>
@@ -43,13 +44,15 @@
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Button @click="exportAllToExcel" :disabled="isLoadingExport" size="sm" variant="outline" class="h-7 gap-1">
+              <Button :aria-label="t(`components.data-table.export`)" @click="exportAllToExcel"
+                      :disabled="isLoadingExport" size="sm" variant="outline" class="h-7 gap-1">
                 <Icon name="File" class="h-3.5 w-3.5"/>
                 <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
                   {{ t(`components.data-table.export`) }}
                 </span>
               </Button>
-              <Button @click="openUpdateOrCreateSheet(null)" size="sm" class="h-7 gap-1">
+              <Button :aria-label="t(`components.data-table.${apiPath}.add-title`)"
+                      @click="openUpdateOrCreateSheet(null)" size="sm" class="h-7 gap-1">
                 <Icon name="PlusCircle" class="h-3.5 w-3.5"/>
                 <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
                   {{ t(`components.data-table.${apiPath}.add-title`) }}
@@ -177,7 +180,8 @@
 
               <template v-for="(item, index) in items">
                 <PaginationListItem v-if="item.type === 'page'" :key="index" :value="item.value" as-child>
-                  <Button class="w-10 h-10 p-0" :variant="item.value === page ? 'default' : 'outline'">
+                  <Button :aria-label="item.value" class="w-10 h-10 p-0"
+                          :variant="item.value === page ? 'default' : 'outline'">
                     {{ item.value }}
                   </Button>
                 </PaginationListItem>
@@ -206,7 +210,7 @@
           <SheetDescription/>
         </SheetHeader>
 
-        <UserForm v-if="apiPath === 'users'" :id="selectedId"
+        <UserForm v-if="apiPath === 'users'" :id="selectedId" :is-for-admin="true"
                   @submitted="() => {
                     refetch();
                     closeSheet();

@@ -1,6 +1,9 @@
 {
   "app": {
-    "title": "Collect & Verything"
+    "title": "Collect & Verything",
+    "meta": {
+      "description": "Découvrez Collect & Verything pour créer et gérer votre boutique en ligne facilement."
+    }
   },
   "sections": {
     "service": {
@@ -10,7 +13,8 @@
       "btn": {
         "primary": "Commencer",
         "secondary": "Présentation des fonctionnalités"
-      }
+      },
+      "img-alt": "Aperçu du dashboard d'administration d'un site e-commerce"
     },
     "prices": {
       "name": "Tarifs",
@@ -36,7 +40,29 @@
     }
   },
   "account": {
-    "title": "Mon compte"
+    "title": "Mon compte",
+    "myInfo": "Mes informations personnelles",
+    "passwordUpdate": "Modification du mot de passe",
+    "seo": {
+      "title": "Mon compte"
+    }
+  },
+  "session": {
+    "success": {
+      "title": "Paiement effectué – Bienvenue à bord !",
+      "description": "Votre abonnement est désormais actif ! Vous pouvez accéder à votre compte et commencer à créer votre site e-commerce en cliquant",
+      "descriptionLink": "ici",
+      "seo": {
+        "title": "Paiement réussi"
+      }
+    },
+    "cancel": {
+      "title": "Paiement échoué",
+      "description": "Le paiement n’a pas pu être finalisé. Cela peut être dû à une carte refusée, une erreur technique ou une annulation volontaire. Veuillez vérifier vos informations de paiement ou réessayer ultérieurement. Si le problème persiste, n’hésitez pas à contacter notre support.",
+      "seo": {
+        "title": "Paiement échoué"
+      }
+    }
   },
   "dashboard": {
     "title": "Tableau de bord",
@@ -139,6 +165,29 @@
       "already-have-account": "Vous avez déjà un compte?",
       "login-here": "Connectez-vous ici"
     },
+    "update-password": {
+      "fields": {
+        "password": {
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
+        },
+        "old-password": {
+          "label": "Ancien mot de passe",
+          "placeholder": "Entrez votre mot de passe"
+        },
+        "new-password": {
+          "label": "Nouveau mot de passe",
+          "placeholder": "Entrez votre nouveau mot de passe"
+        },
+        "password-confirmation": {
+          "label": "Confirmer le nouveau mot de passe",
+          "placeholder": "Confirmez votre nouveau mot de passe",
+          "error": "Les mots de passe doivent correspondre"
+        }
+      },
+      "success": "Mot de passe mis à jour avec succès.",
+      "error": "Ancien mot de passe incorrect, veuillez réessayer.",
+      "submit": "Modifier"
+    },
     "actions": {
       "add": "Créer",
       "update": "Mettre à jour"
@@ -217,8 +266,7 @@
     "navbar": {
       "toggle-menu": "Basculer le menu",
       "toggle-user-menu": "Basculer le menu utilisateur",
-      "settings": "Paramètres",
-      "help": "Aide",
+      "my-account": "Mon compte",
       "logout": "Se déconnecter",
       "search-placeholder": "Rechercher..."
     },
@@ -246,8 +294,7 @@
         "lastname": "Nom",
         "username": "Nom d'utilisateur",
         "email": "Email",
-        "phone_number": "N° Téléphone",
-        "has_newsletter": "Newsletter"
+        "phone_number": "N° Téléphone"
       },
       "filters": {
         "filter": "Filtrer",
@@ -261,6 +308,9 @@
       "sheet": {
         "title": "Détails"
       },
+      "product": {
+        "not-found": "Abonnement introuvable."
+      },
       "dates": {
         "format": "DD/MM/YYYY à HH:mm",
         "created-at": "Crée le",
@@ -271,8 +321,29 @@
         "username": "Nom d'utilisateur",
         "email": "Email",
         "phone-number": "N° Téléphone",
-        "has-newsletter": "Abonné à la newsletter",
-        "roles": "Roles"
+        "role": "Role"
+      },
+      "subscription": {
+        "title": "Mon abonnement",
+        "description": "Informations sur votre abonnement",
+        "amount": "Montant :",
+        "period": {
+          "title": "Période :",
+          "separator": "au"
+        },
+        "status": {
+          "title": "Statut :",
+          "values": {
+            "active": "Actif",
+            "incomplete": "Incomplet",
+            "incomplete_expired": "Paiement expiré",
+            "trialing": "Période d’essai",
+            "past_due": "Paiement en retard",
+            "unpaid": "Impayé",
+            "canceled": "Annulé"
+          }
+        },
+        "download-invoice": "Télécharger la facture"
       }
     },
     "delete-confirmation-dialog": {
@@ -286,5 +357,20 @@
     "locale-switcher": {
       "toggle-locale": "Changer de langue"
     }
+  },
+  "checkout": {
+    "title": "Paiement",
+    "seo": {
+      "title": "Paiement"
+    },
+    "order-summary": "Récapitulatif de commande",
+    "price": "Prix",
+    "billing-period": "Période de facturation",
+    "total": "Total dû aujourd'hui",
+    "tax-info": "TVA incluse si applicable",
+    "interval-month": "Mensuelle",
+    "interval-year": "Annuelle",
+    "logged-in-as": "Connecté en tant que",
+    "proceed": "Continuer"
   }
 }

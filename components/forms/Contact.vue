@@ -5,7 +5,7 @@
         <FormLabel for="subject">{{ t("forms.contact.fields.subject.label") }}</FormLabel>
         <FormControl>
           <Select id="subject" v-bind="componentField">
-            <SelectTrigger>
+            <SelectTrigger :aria-label="t('forms.contact.fields.subject.placeholder')">
               <SelectValue :placeholder="t('forms.contact.fields.subject.placeholder')"/>
             </SelectTrigger>
             <SelectContent>
@@ -58,7 +58,7 @@
         <FormMessage/>
       </FormItem>
     </FormField>
-    <Button type="submit" variant="secondary" class="w-fit">
+    <Button :aria-label="t('forms.contact.submit')" type="submit" variant="secondary" class="w-fit">
       {{ t("forms.contact.submit") }}
     </Button>
   </form>

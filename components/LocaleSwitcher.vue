@@ -1,7 +1,8 @@
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="secondary" size="icon" class="rounded-full">
+      <Button :aria-label="t('components.locale-switcher.toggle-locale')" variant="secondary" size="icon"
+              class="rounded-full">
         <Globe class="h-[1.2rem] w-[1.2rem]"/>
         <span class="sr-only">{{ t("components.locale-switcher.toggle-locale") }}</span>
       </Button>
