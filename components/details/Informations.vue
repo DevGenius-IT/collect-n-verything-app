@@ -1,6 +1,6 @@
 <template>
   <Sheet :open="isOpen" @update:open="onClose">
-    <SheetContent class="w-full sm:min-w-[480px] max-h-screen overflow-y-auto" aria-description="test">
+    <SheetContent class="w-full sm:min-w-[480px] max-h-screen overflow-y-auto" aria-description="Details">
       <SheetHeader class="mb-5">
         <SheetTitle>{{ t('components.details.sheet.title') }}</SheetTitle>
         <SheetDescription />
