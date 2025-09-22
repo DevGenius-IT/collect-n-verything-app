@@ -85,6 +85,8 @@ import {
 import { toast } from "@/components/ui/toast";
 import type { SignInProps } from "@/types/components/props";
 import { vAutoAnimate } from "@formkit/auto-animate/vue";
+import { useI18n } from 'vue-i18n';
+import { authStore } from '@/stores/AuthStore';
 
 import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
