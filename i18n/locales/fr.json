@@ -327,6 +327,8 @@
         "title": "Mon abonnement",
         "description": "Informations sur votre abonnement",
         "amount": "Montant :",
+        "no-subscription": "Vous n’avez pas encore d’abonnement actif.",
+        "discover-our-offers": "Découvrez nos offres et commencez dès aujourd’hui !",
         "period": {
           "title": "Période :",
           "separator": "au"

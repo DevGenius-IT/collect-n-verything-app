@@ -328,6 +328,8 @@
         "title": "My subscription",
         "description": "Subscription details",
         "amount": "Amount:",
+        "no-subscription": "You do not yet have an active subscription.",
+        "discover-our-offers": "Discover our offers and get started today!",
         "period": {
           "title": "Period:",
           "separator": "to"

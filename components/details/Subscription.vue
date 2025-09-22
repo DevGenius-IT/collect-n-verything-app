@@ -67,6 +67,19 @@
       </Card>
     </CardContent>
 
+    <CardContent v-else-if="noSubscription">
+      <div class="text-gray-700 dark:text-gray-300">
+        <p>
+          {{ t("components.details.subscription.no-subscription") }}
+        </p>
+        <p class="mt-1 text-lg">
+          <NuxtLink :to="localePath('/#prices')" class="text-primary hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            {{ t("components.details.subscription.discover-our-offers") }}
+          </NuxtLink>
+        </p>
+      </div>
+    </CardContent>
+
     <CardContent v-else-if="isError" class="text-red-500">
       {{ t("components.fetch-error") }}
     </CardContent>
@@ -74,29 +87,43 @@
 </template>
 
 <script setup lang="ts">
-import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import {useQuery} from "@tanstack/vue-query";
 import type {InvoiceResponse, SubscriptionResponse} from "~/types/constants";
 import {useDateFormat} from "@vueuse/core";
 import {ProductDetails} from "~/components/details/index";
+import {authStore} from "~/stores/AuthStore";
+import {useI18n} from "vue-i18n";
+import {useLocalePath} from "#i18n";
 
 const {t, locale} = useI18n();
 const auth = authStore();
+const localePath = useLocalePath();
 const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
-let isDownloading = ref(false);
+const isDownloading = ref(false);
+const noSubscription = ref(false)
 
-const {isPending, isError, data} = useQuery<SubscriptionResponse>({
+const {isPending, isError, data} = useQuery<SubscriptionResponse | null, Error>({
   queryKey: ['subscriptions'],
-  queryFn: () =>
-    $fetch(`${apiUrl}/subscriptions/get-last`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${auth.state.token}`,
-      },
-    }),
-});
+  queryFn: async () => {
+    try {
+      return await $fetch<SubscriptionResponse>(`${apiUrl}/subscriptions/get-last`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${auth.state.token}`,
+        },
+      })
+    } catch (err: any) {
+      if (err?.response?.status === 404) {
+        noSubscription.value = true
+        return null
+      }
+      throw err
+    }
+  },
+})
 
 const downloadInvoice = async () => {
   const invoiceId = data.value?.last_subscription.latest_invoice;
