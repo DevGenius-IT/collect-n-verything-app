@@ -1,9 +1,9 @@
 <template>
   <Sheet :open="isOpen" @update:open="onClose">
-    <SheetContent class="w-full sm:min-w-[480px] max-h-screen overflow-y-auto" aria-description="test">
+    <SheetContent class="w-full sm:min-w-[480px] max-h-screen overflow-y-auto" aria-description="Details">
       <SheetHeader class="mb-5">
         <SheetTitle>{{ t('components.details.sheet.title') }}</SheetTitle>
-        <SheetDescription />
+        <SheetDescription/>
       </SheetHeader>
 
       <div v-if="isPending">
@@ -27,6 +27,8 @@ import {useDateFormat} from "@vueuse/core";
 import type {User} from "~/types/models";
 import {isUser} from "~/types/guards";
 import {useQuery} from "@tanstack/vue-query";
+import {useI18n} from 'vue-i18n';
+import {authStore} from '@/stores/AuthStore';
 
 const {id, apiPath, isOpen, onClose} = defineProps<DetailsProps>();
 const {t} = useI18n();
