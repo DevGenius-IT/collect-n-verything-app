@@ -1,4 +1,4 @@
-<a href="https://www.fichespedagogiques.com">
+<a href="https://github.com/DevGenius-IT/collect-n-verything-app">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/public/logo-desktop.png">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/DevGenius-IT/collect-n-verything-app/blob/main/assets/logo-desktop.png">

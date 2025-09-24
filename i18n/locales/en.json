@@ -1,0 +1,379 @@
+{
+  "app": {
+    "title": "Collect & Verything",
+    "meta": {
+      "description": "Discover Collect & Verything to easily create and manage your online shop."
+    }
+  },
+  "sections": {
+    "service": {
+      "name": "Service",
+      "title": "Create & customise your e-commerce easily with our innovative and flexible solution",
+      "description": "Explore custom designs and advanced features for your shop",
+      "btn": {
+        "primary": "Get started",
+        "secondary": "Overview of features"
+      },
+      "img-alt": "Overview of the administration dashboard for an e-commerce site"
+    },
+    "prices": {
+      "name": "Prices",
+      "title": "Prices and subscriptions",
+      "description": "Browse our offers and find the one that perfectly suits your needs. Any questions? We are here to help!",
+      "card": {
+        "header": {
+          "or": "or",
+          "per-month": "/month",
+          "per-year": "/year, equivalent to",
+          "saving": "two months free"
+        },
+        "body": {
+          "title": "Features",
+          "btn": "Select"
+        }
+      }
+    },
+    "contact": {
+      "name": "Contact",
+      "title": "Contact us",
+      "description": "Contact us if you have any questions or requests. We're here to help."
+    }
+  },
+  "account": {
+    "title": "My account",
+    "myInfo": "My personal details",
+    "passwordUpdate": "Password modification",
+    "seo": {
+      "title": "My account"
+    }
+  },
+  "session": {
+    "success": {
+      "title": "Payment successful – Welcome aboard!",
+      "description": "Your subscription is now active! You can access your account and start creating your e-commerce site by clicking",
+      "descriptionLink": "here",
+      "seo": {
+        "title": "Payment successful"
+      }
+    },
+    "cancel": {
+      "title": "Payment failed",
+      "description": "The payment could not be completed. This may be due to a declined card, a technical error, or a voluntary cancellation. Please check your payment details or try again later. If the problem persists, please do not hesitate to contact our support team.",
+      "seo": {
+        "title": "Payment failed"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "tooltip": "Dashboard",
+    "welcome": "Welcome to the dashboard",
+    "main": "Main",
+    "seo": {
+      "title": "Dashboard"
+    }
+  },
+  "users": {
+    "title": "Users",
+    "tooltip": "Users",
+    "seo": {
+      "title": "Users"
+    }
+  },
+  "auth": {
+    "title": "Authentication",
+    "tabs": {
+      "login": "Sign in",
+      "register": "Sign up"
+    },
+    "seo": {
+      "title": "Authentication"
+    }
+  },
+  "toasts": {
+    "error": "An error occurred, please try again.",
+    "delete": "The item has been successfully deleted.",
+    "restore": "The item has been successfully restored.",
+    "add": "The item has been successfully created.",
+    "update": "The item has been successfully updated.",
+    "export": "The data has been successfully exported."
+  },
+  "forms": {
+    "sign-in": {
+      "title": "Sign in",
+      "description": "Enter your email below to log in to your account",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "error": "Invalid email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "String must contain at least 6 character(s)"
+        }
+      },
+      "submit": "Login",
+      "google": "Login with Google",
+      "forgot-password": "Forgot password?",
+      "dont-have-account": "Don't have an account?",
+      "register-here": "Register here"
+    },
+    "sign-up": {
+      "title": "Sign up",
+      "description": "Fill in the fields below to create an account",
+      "fields": {
+        "firstname": {
+          "label": "First name",
+          "placeholder": "Enter your first name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "lastname": {
+          "label": "Last name",
+          "placeholder": "Enter your last name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter your username",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email",
+          "error": "Invalid email"
+        },
+        "phone-number": {
+          "label": "Phone",
+          "placeholder": "Enter your phone number",
+          "error": "Phone number must be between 2 and 15 characters"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password",
+          "error": "The password must contain at least 6 characters, including an uppercase and a lowercase letter, a number and a special character."
+        },
+        "password-confirmation": {
+          "label": "Confirm password",
+          "placeholder": "Confirm your password",
+          "error": "Passwords must match"
+        }
+      },
+      "submit": "Register",
+      "google": "Register with Google",
+      "already-have-account": "Already have an account?",
+      "login-here": "Login here"
+    },
+    "update-password": {
+      "fields": {
+        "password": {
+          "error": "The password must contain at least 6 characters, including an uppercase and a lowercase letter, a number and a special character."
+        },
+        "old-password": {
+          "label": "Old password",
+          "placeholder": "Enter your old password"
+        },
+        "new-password": {
+          "label": "New password",
+          "placeholder": "Enter your password"
+        },
+        "password-confirmation": {
+          "label": "Confirm new password",
+          "placeholder": "Confirm your new password",
+          "error": "Passwords must match"
+        }
+      },
+      "success": "Password successfully updated.",
+      "error": "Incorrect old password, please try again.",
+      "submit": "Update"
+    },
+    "actions": {
+      "add": "Add",
+      "update": "Update"
+    },
+    "user": {
+      "fields": {
+        "firstname": {
+          "label": "First name",
+          "placeholder": "Enter the first name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "lastname": {
+          "label": "Last name",
+          "placeholder": "Enter the last name",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter the username",
+          "error": "String must contain at least 3 character(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter the email",
+          "error": "Invalid email"
+        },
+        "phone-number": {
+          "label": "Phone",
+          "placeholder": "Enter the phone number",
+          "error": "Phone number must be between 2 and 15 characters"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter the password",
+          "error": "The password must contain at least 6 characters, including an uppercase and a lowercase letter, a number and a special character."
+        }
+      }
+    },
+    "contact": {
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter the email",
+          "error": "Invalid email"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Select a subject",
+          "error": "The subject is required",
+          "options": {
+            "general-inquiry": "General Inquiry",
+            "technical-support": "Technical Support",
+            "account-issue": "Account Issue",
+            "bug-report": "Bug Report",
+            "feedback": "Feedback",
+            "job-application": "Job Application",
+            "other": "Other"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Enter your message",
+          "error": "The message is required"
+        }
+      },
+      "success-message": "Your message has been sent successfully.",
+      "submit": "Send"
+    }
+  },
+  "dichotomous-answers": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "components": {
+    "fetch-error": "An error occurred during data recovery, please try again.",
+    "navbar": {
+      "toggle-menu": "Toggle menu",
+      "toggle-user-menu": "Toggle user menu",
+      "my-account": "My account",
+      "logout": "Logout",
+      "search-placeholder": "Search..."
+    },
+    "color-mode": {
+      "toggle-theme": "Toggle theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    },
+    "data-table": {
+      "items": "items",
+      "display": "Display",
+      "export": "Export",
+      "actions": {
+        "title": "Actions",
+        "details": "Details",
+        "edit": "Edit",
+        "delete": "Delete",
+        "restore": "Restore"
+      },
+      "users": {
+        "title": "Users",
+        "add-title": "Add User",
+        "id": "ID",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "username": "Username",
+        "email": "Email",
+        "phone_number": "Phone number"
+      },
+      "filters": {
+        "filter": "Filter",
+        "filter-by": "Filter by",
+        "all": "All",
+        "active": "Active",
+        "archived": "Archived"
+      }
+    },
+    "details": {
+      "sheet": {
+        "title": "Details"
+      },
+      "product": {
+        "not-found": "Subscription not found."
+      },
+      "dates": {
+        "format": "YYYY-MM-DD at HH:mm",
+        "created-at": "Created on",
+        "updated-at": "Updated on",
+        "deleted-at": "Deleted on"
+      },
+      "user": {
+        "username": "Username",
+        "email": "Email",
+        "phone-number": "Phone number",
+        "role": "Role"
+      },
+      "subscription": {
+        "title": "My subscription",
+        "description": "Subscription details",
+        "amount": "Amount:",
+        "no-subscription": "You do not yet have an active subscription.",
+        "discover-our-offers": "Discover our offers and get started today!",
+        "period": {
+          "title": "Period:",
+          "separator": "to"
+        },
+        "status": {
+          "title": "Status:",
+          "values": {
+            "active": "Active",
+            "incomplete": "Incomplete",
+            "incomplete_expired": "Payment expired",
+            "trialing": "Trialing",
+            "past_due": "Past due",
+            "unpaid": "Unpaid",
+            "canceled": "Canceled"
+          }
+        },
+        "download-invoice": "Download the invoice"
+      }
+    },
+    "delete-confirmation-dialog": {
+      "actions": {
+        "cancel": "Cancel",
+        "delete": "Delete"
+      },
+      "title": "Deletion confirmation",
+      "description": "Are you sure you want to delete this item?"
+    },
+    "locale-switcher": {
+      "toggle-locale": "Change language"
+    }
+  },
+  "checkout": {
+    "title": "Checkout",
+    "seo": {
+      "title": "Checkout"
+    },
+    "order-summary": "Order summary",
+    "price": "Price",
+    "billing-period": "Billing period",
+    "total": "Total due today",
+    "tax-info": "VAT included if applicable",
+    "interval-month": "Monthly",
+    "interval-year": "Annual",
+    "logged-in-as": "Logged in as",
+    "proceed": "Proceed"
+  }
+}

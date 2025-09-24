@@ -1,0 +1,378 @@
+{
+  "app": {
+    "title": "Collect & Verything",
+    "meta": {
+      "description": "Découvrez Collect & Verything pour créer et gérer votre boutique en ligne facilement."
+    }
+  },
+  "sections": {
+    "service": {
+      "name": "Service",
+      "title": "Créez & personnalisez votre e-commerce en toute simplicité avec notre solution innovante et flexible",
+      "description": "Explorez des designs personnalisés et des fonctionnalités avancées pour votre boutique",
+      "btn": {
+        "primary": "Commencer",
+        "secondary": "Présentation des fonctionnalités"
+      },
+      "img-alt": "Aperçu du dashboard d'administration d'un site e-commerce"
+    },
+    "prices": {
+      "name": "Tarifs",
+      "title": "Tarifs et abonnements",
+      "description": "Parcourez nos offres et trouvez celle qui correspond parfaitement à vos besoins. Une question ? Nous sommes là pour vous aider !",
+      "card": {
+        "header": {
+          "or": "ou",
+          "per-month": "/ mois",
+          "per-year": "/ an, soit",
+          "saving": "2 mois offert"
+        },
+        "body": {
+          "title": "Fonctionnalités",
+          "btn": "Sélectionner"
+        }
+      }
+    },
+    "contact": {
+      "name": "Contact",
+      "title": "Contactez-nous",
+      "description": "Contactez-nous pour toute question ou demande. Nous sommes là nour vous aider."
+    }
+  },
+  "account": {
+    "title": "Mon compte",
+    "myInfo": "Mes informations personnelles",
+    "passwordUpdate": "Modification du mot de passe",
+    "seo": {
+      "title": "Mon compte"
+    }
+  },
+  "session": {
+    "success": {
+      "title": "Paiement effectué – Bienvenue à bord !",
+      "description": "Votre abonnement est désormais actif ! Vous pouvez accéder à votre compte et commencer à créer votre site e-commerce en cliquant",
+      "descriptionLink": "ici",
+      "seo": {
+        "title": "Paiement réussi"
+      }
+    },
+    "cancel": {
+      "title": "Paiement échoué",
+      "description": "Le paiement n’a pas pu être finalisé. Cela peut être dû à une carte refusée, une erreur technique ou une annulation volontaire. Veuillez vérifier vos informations de paiement ou réessayer ultérieurement. Si le problème persiste, n’hésitez pas à contacter notre support.",
+      "seo": {
+        "title": "Paiement échoué"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "tooltip": "Tableau de bord",
+    "welcome": "Bienvenue sur le tableau de bord",
+    "main": "Principal",
+    "seo": {
+      "title": "Tableau de bord"
+    }
+  },
+  "users": {
+    "title": "Utilisateurs",
+    "tooltip": "Utilisateurs",
+    "seo": {
+      "title": "Utilisateurs"
+    }
+  },
+  "auth": {
+    "title": "Authentification",
+    "tabs": {
+      "login": "Se connecter",
+      "register": "S'incrire"
+    },
+    "seo": {
+      "title": "Authentification"
+    }
+  },
+  "toasts": {
+    "error": "Une erreur est survenue, veuillez réessayer.",
+    "delete": "L'élément a été supprimé avec succès.",
+    "restore": "L'élément a été restauré avec succès.",
+    "add": "L'élément a été créé avec succès.",
+    "update": "L'élément a été mis à jour avec succès.",
+    "export": "Les données ont été exportées avec succès."
+  },
+  "forms": {
+    "sign-in": {
+      "title": "Se connecter",
+      "description": "Entrez votre email ci-dessous pour vous connecter à votre compte",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez votre email",
+          "error": "Email invalide"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez votre mot de passe",
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
+        }
+      },
+      "submit": "Connexion",
+      "google": "Connexion avec Google",
+      "forgot-password": "Mot de passe oublié?",
+      "dont-have-account": "Vous n'avez pas de compte?",
+      "register-here": "Inscrivez-vous ici"
+    },
+    "sign-up": {
+      "title": "S'inscrire",
+      "description": "Renseigner les champs ci-dessous pour créer un compte",
+      "fields": {
+        "firstname": {
+          "label": "Prénom",
+          "placeholder": "Entrez votre prénom",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "lastname": {
+          "label": "Nom de famille",
+          "placeholder": "Entrez votre nom de famille",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "username": {
+          "label": "Nom d'utilisateur",
+          "placeholder": "Entrez votre nom d'utilisateur",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez votre email",
+          "error": "Email invalide"
+        },
+        "phone-number": {
+          "label": "Téléphone",
+          "placeholder": "Entrez votre numéro de téléphone",
+          "error": "La chaîne doit contenir au moins 2 caractère(s) et au plus 15 caractère(s)"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez votre mot de passe",
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
+        },
+        "password-confirmation": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "Confirmez votre mot de passe",
+          "error": "Les mots de passe doivent correspondre"
+        }
+      },
+      "submit": "Inscription",
+      "google": "Inscription avec Google",
+      "already-have-account": "Vous avez déjà un compte?",
+      "login-here": "Connectez-vous ici"
+    },
+    "update-password": {
+      "fields": {
+        "password": {
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
+        },
+        "old-password": {
+          "label": "Ancien mot de passe",
+          "placeholder": "Entrez votre mot de passe"
+        },
+        "new-password": {
+          "label": "Nouveau mot de passe",
+          "placeholder": "Entrez votre nouveau mot de passe"
+        },
+        "password-confirmation": {
+          "label": "Confirmer le nouveau mot de passe",
+          "placeholder": "Confirmez votre nouveau mot de passe",
+          "error": "Les mots de passe doivent correspondre"
+        }
+      },
+      "success": "Mot de passe mis à jour avec succès.",
+      "error": "Ancien mot de passe incorrect, veuillez réessayer.",
+      "submit": "Modifier"
+    },
+    "actions": {
+      "add": "Créer",
+      "update": "Mettre à jour"
+    },
+    "user": {
+      "fields": {
+        "firstname": {
+          "label": "Prénom",
+          "placeholder": "Entrez le prénom",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "lastname": {
+          "label": "Nom de famille",
+          "placeholder": "Entrez le nom de famille",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "username": {
+          "label": "Nom d'utilisateur",
+          "placeholder": "Entrez le nom d'utilisateur",
+          "error": "La chaîne doit contenir au moins 3 caractère(s)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez l'email",
+          "error": "Email invalide"
+        },
+        "phone-number": {
+          "label": "Téléphone",
+          "placeholder": "Entrez le numéro de téléphone",
+          "error": "La chaîne doit contenir au moins 2 caractère(s) et au plus 15 caractère(s)"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez le mot de passe",
+          "error": "Le mot de passe doit contenir au moins 6 caractères dont une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial"
+        }
+      }
+    },
+    "contact": {
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez votre email",
+          "error": "Email invalide"
+        },
+        "subject": {
+          "label": "Sujet",
+          "placeholder": "Sélectionnez un sujet",
+          "error": "Le sujet est requis",
+          "options": {
+            "general-inquiry": "Demande générale",
+            "technical-support": "Support technique",
+            "account-issue": "Problème de compte",
+            "bug-report": "Signalement de bug",
+            "feedback": "Commentaires",
+            "job-application": "Candidature",
+            "other": "Autre"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Entrez votre message",
+          "error": "Le message est requis"
+        }
+      },
+      "success-message": "Votre message a été envoyé avec succès.",
+      "submit": "Envoyer"
+    }
+  },
+  "dichotomous-answers": {
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "components": {
+    "fetch-error": "Une erreur est survenue lors de la récupération des données, veuillez réessayer.",
+    "navbar": {
+      "toggle-menu": "Basculer le menu",
+      "toggle-user-menu": "Basculer le menu utilisateur",
+      "my-account": "Mon compte",
+      "logout": "Se déconnecter",
+      "search-placeholder": "Rechercher..."
+    },
+    "color-mode": {
+      "toggle-theme": "Basculer le thème",
+      "dark": "Sombre",
+      "light": "Clair",
+      "system": "Système"
+    },
+    "data-table": {
+      "items": "éléments",
+      "display": "Afficher",
+      "export": "Exporter",
+      "actions": {
+        "title": "Actions",
+        "details": "Détails",
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "restore": "Restaurer"
+      },
+      "users": {
+        "title": "Utilisateurs",
+        "add-title": "Créer Utilisateur",
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "username": "Nom d'utilisateur",
+        "email": "Email",
+        "phone_number": "N° Téléphone"
+      },
+      "filters": {
+        "filter": "Filtrer",
+        "filter-by": "Filtrer par",
+        "all": "Tout",
+        "active": "Actif",
+        "archived": "Archivé"
+      }
+    },
+    "details": {
+      "sheet": {
+        "title": "Détails"
+      },
+      "product": {
+        "not-found": "Abonnement introuvable."
+      },
+      "dates": {
+        "format": "DD/MM/YYYY à HH:mm",
+        "created-at": "Crée le",
+        "updated-at": "Mis à jour le",
+        "deleted-at": "Supprimé le"
+      },
+      "user": {
+        "username": "Nom d'utilisateur",
+        "email": "Email",
+        "phone-number": "N° Téléphone",
+        "role": "Role"
+      },
+      "subscription": {
+        "title": "Mon abonnement",
+        "description": "Informations sur votre abonnement",
+        "amount": "Montant :",
+        "no-subscription": "Vous n’avez pas encore d’abonnement actif.",
+        "discover-our-offers": "Découvrez nos offres et commencez dès aujourd’hui !",
+        "period": {
+          "title": "Période :",
+          "separator": "au"
+        },
+        "status": {
+          "title": "Statut :",
+          "values": {
+            "active": "Actif",
+            "incomplete": "Incomplet",
+            "incomplete_expired": "Paiement expiré",
+            "trialing": "Période d’essai",
+            "past_due": "Paiement en retard",
+            "unpaid": "Impayé",
+            "canceled": "Annulé"
+          }
+        },
+        "download-invoice": "Télécharger la facture"
+      }
+    },
+    "delete-confirmation-dialog": {
+      "actions": {
+        "cancel": "Annuler",
+        "delete": "Supprimer"
+      },
+      "title": "Confirmation de suppression",
+      "description": "Êtes-vous sûr de vouloir supprimer cet élément ?"
+    },
+    "locale-switcher": {
+      "toggle-locale": "Changer de langue"
+    }
+  },
+  "checkout": {
+    "title": "Paiement",
+    "seo": {
+      "title": "Paiement"
+    },
+    "order-summary": "Récapitulatif de commande",
+    "price": "Prix",
+    "billing-period": "Période de facturation",
+    "total": "Total dû aujourd'hui",
+    "tax-info": "TVA incluse si applicable",
+    "interval-month": "Mensuelle",
+    "interval-year": "Annuelle",
+    "logged-in-as": "Connecté en tant que",
+    "proceed": "Continuer"
+  }
+}
