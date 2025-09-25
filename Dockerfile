@@ -2,10 +2,8 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-ARG NUXT_API_URL
-ARG NUXT_PUBLIC_BASE_URL
-ENV NUXT_API_URL=$NUXT_API_URL
-ENV NUXT_PUBLIC_BASE_URL=$NUXT_PUBLIC_BASE_URL
+ENV NUXT_API_URL="https://api.collect-n-verything.com/v1/api"
+ENV NUXT_PUBLIC_BASE_URL="https://collect-n-verything.com"
 ENV NODE_ENV=production
 
 COPY package*.json ./
