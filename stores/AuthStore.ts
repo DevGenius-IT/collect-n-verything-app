@@ -18,8 +18,6 @@ export const authStore = defineStore(
 
     const router = useRouter();
     const localePath = useLocalePath();
-    const config = useRuntimeConfig();
-    const apiUrl = config.public.apiUrl;
 
     const setUser = (user: User, token: string) => {
       if (localStorageIsAvailable()) {
@@ -32,6 +30,7 @@ export const authStore = defineStore(
     }
 
     const signIn = async (email: string, password: string, redirect: boolean) => {
+      const apiUrl = useRuntimeConfig().public.apiUrl;
       const url = `${apiUrl}/auth/signin`;
 
       try {
@@ -62,6 +61,7 @@ export const authStore = defineStore(
     }
 
     const signUp = async (user: CreateUserDto, redirect: boolean) => {
+      const apiUrl = useRuntimeConfig().public.apiUrl;
       const url = `${apiUrl}/auth/signup`;
 
       try {
