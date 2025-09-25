@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "pinia-plugin-persistedstate",
     "@nuxt/image",
-    "@nuxt/test-utils/module"
+    ...(process.env.NODE_ENV !== "production" ? ["@nuxt/test-utils/module"] : []),
   ],
   typescript: {
     shim: true,
