@@ -5,9 +5,6 @@ import type { AuthStore } from '~/types/stores';
 import { localStorageIsAvailable } from '~/utils/client';
 import type { CreateUserDto } from "~/types/dto";
 
-const config = useRuntimeConfig();
-const apiUrl = config.public.apiUrl;
-
 export const authStore = defineStore(
   'auth',
   () => {
@@ -21,6 +18,8 @@ export const authStore = defineStore(
 
     const router = useRouter();
     const localePath = useLocalePath();
+    const config = useRuntimeConfig();
+    const apiUrl = config.public.apiUrl;
 
     const setUser = (user: User, token: string) => {
       if (localStorageIsAvailable()) {
