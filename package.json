@@ -29,11 +29,11 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "latest",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "@nuxtjs/i18n": "^9.1.1"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^3.19.2",
-    "@nuxtjs/i18n": "^9.1.1",
     "@types/compression": "^1.8.1",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/test-utils": "^2.4.6",
