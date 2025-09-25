@@ -5,7 +5,8 @@ import type { AuthStore } from '~/types/stores';
 import { localStorageIsAvailable } from '~/utils/client';
 import type { CreateUserDto } from "~/types/dto";
 
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 
 export const authStore = defineStore(
   'auth',

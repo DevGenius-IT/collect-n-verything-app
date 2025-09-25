@@ -110,7 +110,8 @@ const {id, isForAdmin} = defineProps<{ id: number | null, isForAdmin: boolean }>
 const emit = defineEmits(['submitted']);
 const {t} = useI18n();
 const auth = authStore();
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 
 const schema = z.object({
   firstname: z.string().min(3, t("forms.user.fields.firstname.error")),

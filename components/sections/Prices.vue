@@ -88,7 +88,8 @@ import {formatPrice} from "~/utils/format";
 const {t, locale} = useI18n();
 const router = useRouter();
 const localePath = useLocalePath();
-const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 
 const {isPending, isError, data} = useQuery({
   queryKey: ['products'],

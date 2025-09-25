@@ -2,6 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.NUXT_API_URL || 'http://localhost:8000/v1/api',
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
+    }
+  },
   modules: [
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
@@ -17,7 +23,7 @@ export default defineNuxtConfig({
     shim: true,
   },
   i18n: {
-    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
     locales: [
       {
         name: "Français",
