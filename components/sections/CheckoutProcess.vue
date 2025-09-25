@@ -64,7 +64,8 @@ import {Card, CardHeader, CardTitle} from "~/components/ui/card";
 const {t} = useI18n();
 const route = useRoute();
 const auth = authStore();
-const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 
 const tab = ref<TabsValue>("login");
 const isProcessing = ref(false);

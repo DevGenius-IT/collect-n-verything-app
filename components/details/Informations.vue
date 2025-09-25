@@ -33,7 +33,8 @@ import {authStore} from '@/stores/AuthStore';
 const {id, apiPath, isOpen, onClose} = defineProps<DetailsProps>();
 const {t} = useI18n();
 const auth = authStore();
-const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 
 const {isPending, isError, data} = useQuery<User>({
   queryKey: computed(() => [apiPath, id]),

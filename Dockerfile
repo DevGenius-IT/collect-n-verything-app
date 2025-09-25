@@ -2,10 +2,6 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-ENV NUXT_API_URL="https://api.collect-n-verything.com/v1/api"
-ENV NUXT_PUBLIC_BASE_URL="https://collect-n-verything.com"
-ENV NODE_ENV=production
-
 COPY package*.json ./
 RUN npm install
 

@@ -90,7 +90,8 @@ import {toast} from "~/components/ui/toast";
 import type {Product} from "~/types/models";
 
 const {t, locale} = useI18n();
-const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 
 const props = withDefaults(defineProps<{
   priceId: string;

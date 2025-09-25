@@ -87,7 +87,8 @@ import {Input} from "~/components/ui/input";
 import {Button} from "~/components/ui/button";
 
 const {t} = useI18n();
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 const auth = authStore();
 
 const formSchema = toTypedSchema(

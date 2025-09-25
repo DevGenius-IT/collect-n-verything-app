@@ -91,7 +91,8 @@ import {useForm} from "vee-validate";
 import * as z from "zod";
 
 const {t} = useI18n();
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 
 enum ContactSubject {
   GENERAL_INQUIRY = "general-inquiry",

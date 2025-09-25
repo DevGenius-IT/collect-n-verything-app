@@ -100,7 +100,8 @@ import {useLocalePath} from "#i18n";
 const {t, locale} = useI18n();
 const auth = authStore();
 const localePath = useLocalePath();
-const apiUrl = process.env.NUXT_API_URL ?? "http://localhost:8000/v1/api";
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 const isDownloading = ref(false);
 const noSubscription = ref(false)
 

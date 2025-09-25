@@ -246,7 +246,8 @@ const {t} = useI18n();
 
 const {apiPath, fields} = defineProps<DataTableProps<User>>();
 
-const apiUrl = process.env.NUXT_API_URL ?? 'http://localhost:8000/v1/api';
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 const auth = authStore();
 const url = new URL(`${apiUrl}/${apiPath}`)
 
