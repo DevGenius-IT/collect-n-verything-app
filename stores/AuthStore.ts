@@ -16,9 +16,6 @@ export const authStore = defineStore(
       error: {},
     })
 
-    const router = useRouter();
-    const localePath = useLocalePath();
-
     const setUser = (user: User, token: string) => {
       if (localStorageIsAvailable()) {
         localStorage.setItem('token', token)
@@ -30,17 +27,19 @@ export const authStore = defineStore(
     }
 
     const signIn = async (email: string, password: string, redirect: boolean) => {
+      const router = useRouter();
+      const localePath = useLocalePath();
       const apiUrl = useRuntimeConfig().public.apiUrl;
       const url = `${apiUrl}/auth/signin`;
 
       try {
         state.value.isLoading = true
 
-        const response = await $fetch<{ token: string, user: User}>(
+        const response = await $fetch<{ token: string, user: User }>(
           url,
           {
             method: 'POST',
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({email, password}),
             headers: {
               'Accept': 'application/json',
             },
@@ -55,19 +54,21 @@ export const authStore = defineStore(
       } catch (err: any) {
         state.value.isLoading = false
         state.value.isError = true
-        state.value.error = err.data?.errors || { message: 'An error occurred during sign in' }
+        state.value.error = err.data?.errors || {message: 'An error occurred during sign in'}
         return null
       }
     }
 
     const signUp = async (user: CreateUserDto, redirect: boolean) => {
+      const router = useRouter();
+      const localePath = useLocalePath();
       const apiUrl = useRuntimeConfig().public.apiUrl;
       const url = `${apiUrl}/auth/signup`;
 
       try {
         state.value.isLoading = true
 
-        const response = await $fetch<{ token: string, user: User}>(
+        const response = await $fetch<{ token: string, user: User }>(
           url,
           {
             method: 'POST',
@@ -86,12 +87,15 @@ export const authStore = defineStore(
       } catch (err: any) {
         state.value.isLoading = false
         state.value.isError = true
-        state.value.error = err.data?.errors || { message: 'An error occurred during sign up' }
+        state.value.error = err.data?.errors || {message: 'An error occurred during sign up'}
         return null
       }
     }
 
     const signOut = () => {
+      const router = useRouter();
+      const localePath = useLocalePath();
+
       if (localStorageIsAvailable()) {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
@@ -115,7 +119,7 @@ export const authStore = defineStore(
       return `${state.value.user?.firstname.charAt(0)}${state.value.user?.lastname.charAt(0)}`
     }
 
-    return { state, signUp, signIn, signOut, isAdmin, getFullName, getInitials }
+    return {state, signUp, signIn, signOut, isAdmin, getFullName, getInitials}
   },
   {
     persist: true,
