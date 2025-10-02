@@ -26,6 +26,13 @@
             </p>
           </div>
 
+          <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+            {{ t("checkout.rgpd.description") }}
+            <NuxtLink :to="localePath('/privacy-policy')" target="_blank" class="text-primary">
+              {{ t("checkout.rgpd.link-text") }}
+            </NuxtLink>.
+          </div>
+
           <Button
             :disabled="isProcessing"
             @click="createCheckoutSession"
@@ -44,7 +51,7 @@
           <CardHeader>
             <CardTitle class="mb-2">{{ t("checkout.order-summary") }}</CardTitle>
           </CardHeader>
-          <ProductDetails :price-id="priceId" :is-checkout="true" />
+          <ProductDetails :price-id="priceId" :is-checkout="true"/>
         </Card>
       </div>
     </div>
@@ -52,20 +59,22 @@
 </template>
 
 <script setup lang="ts">
-import {Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs";
-import {Button} from "@/components/ui/button";
-import {SignIn, SignUp} from "@/components/forms";
-import {ProductDetails} from "@/components/details";
-import type {Tabs as TabsValue} from "@/types/pages/auth/values";
-import {isValidTabValue} from "~/types/guards";
-import {toast} from "~/components/ui/toast";
-import {Card, CardHeader, CardTitle} from "~/components/ui/card";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { SignIn, SignUp } from "@/components/forms";
+import { ProductDetails } from "@/components/details";
+import type { Tabs as TabsValue } from "@/types/pages/auth/values";
+import { isValidTabValue } from "~/types/guards";
+import { toast } from "~/components/ui/toast";
+import { Card, CardHeader, CardTitle } from "~/components/ui/card";
+import { useLocalePath } from "#i18n";
 
 const {t} = useI18n();
 const route = useRoute();
 const auth = authStore();
 const config = useRuntimeConfig();
 const apiUrl = config.public.apiUrl;
+const localePath = useLocalePath();
 
 const tab = ref<TabsValue>("login");
 const isProcessing = ref(false);

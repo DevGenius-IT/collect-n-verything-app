@@ -158,6 +158,12 @@
           "label": "Confirm password",
           "placeholder": "Confirm your password",
           "error": "Passwords must match"
+        },
+        "gdpr": {
+          "label": "I agree to the privacy policy and terms of service",
+          "link-text": "Read our privacy policy",
+          "description": "You must accept our privacy policy and terms to create an account.",
+          "error": "You must accept the terms and conditions"
         }
       },
       "submit": "Register",
@@ -374,6 +380,61 @@
     "interval-month": "Monthly",
     "interval-year": "Annual",
     "logged-in-as": "Logged in as",
-    "proceed": "Proceed"
+    "proceed": "Proceed",
+    "rgpd": {
+      "description": "By clicking \"Proceed\", you agree that your data will be used solely for processing this order, in accordance with our",
+      "link-text": "privacy policy"
+    }
+  },
+  "user-guide": "User guide",
+  "privacy-policy": {
+    "title": "Privacy Policy",
+    "intro": "Your privacy is important to us. This policy explains how we collect, use, and protect your personal data.",
+    "sections": {
+      "data-collection": {
+        "title": "Data Collection",
+        "content": "We collect personal information when you register, make purchases, or interact with our services."
+      },
+      "data-use": {
+        "title": "Use of Data",
+        "content": "We use your data to provide and improve our services, for communication, and for legal obligations."
+      },
+      "data-sharing": {
+        "title": "Data Sharing",
+        "content": "We do not sell your personal data. We only share it with trusted partners for service delivery."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "content": "You can access, correct, or request deletion of your personal data at any time."
+      }
+    },
+    "contact": "For any questions, contact us at"
+  },
+  "legal-notice": {
+    "title": "Legal Notice",
+    "sections": {
+      "publisher": {
+        "title": "Website Publisher",
+        "content": "The Collect & Verything website is published as part of the capstone project of the Master’s degree in IT Engineering at Metz Numeric School."
+      },
+      "director": {
+        "title": "Publication Director",
+        "content1": "Romain AROLDI (",
+        "content2": "), Full Stack Engineering Apprentice."
+      },
+      "hosting": {
+        "title": "Hosting",
+        "content": "The website is hosted by Ionos (VPS), headquartered at 1&1 IONOS SARL, 7 place de la Gare, BP 70109, 57201 Sarreguemines Cedex, France. Phone: +33 (0)970 808 911."
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "content": "All content available on the Collect & Verything website is protected by copyright. Any reproduction, representation, modification, or adaptation, in whole or in part, is prohibited without prior authorization."
+      },
+      "liability": {
+        "title": "Liability",
+        "content": "Collect & Verything makes every effort to provide reliable and up-to-date information. However, the company cannot be held responsible for any errors or omissions, nor for any use that may be made of this information."
+      }
+    },
+    "contact": "For any inquiries, you can contact us at:"
   }
 }

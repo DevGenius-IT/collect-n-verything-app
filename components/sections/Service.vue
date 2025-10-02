@@ -5,8 +5,11 @@
       {{ t("sections.service.description") }}
     </h3>
     <div class="flex items-center gap-x-4 flex-wrap gap-y-2">
-      <Button :aria-label="t('sections.service.btn.primary')">{{ t("sections.service.btn.primary") }}</Button>
-      <Button :aria-label="t('sections.service.btn.secondary')" variant="secondary">
+      <Button :aria-label="t('sections.service.btn.primary')" @click="router.push(localePath('/#prices'))">
+        {{ t("sections.service.btn.primary") }}
+      </Button>
+      <Button :aria-label="t('sections.service.btn.secondary')" variant="secondary"
+              @click="router.push(localePath('/#prices'))">
         {{ t("sections.service.btn.secondary") }}
       </Button>
     </div>
@@ -19,4 +22,6 @@
 
 <script setup lang="ts">
 const {t} = useI18n();
+const router = useRouter();
+const localePath = useLocalePath();
 </script>

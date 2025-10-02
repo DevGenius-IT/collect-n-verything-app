@@ -158,6 +158,12 @@
           "label": "Confirmer le mot de passe",
           "placeholder": "Confirmez votre mot de passe",
           "error": "Les mots de passe doivent correspondre"
+        },
+        "gdpr": {
+          "label": "J’accepte la politique de confidentialité et les conditions générales",
+          "link-text": "Lire notre politique de confidentialité",
+          "description": "Vous devez accepter notre politique de confidentialité et nos conditions pour créer un compte.",
+          "error": "Vous devez accepter les conditions générales"
         }
       },
       "submit": "Inscription",
@@ -373,6 +379,61 @@
     "interval-month": "Mensuelle",
     "interval-year": "Annuelle",
     "logged-in-as": "Connecté en tant que",
-    "proceed": "Continuer"
+    "proceed": "Continuer",
+    "rgpd": {
+      "description": "En cliquant sur « Continuer », vous acceptez que vos données soient utilisées uniquement pour le traitement de cette commande, conformément à notre",
+      "link-text": "politique de confidentialité"
+    }
+  },
+  "user-guide": "Manuel utilisateur",
+  "privacy-policy": {
+    "title": "Politique de confidentialité",
+    "intro": "Votre vie privée est importante pour nous. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.",
+    "sections": {
+      "data-collection": {
+        "title": "Collecte de données",
+        "content": "Nous collectons des informations personnelles lorsque vous vous inscrivez, effectuez des achats ou interagissez avec nos services."
+      },
+      "data-use": {
+        "title": "Utilisation des données",
+        "content": "Nous utilisons vos données pour fournir et améliorer nos services, pour la communication et pour des obligations légales."
+      },
+      "data-sharing": {
+        "title": "Partage des données",
+        "content": "Nous ne vendons pas vos données personnelles. Nous les partageons uniquement avec des partenaires de confiance pour la prestation de services."
+      },
+      "rights": {
+        "title": "Vos droits",
+        "content": "Vous pouvez accéder, corriger ou demander la suppression de vos données personnelles à tout moment."
+      }
+    },
+    "contact": "Pour toute question, contactez-nous à"
+  },
+  "legal-notice": {
+    "title": "Mentions légales",
+    "sections": {
+      "publisher": {
+        "title": "Éditeur du site",
+        "content": "Le site Collect & Verything est édité dans le cadre du projet fil rouge du Mastère Développement Ingénierie Informatique de Metz Numeric School."
+      },
+      "director": {
+        "title": "Directeur de la publication",
+        "content1": "Romain AROLDI (",
+        "content2": "), Apprenti ingénieur Full Stack."
+      },
+      "hosting": {
+        "title": "Hébergement",
+        "content": "Le site est hébergé par Ionos (VPS), dont le siège social est situé 1&1 IONOS SARL, 7 place de la Gare, BP 70109, 57201 Sarreguemines Cedex, France. Téléphone : +33 (0)970 808 911."
+      },
+      "ip": {
+        "title": "Propriété intellectuelle",
+        "content": "L’ensemble du contenu présent sur le site Collect & Verything est protégé par le droit d’auteur. Toute reproduction, représentation, modification ou adaptation, totale ou partielle, est interdite sans autorisation préalable."
+      },
+      "liability": {
+        "title": "Responsabilité",
+        "content": "Collect & Verything met tout en œuvre pour fournir des informations fiables et à jour. Toutefois, la société ne saurait être tenue responsable des erreurs ou omissions, ni de l’usage qui pourrait être fait de ces informations."
+      }
+    },
+    "contact": "Pour toute question, vous pouvez nous contacter à l'adresse suivante :"
   }
 }
