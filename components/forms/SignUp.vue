@@ -10,8 +10,9 @@
       <FormField v-slot="{ componentField }" name="firstname">
         <FormItem v-auto-animate>
           <FormLabel for="firstname">{{
-            t("forms.sign-up.fields.firstname.label")
-          }}</FormLabel>
+              t("forms.sign-up.fields.firstname.label")
+            }}
+          </FormLabel>
           <FormControl>
             <Input
               id="firstname"
@@ -21,15 +22,16 @@
               required
             />
           </FormControl>
-          <FormDescription />
-          <FormMessage />
+          <FormDescription/>
+          <FormMessage/>
         </FormItem>
       </FormField>
       <FormField v-slot="{ componentField }" name="lastname">
         <FormItem v-auto-animate>
           <FormLabel for="lastname">{{
-            t("forms.sign-up.fields.lastname.label")
-          }}</FormLabel>
+              t("forms.sign-up.fields.lastname.label")
+            }}
+          </FormLabel>
           <FormControl>
             <Input
               id="lastname"
@@ -39,15 +41,16 @@
               required
             />
           </FormControl>
-          <FormDescription />
-          <FormMessage />
+          <FormDescription/>
+          <FormMessage/>
         </FormItem>
       </FormField>
       <FormField v-slot="{ componentField }" name="username">
         <FormItem v-auto-animate>
           <FormLabel for="username">{{
-            t("forms.sign-up.fields.username.label")
-          }}</FormLabel>
+              t("forms.sign-up.fields.username.label")
+            }}
+          </FormLabel>
           <FormControl>
             <Input
               id="username"
@@ -58,15 +61,16 @@
               required
             />
           </FormControl>
-          <FormDescription />
-          <FormMessage />
+          <FormDescription/>
+          <FormMessage/>
         </FormItem>
       </FormField>
       <FormField v-slot="{ componentField }" name="email">
         <FormItem v-auto-animate>
           <FormLabel for="email">{{
-            t("forms.sign-up.fields.email.label")
-          }}</FormLabel>
+              t("forms.sign-up.fields.email.label")
+            }}
+          </FormLabel>
           <FormControl>
             <Input
               id="email"
@@ -76,15 +80,16 @@
               required
             />
           </FormControl>
-          <FormDescription />
-          <FormMessage />
+          <FormDescription/>
+          <FormMessage/>
         </FormItem>
       </FormField>
       <FormField v-slot="{ componentField }" name="phone_number">
         <FormItem v-auto-animate>
           <FormLabel for="phone_number">{{
-            t("forms.sign-up.fields.phone-number.label")
-          }}</FormLabel>
+              t("forms.sign-up.fields.phone-number.label")
+            }}
+          </FormLabel>
           <FormControl>
             <Input
               id="phone_number"
@@ -94,16 +99,17 @@
               v-bind="componentField"
             />
           </FormControl>
-          <FormDescription />
-          <FormMessage />
+          <FormDescription/>
+          <FormMessage/>
         </FormItem>
       </FormField>
       <FormField v-slot="{ componentField }" name="password">
         <FormItem v-auto-animate>
           <div class="flex items-center">
             <FormLabel for="password">{{
-              t("forms.sign-up.fields.password.label")
-            }}</FormLabel>
+                t("forms.sign-up.fields.password.label")
+              }}
+            </FormLabel>
           </div>
           <FormControl>
             <Input
@@ -115,16 +121,17 @@
               required
             />
           </FormControl>
-          <FormDescription />
-          <FormMessage />
+          <FormDescription/>
+          <FormMessage/>
         </FormItem>
       </FormField>
       <FormField v-slot="{ componentField }" name="password_confirmation">
         <FormItem v-auto-animate>
           <div class="flex items-center">
             <FormLabel for="password_confirmation">{{
-              t("forms.sign-up.fields.password-confirmation.label")
-            }}</FormLabel>
+                t("forms.sign-up.fields.password-confirmation.label")
+              }}
+            </FormLabel>
           </div>
           <FormControl>
             <Input
@@ -138,15 +145,41 @@
               required
             />
           </FormControl>
-          <FormDescription />
-          <FormMessage />
+          <FormDescription/>
+          <FormMessage/>
         </FormItem>
       </FormField>
+      <FormField v-slot="{ componentField }" name="gdpr">
+        <FormItem v-auto-animate class="flex space-x-2 mb-4">
+          <FormControl>
+            <input
+              type="checkbox"
+              id="gdpr"
+              v-bind="componentField"
+              class="w-4 h-4 mt-0.5 accent-primary"
+            />
+          </FormControl>
+          <div class="flex flex-col space-y-1 !mt-0">
+            <FormLabel for="gdpr" class="leading-5">
+              {{ t("forms.sign-up.fields.gdpr.label") }}
+            </FormLabel>
+            <FormDescription class="text-xs">
+              {{ t("forms.sign-up.fields.gdpr.description") }}
+              <NuxtLink :to="localePath('/privacy-policy')" target="_blank" class="text-primary">
+                {{ t("forms.sign-up.fields.gdpr.link-text") }}
+              </NuxtLink>
+            </FormDescription>
+            <FormMessage/>
+          </div>
+        </FormItem>
+      </FormField>
+
       <Button :aria-label="t('forms.sign-up.submit')" type="submit" class="w-full">
         {{ t("forms.sign-up.submit") }}
       </Button>
       <Button variant="outline" class="w-full">
-        {{ t("forms.sign-up.google") }} <Google />
+        {{ t("forms.sign-up.google") }}
+        <Google/>
       </Button>
     </form>
     <div class="mt-4 text-center text-sm cursor-pointer">
@@ -180,43 +213,48 @@ import { authStore } from '@/stores/AuthStore';
 import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
 import * as z from "zod";
+import { useLocalePath } from "#i18n";
 
-const { changeTab, redirectAfterLogin = true } = defineProps<SignUpProps>();
-
-const { t } = useI18n();
-
+const {changeTab, redirectAfterLogin = true} = defineProps<SignUpProps>();
+const {t} = useI18n();
+const localePath = useLocalePath();
 const auth = authStore();
 
 const formSchema = toTypedSchema(
-  z.object({
-    firstname: z.string().min(3, t("forms.sign-up.fields.firstname.error")),
-    lastname: z.string().min(3, t("forms.sign-up.fields.lastname.error")),
-    username: z.string().min(3, t("forms.sign-up.fields.username.error")),
-    email: z.string().email(t("forms.sign-up.fields.email.error")),
-    phone_number: z
-      .string()
-      .optional()
-      .refine(
-        (val) => !val || /^\+?\d{2,15}$/.test(val),
-        t("forms.sign-up.fields.phone-number.error")
-      ),
-    password: z
-      .string()
-      .min(6, t("forms.sign-up.fields.password.error"))
-      .regex(/[A-Z]/, t("forms.sign-up.fields.password.error"))
-      .regex(/[a-z]/, t("forms.sign-up.fields.password.error"))
-      .regex(/\d/, t("forms.sign-up.fields.password.error"))
-      .regex(/[\W_]/, t("forms.sign-up.fields.password.error")),
-    password_confirmation: z
-      .string()
-      .min(6, t("forms.sign-up.fields.password-confirmation.error")),
-  }).refine((data) => data.password === data.password_confirmation, {
-    message: t("forms.sign-up.fields.password-confirmation.error"),
-    path: ["password_confirmation"],
-  })
+  z
+    .object({
+      firstname: z.string().min(3, t("forms.sign-up.fields.firstname.error")),
+      lastname: z.string().min(3, t("forms.sign-up.fields.lastname.error")),
+      username: z.string().min(3, t("forms.sign-up.fields.username.error")),
+      email: z.string().email(t("forms.sign-up.fields.email.error")),
+      phone_number: z
+        .string()
+        .optional()
+        .refine(
+          (val) => !val || /^\+?\d{2,15}$/.test(val),
+          t("forms.sign-up.fields.phone-number.error")
+        ),
+      password: z
+        .string()
+        .min(6, t("forms.sign-up.fields.password.error"))
+        .regex(/[A-Z]/, t("forms.sign-up.fields.password.error"))
+        .regex(/[a-z]/, t("forms.sign-up.fields.password.error"))
+        .regex(/\d/, t("forms.sign-up.fields.password.error"))
+        .regex(/[\W_]/, t("forms.sign-up.fields.password.error")),
+      password_confirmation: z
+        .string()
+        .min(6, t("forms.sign-up.fields.password-confirmation.error")),
+      gdpr: z.coerce.boolean().refine(bool => bool == true, {
+        message: t("forms.sign-up.fields.gdpr.error"),
+      }),
+    })
+    .refine((data) => data.password === data.password_confirmation, {
+      message: t("forms.sign-up.fields.password-confirmation.error"),
+      path: ["password_confirmation"],
+    })
 );
 
-const { handleSubmit } = useForm({
+const {handleSubmit} = useForm({
   validationSchema: formSchema,
 });
 

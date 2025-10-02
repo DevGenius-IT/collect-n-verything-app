@@ -12,17 +12,35 @@
       </div>
       <div class="flex w-1/2 flex-col py-2 gap-y-2 px-10">
         <NuxtLink :to="localePath('/#service')"
-                  class="text-gray-300 dark:text-gray-700 hover:hover:text-orange-400 dark:hover:primary transition-colors">
+                  class="text-gray-300 dark:text-gray-700 hover:text-orange-400 dark:hover:text-primary transition-colors">
           {{ t("sections.service.name") }}
         </NuxtLink>
         <NuxtLink to="#"
-                  class="text-gray-300 dark:text-gray-700 hover:hover:text-orange-400 dark:hover:primary transition-colors">
+                  class="text-gray-300 dark:text-gray-700 hover:text-orange-400 dark:hover:text-primary transition-colors">
           {{ t("sections.prices.name") }}
         </NuxtLink>
         <NuxtLink :to="localePath('/#contact')"
-                  class="text-gray-300 dark:text-gray-700 hover:hover:text-orange-400 dark:hover:primary transition-colors">
+                  class="text-gray-300 dark:text-gray-700 hover:text-orange-400 dark:hover:text-primary transition-colors">
           {{ t("sections.contact.name") }}
         </NuxtLink>
+        <NuxtLink :to="localePath('/legal-notice')"
+                  class="text-gray-300 dark:text-gray-700 hover:text-orange-400 dark:hover:text-primary transition-colors">
+          {{ t("legal-notice.title") }}
+        </NuxtLink>
+        <NuxtLink :to="localePath('/privacy-policy')"
+                  class="text-gray-300 dark:text-gray-700 hover:text-orange-400 dark:hover:text-primary transition-colors">
+          {{ t("privacy-policy.title") }}
+        </NuxtLink>
+        <a
+          href="/cnv_user-guide.pdf"
+          download
+          class="text-gray-300 dark:text-gray-700 hover:text-orange-400 dark:hover:text-primary transition-colors"
+        >
+          <div class="flex items-center">
+            {{ t("user-guide") }}
+            <Icon name="Download" class="h-5 w-5 ml-1.5"/>
+          </div>
+        </a>
       </div>
     </div>
     <span class="text-xs text-neutral-500 mb-3">© Collect & Vervthing - {{ new Date().getFullYear() }}</span>
@@ -30,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import {Logo} from "~/components/icons";
+import { Logo } from "~/components/icons";
 
 const localePath = useLocalePath();
 const {t} = useI18n();
